@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+
+    android:background="#fff"
+    android:minWidth="@dimen/dialog_min_width"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical|center"
+        android:orientation="vertical"
+        android:padding="@dimen/spacing_mlarge">
+
+        <com.cilla_project.gozar.CustomControl.CustomTextView
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:text="حذف اعلان"
+            android:textSize="18dp"
+            android:textColor="#c10d0d"/>
+
+        <com.cilla_project.gozar.CustomControl.CustomTextView
+            android:id="@+id/content"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_small"
+            android:text="آیا از حذف این اعلان اطمینان دارید؟"
+            android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
+            android:textColor="@color/grey_80"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/lyt_action"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/spacing_middle"
+        android:gravity="left"
+        android:orientation="horizontal"
+        android:paddingRight="@dimen/spacing_large">
+
+        <com.cilla_project.gozar.CustomControl.CustomTextView
+            android:id="@+id/btn_negative"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_marginLeft="5dp"
+            android:paddingLeft="30dp"
+            android:gravity="center"
+
+            android:paddingRight="30dp"
+            android:text="خیر"
+            android:textColor="#b10404"
+
+            android:textStyle="bold"/>
+        <com.cilla_project.gozar.CustomControl.CustomTextView
+            android:id="@+id/btn_positive"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:gravity="center"
+            android:layout_marginLeft="5dp"
+            android:paddingLeft="30dp"
+            android:paddingRight="30dp"
+            android:text="بله"
+            android:textColor="@color/grey_80"
+
+            android:textStyle="bold"/>
+
+    </LinearLayout>
+
+</LinearLayout>

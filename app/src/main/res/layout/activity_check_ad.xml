@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layoutDirection="rtl"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ActivityCheckAd">
+
+    <include layout="@layout/toolbar5" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:padding="15dp"
+        android:orientation="horizontal"
+        android:layout_marginTop="10dp"
+        android:layout_height="wrap_content">
+
+        <com.cilla_project.gozar.CustomControl.CustomTextViewBold
+            android:layout_width="wrap_content"
+            android:text="دسته بندی:"
+            android:textColor="#b60808"
+            android:textSize="18dp"
+            android:layout_height="wrap_content" />
+        <com.cilla_project.gozar.CustomControl.CustomTextView
+            android:layout_width="wrap_content"
+            android:layout_marginRight="5dp"
+            android:text="خبرگزاری ها"
+            android:id="@+id/txtcat"
+            android:textSize="17dp"
+            android:layout_height="wrap_content" />
+
+
+
+    </LinearLayout>
+    <LinearLayout
+        android:padding="15dp"
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:layout_height="wrap_content">
+
+        <com.cilla_project.gozar.CustomControl.CustomButton
+            android:layout_width="wrap_content"
+            android:text="پیش نمایش آگهی"
+            style="@style/Widget.AppCompat.Button.Colored"
+            android:textColor="#fff"
+            android:textAlignment="center"
+            android:id="@+id/txtpread"
+            android:padding="10dp"
+            android:layout_height="wrap_content" />
+        <com.cilla_project.gozar.CustomControl.CustomTextViewBold
+            android:layout_width="match_parent"
+            android:padding="10dp"
+            android:textSize="16dp"
+            android:id="@+id/txtconfirm"
+            android:textColor="#ff8020"
+            android:layout_height="wrap_content"
+            android:text="منتظر تایید ناظر"
+            />
+        <com.cilla_project.gozar.CustomControl.CustomTextView
+            android:layout_width="match_parent"
+            android:lineSpacingMultiplier="1.2"
+            android:textColor="@color/grey_80"
+            android:text="آگهی شما با موفقیت ثبت شده و در صف بررسی ناظر قرار گرفته است."
+            android:textSize="18dp"
+            android:layout_height="wrap_content" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_marginTop="20dp"
+            android:layout_height="1dp"
+            android:background="#dcdada" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:padding="10dp"
+            android:id="@+id/linearedit"
+            android:clickable="true"
+            android:foreground="?android:attr/selectableItemBackground"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                />
+            <com.cilla_project.gozar.CustomControl.CustomTextView
+                android:layout_width="wrap_content"
+                android:text=" ویرایش اعلان"
+                android:layout_marginRight="10dp"
+                android:textSize="18dp"
+                android:textColor="@color/colorAccent"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:padding="10dp"
+            android:id="@+id/lineardelete"
+            android:clickable="true"
+            android:foreground="?android:attr/selectableItemBackground"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                />
+            <com.cilla_project.gozar.CustomControl.CustomTextView
+                android:layout_width="wrap_content"
+                android:text="حذف اعلان"
+                android:layout_marginRight="10dp"
+                android:textSize="18dp"
+                android:textColor="@color/colorAccent"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+    </LinearLayout>
+
+
+
+
+</LinearLayout>

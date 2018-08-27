@@ -1,0 +1,301 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ActivityInsert"
+    android:orientation="vertical">
+
+    <include layout="@layout/toolbar4" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:id="@+id/linearhide"
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:layout_height="match_parent"
+            android:visibility="gone">
+
+            <ProgressBar
+                android:layout_marginTop="80dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+        </LinearLayout>
+
+        <include
+            android:id="@+id/lyt_failed"
+            layout="@layout/no_internet"
+            android:visibility="gone" />
+
+        <!--<include layout="@layout/toolbarad" />-->
+
+        <ScrollView
+            android:id="@+id/scroll"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:descendantFocusability="beforeDescendants"
+                android:focusableInTouchMode="true"
+                android:layoutDirection="rtl"
+                android:orientation="vertical"
+                android:padding="10dp">
+                <com.cilla_project.gozar.CustomControl.CustomTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="انتخاب تصویر مناسب برای آگهی"
+                    android:textColor="@color/grey_60"
+                    android:textSize="18dp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+
+                    android:layoutDirection="ltr"
+                    android:orientation="horizontal"
+
+                    android:padding="10dp">
+
+                    <RelativeLayout
+                        android:layout_width="100dp"
+                        android:layout_height="100dp">
+
+
+                        <ImageView
+                            android:id="@+id/imgselect1"
+                            android:layout_width="150dp"
+                            android:layout_height="150dp"
+                            android:background="@drawable/border"
+                            android:src="@drawable/noimage" />
+
+                        <ImageView
+                            android:id="@+id/del_img_logo"
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:layout_marginLeft="3dp"
+                            android:layout_marginTop="5dp"
+                            android:padding="3dp"
+                            android:visibility="gone" />
+
+
+                    </RelativeLayout>
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="5dp">
+
+
+
+                    <com.cilla_project.gozar.CustomControl.CustomTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="انتخاب مجموعه"
+
+                        android:textColor="@color/grey_60"
+                        android:textSize="18dp" />
+                    <android.support.design.widget.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                        <com.cilla_project.gozar.CustomControl.CustomButton
+                            android:id="@+id/btncategory"
+                            android:layout_width="match_parent"
+                            android:text="انتخاب مجموعه"
+                            android:layout_height="wrap_content"
+                            android:textSize="17dp" />
+
+                    </android.support.design.widget.TextInputLayout>
+
+                </LinearLayout>
+
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="60dp"
+                    android:descendantFocusability="afterDescendants"
+                    android:focusableInTouchMode="true"
+                    android:orientation="vertical">
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="@dimen/linearpadding">
+                        <com.cilla_project.gozar.CustomControl.CustomTextView
+                            android:id="@+id/txttitle"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="10dp"
+                            android:layout_marginTop="10dp"
+                            android:text="عنوان آگهی(حداقل 10 حرف)"
+                            android:textColor="@color/grey_60"
+                            android:textSize="16dp" />
+
+                        <android.support.design.widget.TextInputLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+                            <android.support.design.widget.TextInputEditText
+                                android:id="@+id/edttitle"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:maxLines="1"
+                                android:textColor="@color/grey_80"
+                                android:textDirection="rtl"
+                                android:textSize="17dp" />
+
+                        </android.support.design.widget.TextInputLayout>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="@dimen/linearpadding">
+                        <com.cilla_project.gozar.CustomControl.CustomTextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="10dp"
+                            android:layout_marginTop="10dp"
+                            android:text="شماره تماس"
+                            android:textColor="@color/grey_60"
+                            android:textSize="18dp" />
+                        <android.support.design.widget.TextInputLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+                            <android.support.design.widget.TextInputEditText
+                                android:id="@+id/edtmobile"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:maxLines="1"
+                                android:textColor="@color/grey_80"
+                                android:textDirection="rtl"
+                                android:textSize="17dp" />
+
+                        </android.support.design.widget.TextInputLayout>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="@dimen/linearpadding">
+                        <com.cilla_project.gozar.CustomControl.CustomTextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="10dp"
+                            android:layout_marginTop="10dp"
+                            android:text="توضیحات آگهی"
+                            android:textColor="@color/grey_60"
+                            android:textSize="18dp" />
+                        <android.support.design.widget.TextInputLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+                            <android.support.design.widget.TextInputEditText
+                                android:id="@+id/edttozih"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:maxLines="5"
+                                android:textColor="@color/grey_80"
+                                android:textDirection="rtl"
+                                android:textSize="17dp" />
+
+                        </android.support.design.widget.TextInputLayout>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="@dimen/linearpadding">
+                        <com.cilla_project.gozar.CustomControl.CustomTextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="10dp"
+                            android:layout_marginTop="10dp"
+                            android:text="آدرس"
+                            android:textColor="@color/grey_60"
+                            android:textSize="18dp" />
+
+                        <android.support.design.widget.TextInputLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+                            <android.support.design.widget.TextInputEditText
+                                android:id="@+id/edtaddress"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:maxLines="2"
+                                android:textColor="@color/grey_80"
+                                android:textDirection="rtl"
+                                android:textSize="17dp" />
+
+                        </android.support.design.widget.TextInputLayout>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="@dimen/linearpadding">
+
+                        <com.cilla_project.gozar.CustomControl.CustomTextView
+                            android:id="@+id/txthintaddres"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="وارد کردن این فیلد اجباری است."
+                            android:textColor="@color/colortexthint"
+                            android:visibility="gone" />
+
+                        <LinearLayout
+                            android:id="@+id/addresswrapper"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:padding="@dimen/linearpadding">
+
+                            <com.cilla_project.gozar.CustomControl.CustomTextView
+                                android:id="@+id/txthintaddressshort"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="طول عنوان کمتر از حد مجاز بوده و باید بیشتر از 10 کاراکتر باشد."
+                                android:textColor="@color/colortexthint"
+                                android:visibility="gone" />
+
+
+
+
+                        </LinearLayout>
+
+
+                    </LinearLayout>
+                </LinearLayout>
+
+
+
+
+            </LinearLayout>
+
+
+        </ScrollView>
+        <com.cilla_project.gozar.CustomControl.CustomButton
+            android:id="@+id/btnsubmit"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_alignParentBottom="true"
+            style="@style/Widget.AppCompat.Button.Colored"
+
+            android:text="ثبت آگهی" />
+
+    </RelativeLayout>
+</LinearLayout>

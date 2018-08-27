@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <include layout="@layout/toolbar4" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:gravity="right"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:gravity="right"
+            android:orientation="horizontal">
+            <com.cilla_project.gozar.CustomControl.CustomButton
+                android:layout_width="wrap_content"
+                android:text="خروج"
+                android:id="@+id/btnexit"
+                android:layout_height="wrap_content" />
+
+            <com.cilla_project.gozar.CustomControl.CustomTextView
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:id="@+id/txtmatn"
+                android:gravity="right"
+                android:lineSpacingMultiplier="1.2"
+                android:text="برای ثبت نام شماره تماس خود را وارد کنید."
+                android:textColor="@color/grey_90"
+                android:textSize="16dp"
+
+                />
+
+
+        </LinearLayout>
+
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_marginTop="50dp"
+            android:layout_height="wrap_content">
+            <com.cilla_project.gozar.CustomControl.CustomEditText
+                android:id="@+id/edtname"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawablePadding="16dp"
+                android:hint="نام و نام خانوادگی"
+                android:inputType="text"
+                android:textColor="#000000"
+                android:textSize="18dp" />
+        </android.support.design.widget.TextInputLayout>
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+          >
+
+            <com.cilla_project.gozar.CustomControl.CustomEditText
+                android:id="@+id/edt_mobile"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawablePadding="16dp"
+                android:hint="‍ شماره همراه "
+                android:inputType="phone"
+                android:maxLength="11"
+                android:textColor="#000000"
+                android:textSize="18dp" />
+        </android.support.design.widget.TextInputLayout>
+
+        <com.cilla_project.gozar.CustomControl.CustomButton
+            android:id="@+id/btn_submit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="50dp"
+            android:background="@drawable/custom_button"
+            android:text="ورود یا ثبت نام در سیلا"
+            android:textColor="#ffffff"
+            android:textSize="18dp"
+
+            />
+
+
+    </LinearLayout>
+</LinearLayout>

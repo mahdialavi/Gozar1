@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layoutDirection="rtl"
+    android:orientation="vertical"
+    android:padding="5dp"
+    android:textDirection="rtl">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_marginTop="0dp"
+            android:id="@+id/imgclose"
+            android:src="@drawable/noimage" />
+
+        <com.cilla_project.gozar.CustomControl.CustomTextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="دسته مورد نظر خود را انتخاب کنید:"
+            android:textColor="#35c4f7"
+            android:textSize="18dp" />
+
+    </LinearLayout>
+
+
+    <RelativeLayout
+        android:id="@+id/linearsakhtemani"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_marginTop="5dp"
+        android:background="@color/dialogcatcolor"
+        android:gravity="center_vertical">
+
+        <com.cilla_project.gozar.CustomControl.CustomTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="20dp"
+            android:text="کارهای ساختمانی"
+            android:textColor="@color/grey_90"
+            android:textSize="18dp" />
+
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="15dp"
+            android:src="@drawable/noimage" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/linearkeshavarzi"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginTop="5dp"
+        android:background="@color/dialogcatcolor"
+
+        android:gravity="center_vertical">
+
+        <com.cilla_project.gozar.CustomControl.CustomTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="20dp"
+            android:src="@drawable/noimage"
+
+            android:text="کارهای کشاورزی"
+            android:textSize="18dp" />
+
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="15dp"
+            android:src="@drawable/noimage" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/linearsanati"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginTop="5dp"
+        android:background="@color/dialogcatcolor"
+
+        android:gravity="center_vertical">
+
+        <com.cilla_project.gozar.CustomControl.CustomTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="20dp"
+            android:text="کارهای صنعتی"
+            android:textColor="@color/grey_90"
+            android:textSize="18dp" />
+
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="15dp"
+            android:src="@color/grey_80" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/linearkhayati"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginTop="5dp"
+        android:background="@color/dialogcatcolor"
+        android:gravity="center_vertical">
+
+        <com.cilla_project.gozar.CustomControl.CustomTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="20dp"
+            android:text="خیاطی و دوزندگی"
+            android:textColor="@color/grey_90"
+            android:textSize="18dp" />
+
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="15dp"
+            android:src="@color/grey_80" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/linearhesabdari"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginTop="5dp"
+        android:background="@color/dialogcatcolor"
+
+        android:gravity="center_vertical">
+
+        <com.cilla_project.gozar.CustomControl.CustomTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="20dp"
+            android:text="حسابداری و فروشندگی"
+            android:textColor="@color/grey_90"
+            android:textSize="18dp" />
+
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="15dp"
+            android:src="@color/grey_80" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/linearkarkhane"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginTop="5dp"
+        android:background="@color/dialogcatcolor"
+
+        android:gravity="center_vertical">
+
+        <com.cilla_project.gozar.CustomControl.CustomTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="20dp"
+            android:text="کارخانه های تولید کننده"
+            android:textColor="@color/grey_90"
+            android:textSize="18dp" />
+
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="15dp"
+            android:src="@color/grey_80" />
+
+    </RelativeLayout>
+
+</LinearLayout>

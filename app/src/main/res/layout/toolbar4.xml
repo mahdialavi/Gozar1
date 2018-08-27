@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <android.support.v7.widget.Toolbar
+            android:layout_width="match_parent"
+            android:background="#01bfd4"
+        android:layoutDirection="rtl"
+            android:layout_height="?attr/actionBarSize">
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:orientation="horizontal"
+                android:layout_height="?actionBarSize">
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:id="@+id/linearback"
+                android:layout_height="?actionBarSize">
+
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginLeft="5dp"
+                    android:background="@drawable/back"
+                    android:layout_height="30dp"
+                    />
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_marginRight="10dp"
+                android:layout_height="?actionBarSize">
+
+                <com.cilla_project.gozar.CustomControl.CustomTextView
+                    android:layout_width="wrap_content"
+                    android:textSize="18dp"
+                    android:text="درج آگهی"
+                    android:id="@+id/txttitle"
+                    android:layout_marginTop="15dp"
+                    android:textColor="#ffffff"
+                    android:layout_height="wrap_content" />
+
+            </LinearLayout>
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="?actionBarSize" />
+
+
+        </LinearLayout>
+
+
+
+        </android.support.v7.widget.Toolbar>
+
+
+    </LinearLayout>
+
+

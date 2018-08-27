@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">Gozar</string>
+
+    <string name="no_item">متاسفانه اطلاعاتی ثبت نشده است!</string>
+    <string name="no_internet_text">لطفا ارتباط اینترنت را چک نمایید!</string>
+    <string name="tryagain">دوباره تلاش کنید!</string>
+    <string name="failed_text">مشکل در ارتباط برنامه با سرور</string>
+    <string name="karkhanetolidi">کارخانه های تولید کننده</string>
+    <string name="hesabdari">حسابداری و فروشندگی</string>
+    <string name="khayati">خیاطی و دوزندگی</string>
+    <string name="sanatitamirati">صنعتی و تعمیراتی</string>
+    <string name="sakhtemani">مشاغل ساختمانی</string>
+    <string name="keshavarzi">کشاورزی و دامپروری</string>
+    <string name="no_news_saved">تاکنون ایتمی ذخیره نکرده اید!</string>
+
+</resources>

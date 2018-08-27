@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+
+    <include layout="@layout/toolbar4" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:padding="10dp"
+        android:layout_height="100dp">
+        <com.cilla_project.gozar.CustomControl.CustomButton
+            android:layout_width="wrap_content"
+            android:text="ورود"
+            android:id="@+id/btnexit"
+            android:layout_height="wrap_content" />
+
+        <com.cilla_project.gozar.CustomControl.CustomTextView
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:id="@+id/txtmatn"
+            android:gravity="right"
+            android:lineSpacingMultiplier="1.2"
+            android:text="برای استفاده از برنامه سیلا وارد حساب کاربری خود شوید."
+            android:textColor="@color/grey_90"
+            android:textSize="16dp"
+
+            />
+    </LinearLayout>
+        <LinearLayout
+            android:id="@+id/linearLayout"
+            android:layout_width="match_parent"
+            android:layoutDirection="rtl"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingRight="10dp">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginTop="10dp">
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="40dp"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="13dp" />
+
+                <com.cilla_project.gozar.CustomControl.CustomTextView
+                    android:id="@+id/txtkharid"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="خرید و فروش"
+                    android:textColor="@color/grey_60"
+                    android:textSize="@dimen/menu_text_size" />
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+
+                android:layout_marginTop="10dp">
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="40dp"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="13dp" />
+
+                <com.cilla_project.gozar.CustomControl.CustomTextView
+                    android:id="@+id/txtmyad"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="آگهی های من"
+                    android:textColor="@color/grey_60"
+                    android:textSize="@dimen/menu_text_size" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/linearbookmark"
+                android:layout_width="match_parent"
+                android:layout_height="40dp">
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="40dp"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="13dp"
+
+                    />
+
+                <com.cilla_project.gozar.CustomControl.CustomTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="نشان شده ها"
+
+                    android:textColor="@color/grey_60"
+                    android:textSize="@dimen/menu_text_size" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/linearsetting"
+                android:layout_width="match_parent"
+                android:layout_height="40dp">
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="40dp"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="13dp"
+
+                    />
+
+                <com.cilla_project.gozar.CustomControl.CustomTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="تنظیمات حساب کاربری"
+
+                    android:textColor="@color/grey_60"
+                    android:textSize="@dimen/menu_text_size" />
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+
+</LinearLayout>

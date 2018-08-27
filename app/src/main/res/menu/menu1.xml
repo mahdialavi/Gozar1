@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/menukhane"
+        android:icon="@drawable/ic_action_action_bookmark"
+        android:title="خانه" />
+    <item
+        android:id="@+id/menuinsert"
+        android:icon="@drawable/ic_action_action_bookmark"
+        android:title="درج آگهی" />
+
+    <item
+        android:id="@+id/menuCategory"
+        android:icon="@drawable/ic_action_action_bookmark"
+        android:title="دسته بندی ها" />
+
+
+
+    <item
+        android:id="@+id/menumypage"
+        android:icon="@drawable/ic_action_action_bookmark"
+        android:title="صفحه من" />
+
+</menu>

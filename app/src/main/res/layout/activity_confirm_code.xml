@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:background="#fafafa"
+    android:layout_height="fill_parent"
+    android:orientation="vertical">
+
+    <include layout="@layout/toolbar4" />
+    <com.cilla_project.gozar.CustomControl.CustomTextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/grey_80"
+        android:gravity="center"
+        android:textSize="19dp"
+        android:text="کد چهار رقمی ارسال شده را وارد کنید."
+        android:layout_marginTop="50dp"/>
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        >
+
+        <EditText
+            android:id="@+id/edt_code"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:hint="0-0-0-0-0"
+            android:layout_margin="70dp"
+            android:inputType="number"
+            android:maxLength="5"
+            />
+    </android.support.design.widget.TextInputLayout>
+    <Button
+        android:id="@+id/btn_submit"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:text="تایید نهایی "
+        android:background="@drawable/custom_button"
+        android:textColor="@color/grey_80"
+        android:layout_marginTop="0dp"
+        android:layout_gravity="center"
+
+        />
+
+
+</LinearLayout>

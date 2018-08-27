@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <android.support.v7.widget.Toolbar
+            android:layout_width="match_parent"
+            android:background="#01bfd4"
+        android:layoutDirection="rtl"
+            android:layout_height="?attr/actionBarSize">
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:gravity="right|center_vertical"
+                android:orientation="horizontal"
+                android:layout_height="match_parent">
+                <ImageView
+                    android:id="@+id/imgdrawer"
+                    android:src="@drawable/icon_menu"
+                    android:layout_marginRight="10dp"
+                    android:layout_width="30dp"
+                    android:layout_height="40dp" />
+                <ImageView
+                    android:id="@+id/imgadd"
+                    android:src="@drawable/imgadd"
+                    android:layout_marginRight="20dp"
+                    android:layout_width="32dp"
+                    android:layout_height="40dp" />
+
+
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="match_parent" />
+
+                <ImageView
+                    android:id="@+id/imgsearch"
+                    android:src="@drawable/search"
+                    android:layout_marginLeft="15dp"
+                    android:layout_width="40dp"
+                    android:padding="5dp"
+                    android:layout_height="40dp" />
+
+            </LinearLayout>
+
+
+
+        </android.support.v7.widget.Toolbar>
+
+
+    </LinearLayout>
+
+
