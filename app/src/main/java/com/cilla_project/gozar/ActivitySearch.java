@@ -1,8 +1,10 @@
 package com.cilla_project.gozar;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Handler;
+import android.preference.PreferenceManager;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -27,6 +29,7 @@ public class ActivitySearch extends ActivityEnhanced {
     private SwipeRefreshLayout swipe_refresh;
     private int post_total = 0;
     String catname = "";
+    int citycode = 1;
     public static int catid = 217;
     private int failed_page = 0;
     public static SQLiteDatabase database;
@@ -35,10 +38,17 @@ public class ActivitySearch extends ActivityEnhanced {
     CustomTextView txtcatname,txttoolcatename;
     public static String text = "";
     public static String command = "kabulemansearch";
+
+    SharedPreferences sharedPreferences;
+    SharedPreferences.Editor editor;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search);
+
+        sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+        editor=sharedPreferences.edit();
 
         parent_view = findViewById(android.R.id.content);
 //        overridePendingTransition(R.anim.fadein, R.anim.fadeout);
@@ -47,7 +57,11 @@ public class ActivitySearch extends ActivityEnhanced {
         txttoolcatename = findViewById(R.id.txttoolcatename);
         txttoolcatename.setText("جست وجو");
 
+        int CityCode = sharedPreferences.getInt("cat_city", 0);
 
+        if (CityCode != 0) {
+            citycode=CityCode;
+        }
         findViewById(R.id.imgsearch).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -56,7 +70,7 @@ public class ActivitySearch extends ActivityEnhanced {
                     swipeProgress(true);
                     rvItems.removeAllViews();
                     clearItemadaptorArr();
-                    requestListProduct(command,text, 1, catid);
+                    requestListProduct(command,text, 1,citycode, catid);
                 }
             }
         });
@@ -75,14 +89,14 @@ public class ActivitySearch extends ActivityEnhanced {
         rvItems.setAdapter(itemsAdapter);
 
 
-        requestAction(command,text, 1, catid);
+        requestAction(command,text,citycode ,1,catid);
 
         swipe_refresh.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
 //                if (callbackCall != null && callbackCall.isExecuted()) callbackCall.cancel();
                 itemsAdapter.resetListData();
-                requestAction(command,text, 1, catid);
+                requestAction(command,text, citycode,1, catid);
             }
         });
         itemsAdapter.setOnLoadMoreListener(new SearchAdaptor.OnLoadMoreListener() {
@@ -90,7 +104,7 @@ public class ActivitySearch extends ActivityEnhanced {
             public void onLoadMore(int current_page) {
                 if (post_total > itemsAdapter.getItemCount() && current_page != 0) {
                     int next_page = current_page + 1;
-                    requestAction(command, text, next_page, catid);
+                    requestAction(command, text, next_page,citycode, catid);
                 } else {
                     itemsAdapter.setLoaded();
                 }
@@ -98,13 +112,13 @@ public class ActivitySearch extends ActivityEnhanced {
         });
     }
 
-    private void requestListProduct(String command, final String text, final int page, final int catid) {
+    private void requestListProduct(String command, final String text, final int page,int citycode, final int catid) {
         View view = getCurrentFocus();
         if (view != null) {
             InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
             imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
         }
-        new Post().getPostsSearch(command, text, page, new AnswerPosts() {
+        new Post().getPostsSearch(command, text,citycode ,page, new AnswerPosts() {
             @Override
             public void AnswerBase(ArrayList<JobItemsList> answer) {
                 if (answer.get(0).name!=null) {
@@ -144,7 +158,7 @@ public class ActivitySearch extends ActivityEnhanced {
         }
     }
 
-    private void requestAction(String commandfinal, final String text, final int page_no, final int catid) {
+    private void requestAction(String commandfinal, final String text, final int citycode, final int page_no, final int catid) {
         showFailedView(false, "");
         showNoItemView(false);
         if (page_no == 1) {
@@ -155,7 +169,7 @@ public class ActivitySearch extends ActivityEnhanced {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                requestListProduct(command, text, page_no, catid);
+                requestListProduct(command, text, page_no,citycode, catid);
             }
         }, 300);
     }
@@ -180,7 +194,7 @@ public class ActivitySearch extends ActivityEnhanced {
         findViewById(R.id.failed_retry).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                requestAction(command,text, 1, catid);
+                requestAction(command,text, 1,citycode, catid);
             }
         });
     }

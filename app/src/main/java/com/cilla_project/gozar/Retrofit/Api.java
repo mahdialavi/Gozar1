@@ -29,6 +29,7 @@ public interface Api {
     Call<ArrayList<JobItemsList>> getPostsSearch(
             @Field("command") String command,
             @Field("text") String text,
+            @Field("citycode") int citycode,
             @Field("page") int page
 
     );
@@ -42,6 +43,7 @@ public interface Api {
             @Field("code") int code,
             @Field("userId") int userId,
             @Field("catid") int catid,
+            @Field("citycode") int citycode,
             @Field("title") String title,
             @Field("imglogo") String imglogo,
             @Field("mobile") String mobile,
@@ -86,6 +88,7 @@ public interface Api {
     Call<ArrayList<JobItemsList>> getListProduct(
             @Query("command") String command,
             @Query("page") int page,
+            @Query("citycode") int citycode,
             @Query("catid") int catid
     );
     @GET("allmyads.php")

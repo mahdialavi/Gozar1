@@ -26,6 +26,7 @@ public class ActivityJobItem extends ActivityEnhanced {
     private SwipeRefreshLayout swipe_refresh;
     private int post_total = 0;
     String catname = "";
+    int citycode = 1;
     public int catid=1;
     public int page = 1;
     public static SQLiteDatabase database;
@@ -88,7 +89,7 @@ public class ActivityJobItem extends ActivityEnhanced {
     }
 
     private void requestListProduct(String command, final int page, int catid) {
-        new Post().getProductList(command,page,catid, new AnswerPosts() {
+        new Post().getProductList(command,page,citycode,catid, new AnswerPosts() {
             @Override
             public void AnswerBase(ArrayList<JobItemsList> answer) {
                 if (answer.get(0).name != null) {

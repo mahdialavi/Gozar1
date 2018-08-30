@@ -78,7 +78,6 @@ public class Activity_MyAd extends AppCompatActivity {
 
 //        Bundle bundle = getIntent().getExtras();
 //        catname = bundle.getString("catname");
-
 //        txtcatname.setText(catname);
 
         swipe_refresh.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {

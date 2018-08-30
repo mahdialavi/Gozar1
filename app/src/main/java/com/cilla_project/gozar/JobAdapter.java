@@ -12,6 +12,7 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.cilla_project.gozar.CustomControl.CustomTextView;
@@ -27,9 +28,6 @@ public class JobAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     private JobAdapter.OnLoadMoreListener onLoadMoreListener;
 
     public static ArrayList<JobItemsList> itemsArraylist = new ArrayList<>();
-
-
-    private AdapterView.OnItemClickListener mOnItemClickListener;
 
 
     public JobAdapter(Context context, RecyclerView view) {
@@ -60,7 +58,7 @@ public class JobAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
         CustomTextView txtcatname;
 
 
-        public OriginalViewHolder(View itemView) {
+         OriginalViewHolder(View itemView) {
             super(itemView);
             image = itemView.findViewById(R.id.image);
             imgfav = itemView.findViewById(R.id.imgfav);
@@ -71,20 +69,22 @@ public class JobAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     @Override
     public void onBindViewHolder(@NonNull final RecyclerView.ViewHolder holder, int position) {
         if (holder instanceof JobAdapter.OriginalViewHolder) {
-            final JobItemsList catid = itemsArraylist.get(position);
+            final JobItemsList alldata = itemsArraylist.get(position);
 
 
             final OriginalViewHolder vItem = (OriginalViewHolder) holder;
 
-//
-            vItem.txtcatname.setText(catid.name);
-            Tools.displayImageOriginal(context, vItem.image, G.IMAGE_URL + catid.image);
+            vItem.txtcatname.setText(alldata.name);
+            Tools.displayImageOriginal(context, vItem.image, G.IMAGE_URL + alldata.image);
             vItem.linearitem.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
 
+                    Toast.makeText(context, alldata.id+"", Toast.LENGTH_SHORT).show();
+
                     Intent intent = new Intent(G.Context, MainActivity.class);
-                    intent.putExtra("catid", catid.id);
+                    intent.putExtra("catid", alldata.id);
+                    intent.putExtra("catname",alldata.name);
                     intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                     G.Context.startActivity(intent);
                 }

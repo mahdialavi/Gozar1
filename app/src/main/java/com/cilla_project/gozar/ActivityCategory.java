@@ -32,6 +32,7 @@ public class ActivityCategory extends ActivityEnhanced {
     private SwipeRefreshLayout swipe_refresh;
     private int post_total = 0;
     String catname = "";
+    int citycode=1;
     public int catid=0;
     DrawerLayout drawerLayout;
     BottomNavigationView navigation;
@@ -77,14 +78,8 @@ public class ActivityCategory extends ActivityEnhanced {
                 finish();
             }
         });
-        findViewById(R.id.txtkharid).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(G.Context,Activity_Sale.class);
-                startActivity(intent);
-                finish();
-            }
-        });
+
+
 
         findViewById(R.id.linearsetting).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -142,14 +137,14 @@ public class ActivityCategory extends ActivityEnhanced {
 //            txtcatname.setText(catname);
 //        }
 
-        requestAction("category",catid);
+        requestAction("category",citycode,catid);
 
         swipe_refresh.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
 //                if (callbackCall != null && callbackCall.isExecuted()) callbackCall.cancel();
                 itemsAdapter.resetListData();
-                requestAction("category",catid);
+                requestAction("category",citycode,catid);
             }
         });
         itemsAdapter.setOnLoadMoreListener(new JobAdapter.OnLoadMoreListener() {
@@ -157,7 +152,7 @@ public class ActivityCategory extends ActivityEnhanced {
             public void onLoadMore(int current_page) {
                 if (post_total > itemsAdapter.getItemCount() && current_page != 0) {
                     int next_page = current_page + 1;
-                    requestAction("category",catid);
+                    requestAction("category",citycode,catid);
                 } else {
                     itemsAdapter.setLoaded();
                 }
@@ -179,7 +174,7 @@ public class ActivityCategory extends ActivityEnhanced {
                         return true;
                     case R.id.menuCategory:
                         G.startActivity(ActivityCategory.class,true);
-                        JobAdapter.itemsArraylist.clear();
+
                         return true;
 
                     case R.id.menuinsert:
@@ -197,15 +192,16 @@ public class ActivityCategory extends ActivityEnhanced {
 
     }
 
-    private void requestListProduct(String command,int page,int catid) {
-        new Post().getProductList(command,page,catid, new AnswerPosts() {
+    private void requestListProduct(String command,int page,int citycode,int catid) {
+        new Post().getProductList(command,page,citycode,catid, new AnswerPosts() {
             @Override
             public void AnswerBase(ArrayList<JobItemsList> answer) {
                 if (answer != null) {
                     for (int i=0;i<answer.size();i++) {
                         post_total = answer.get(i).totalposts;
 
-                        Log.i("id", String.valueOf(post_total));
+
+                        Log.i("id", String.valueOf(answer.get(i).id));
                     }
                     displayApiResult(answer);
 //                    Toast.makeText(G.Context, "YESSS", Toast.LENGTH_SHORT).show();
@@ -229,7 +225,7 @@ public class ActivityCategory extends ActivityEnhanced {
 //            showFailedView(true, getString(R.string.no_internet_text));
         }
     }
-    private void requestAction(final String command, final int catid) {
+    private void requestAction(final String command, final int citycode, final int catid) {
 //        showFailedView(false, "");
 //        showNoItemView(false);
 //        if (page_no == 1) {
@@ -240,7 +236,7 @@ public class ActivityCategory extends ActivityEnhanced {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                requestListProduct(command,page,catid);
+                requestListProduct(command,page,citycode,catid);
             }
         }, 300);
     }
@@ -323,9 +319,11 @@ public class ActivityCategory extends ActivityEnhanced {
     public void onDestroy() {
         super.onDestroy();
         swipeProgress(false);
-
-
-
-
 }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        clearItemadaptorArr();
+    }
 }

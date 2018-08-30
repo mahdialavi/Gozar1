@@ -31,9 +31,9 @@ public class Post {
 //        });
 //    }
 
-    public void getProductList(String command,int page,int catid, final AnswerPosts answerPosts) {
+    public void getProductList(String command,int page,int citycode,int catid, final AnswerPosts answerPosts) {
         Api service = ServiceGenerator.getClient().create(Api.class);
-        Call<ArrayList<JobItemsList>> call = service.getListProduct(command,page,catid);
+        Call<ArrayList<JobItemsList>> call = service.getListProduct(command,page,citycode,catid);
         call.enqueue(new Callback<ArrayList<JobItemsList>>() {
             @Override
             public void onResponse(Call<ArrayList<JobItemsList>> call, Response<ArrayList<JobItemsList>> response) {
@@ -102,10 +102,10 @@ public class Post {
 
 
     }
-    public void uploadToServer(int id,int code,int userId,int  catid,String title,String image,String mobile,String address,String tozih,
+    public void uploadToServer(int id,int code,int userId,int citycode,int  catid,String title,String image,String mobile,String address,String tozih,
                                final UploadPosts answerPosts) {
         Api service = ServiceGenerator.getClient().create(Api.class);
-        Call<ItemsListUpload> call = service.uploadToServer(id,code,userId,catid,title,image,mobile,address,tozih);
+        Call<ItemsListUpload> call = service.uploadToServer(id,code,userId,catid,citycode,title,image,mobile,address,tozih);
 //        id,code,userId,itemname,imglogo,email,website,manager,boss,mobile,phonenumber
         call.enqueue(new Callback<ItemsListUpload>() {
             @Override
@@ -120,9 +120,9 @@ public class Post {
             }
         });
     }
-    public void getPostsSearch(String command,String text,int page, final AnswerPosts answerPosts) {
+    public void getPostsSearch(String command,String text,int citycode,int page, final AnswerPosts answerPosts) {
         Api service = ServiceGenerator.getClient().create(Api.class);
-        Call<ArrayList<JobItemsList>> call = service.getPostsSearch(command,text,page);
+        Call<ArrayList<JobItemsList>> call = service.getPostsSearch(command,text,citycode,page);
         call.enqueue(new Callback<ArrayList<JobItemsList>>() {
             @Override
             public void onResponse(Call<ArrayList<JobItemsList>> call, Response<ArrayList<JobItemsList>> response) {

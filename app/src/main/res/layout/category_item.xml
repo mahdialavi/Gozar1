@@ -65,7 +65,7 @@
                     android:layout_gravity="center_horizontal"
                     android:maxLines="1"
                     android:minLines="1"
-                    android:text="کابل من"
+                    android:text="سیلا"
                     android:textColor="@color/colorAccent"
 
                     android:textSize="14dp" />

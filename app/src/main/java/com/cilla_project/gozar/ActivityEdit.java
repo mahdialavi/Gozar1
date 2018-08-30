@@ -62,6 +62,7 @@ public class ActivityEdit extends ActivityEnhanced{
     Bitmap bitmap = null;
     public static final int MY_PERMISSIONS_REQUEST_CAMERA = 123;
     LinearLayout linearcam, catwraper,lineargal;
+    int citycode=1;
 
 
 //    Dialog show_P_Dialog;
@@ -97,6 +98,12 @@ public class ActivityEdit extends ActivityEnhanced{
         imgselect1 = findViewById(R.id.imgselect1);
         img_delete_logo = findViewById(R.id.del_img_logo);
         btnSubmit = findViewById(R.id.btnsubmit);
+
+        int CityCode = sharedPreferences.getInt("cat_city", 0);
+        if (CityCode != 0) {
+            citycode=CityCode;
+        }
+
 //                findViewById(R.id.lineardelete).setOnClickListener(new View.OnClickListener() {
 //                    @Override
 //                    public void onClick(View view) {
@@ -452,7 +459,7 @@ public class ActivityEdit extends ActivityEnhanced{
 
     private void uploadtoserver(int id,final int catid , int userId, int code) {
 //                G.show_P_Dialog(this, false, false);
-        new Post().uploadToServer(id,code,userId,  catid,name, image, tamas,"address",tozihat, new UploadPosts() {
+        new Post().uploadToServer(id,code,userId,citycode,  catid,name, image, tamas,"address",tozihat, new UploadPosts() {
             @Override
             public void AnswerBase(ItemsListUpload answer) {
                 if (answer.response.equals("Updated_Suscessfully")) {

@@ -101,27 +101,27 @@ public class Activity_Sale extends ActivityEnhanced {
 
     }
 
-    private void requestListProduct(String command, final int page, int catid) {
-        new Post().getProductList(command,page,catid, new AnswerPosts() {
-            @Override
-            public void AnswerBase(ArrayList<JobItemsList> answer) {
-                if (answer.get(0).name != null) {
-                    for (int i = 0; i < answer.size(); i++) {
-                        post_total = answer.get(i).totalposts;
-                        Log.i("id", String.valueOf(post_total));
-                    }
-                    displayApiResult(answer);
-                } else {
-                    swipeProgress(false);
-                    showFailedView(true, getString(R.string.no_item));
-                }
-            }
-            @Override
-            public void SendError(Throwable t) {
-                onFailRequest(page);
-            }
-        });
-    }
+//    private void requestListProduct(String command, final int page, int catid) {
+//        new Post().getProductList(command,page,catid, new AnswerPosts() {
+//            @Override
+//            public void AnswerBase(ArrayList<JobItemsList> answer) {
+//                if (answer.get(0).name != null) {
+//                    for (int i = 0; i < answer.size(); i++) {
+//                        post_total = answer.get(i).totalposts;
+//                        Log.i("id", String.valueOf(post_total));
+//                    }
+//                    displayApiResult(answer);
+//                } else {
+//                    swipeProgress(false);
+//                    showFailedView(true, getString(R.string.no_item));
+//                }
+//            }
+//            @Override
+//            public void SendError(Throwable t) {
+//                onFailRequest(page);
+//            }
+//        });
+//    }
 
     private void onFailRequest(int page) {
         itemsAdapter.setLoaded();
@@ -145,7 +145,7 @@ public class Activity_Sale extends ActivityEnhanced {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                requestListProduct(command,page,catid);
+//                requestListProduct(command,page,catid);
             }
         }, 300);
     }

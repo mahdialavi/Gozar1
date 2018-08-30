@@ -60,6 +60,7 @@ public class ActivityInsert extends ActivityEnhanced {
     public static final int MY_PERMISSIONS_REQUEST_CAMERA = 123;
     LinearLayout linearcam, catwraper,lineargal;
 
+    int citycode=1;
     String title, mobile, address, imglogo, tozih;
     File photoFile = null;
     Uri uri = null, picUri = null;
@@ -106,6 +107,12 @@ public class ActivityInsert extends ActivityEnhanced {
         imgselect1 = findViewById(R.id.imgselect1);
         img_delete_logo = findViewById(R.id.del_img_logo);
         btnSubmit = findViewById(R.id.btnsubmit);
+
+        int CityCode = sharedPreferences.getInt("cat_city", 0);
+        if (CityCode != 0) {
+            citycode=CityCode;
+        }
+
 //                findViewById(R.id.lineardelete).setOnClickListener(new View.OnClickListener() {
 //                    @Override
 //                    public void onClick(View view) {
@@ -180,7 +187,7 @@ public class ActivityInsert extends ActivityEnhanced {
 
                         //                    insert
                         if (userId > 0) {
-                            uploadtoserver(id,catid,userId,1 );
+                            uploadtoserver(id,catid,userId,1,citycode );
 
                         }
                         else {
@@ -565,9 +572,9 @@ public class ActivityInsert extends ActivityEnhanced {
         startActivityForResult(intent, 5);
     }
 
-    private void uploadtoserver(int id,final int catid , int userId, int code) {
+    private void uploadtoserver(int id,final int catid , int userId, int code,int citycode) {
 //                G.show_P_Dialog(this, false, false);
-        new Post().uploadToServer(id,code,userId,  catid,title, imglogo, mobile,address,tozih, new UploadPosts() {
+        new Post().uploadToServer(id,code,userId,citycode,  catid,title, imglogo, mobile,address,tozih, new UploadPosts() {
                     @Override
                     public void AnswerBase(ItemsListUpload answer) {
                         if (answer.response.equals("Image_upload_Successfully")) {

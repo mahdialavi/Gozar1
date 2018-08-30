@@ -32,6 +32,7 @@ public class ActivityCheckAd extends  ActivityEnhanced {
     String title = "";
     String imglogo = "";
     String mobile = "";
+
     String address = "";
     String catname = "";
     int catid = 0;
@@ -45,6 +46,8 @@ public class ActivityCheckAd extends  ActivityEnhanced {
                 txtconfirm = findViewById(R.id.txtconfirm);
                 lineardelete = findViewById(R.id.lineardelete);
                 linearedit = findViewById(R.id.linearedit);
+
+
 //                findViewById(R.id.linearback).setOnClickListener(new View.OnClickListener() {
 //                    @Override
 //                    public void onClick(View view) {
@@ -173,7 +176,7 @@ public class ActivityCheckAd extends  ActivityEnhanced {
 
             private void deleteItem(int id, int code) {
 //                G.show_P_Dialog(ActivityCheckAd.this,false,false);
-                new Post().uploadToServer(id, code, 0, catid, "", "", "", "", "", new UploadPosts() {
+                new Post().uploadToServer(id, code, 0,0, catid, "", "", "", "", "", new UploadPosts() {
                             @Override
                             public void AnswerBase(ItemsListUpload answer) {
 //                                G.dismiss_P_Dialog();
