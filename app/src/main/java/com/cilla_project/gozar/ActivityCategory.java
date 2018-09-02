@@ -15,6 +15,7 @@ import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.animation.TranslateAnimation;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Toast;
@@ -188,10 +189,35 @@ public class ActivityCategory extends ActivityEnhanced {
                 return false;
             }
         });
+        rvItems.addOnScrollListener(new RecyclerView.OnScrollListener() {
+            @Override
+            public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
+                super.onScrolled(recyclerView, dx, dy);
 
+                if (dy > 0 && navigation.getVisibility() == View.VISIBLE) {
+
+                    navigation.setVisibility(View.GONE);
+                } else if (dy < 0 && navigation.getVisibility() != View.VISIBLE) {
+
+                    slideDown(navigation);
+
+
+                }
+            }
+        });
 
     }
-
+    public void slideDown(View view) {
+        view.setVisibility(View.VISIBLE);
+        TranslateAnimation animate = new TranslateAnimation(
+                0,                 // fromXDelta
+                0,                 // toXDelta
+                view.getHeight(),  // fromYDelta
+                0);                // toYDelta
+        animate.setDuration(400);
+        animate.setFillAfter(true);
+        view.startAnimation(animate);
+    }
     private void requestListProduct(String command,int page,int citycode,int catid) {
         new Post().getProductList(command,page,citycode,catid, new AnswerPosts() {
             @Override
@@ -292,6 +318,7 @@ public class ActivityCategory extends ActivityEnhanced {
     public void onBackPressed() {
         super.onBackPressed();
         clearItemadaptorArr();
+        G.startActivity(MainActivity.class,true);
 
     }
 

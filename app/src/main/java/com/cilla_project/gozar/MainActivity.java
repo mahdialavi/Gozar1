@@ -15,6 +15,7 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.animation.TranslateAnimation;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -148,6 +149,33 @@ public class MainActivity extends ActivityEnhanced {
                 return false;
             }
         });
+        rvItems.addOnScrollListener(new RecyclerView.OnScrollListener() {
+            @Override
+            public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
+                super.onScrolled(recyclerView, dx, dy);
+
+                if (dy > 0 && navigation.getVisibility() == View.VISIBLE) {
+
+                    navigation.setVisibility(View.GONE);
+                } else if (dy < 0 && navigation.getVisibility() != View.VISIBLE) {
+
+                    slideDown(navigation);
+
+
+                }
+            }
+        });
+    }
+    public void slideDown(View view) {
+        view.setVisibility(View.VISIBLE);
+        TranslateAnimation animate = new TranslateAnimation(
+                0,                 // fromXDelta
+                0,                 // toXDelta
+                view.getHeight(),  // fromYDelta
+                0);                // toYDelta
+        animate.setDuration(400);
+        animate.setFillAfter(true);
+        view.startAnimation(animate);
     }
 
     private void requestListProduct(String command, final int page, int citycode, int catid) {
@@ -265,25 +293,25 @@ public class MainActivity extends ActivityEnhanced {
     @Override
     protected void onRestart() {
         super.onRestart();
-        Log.i("onstop", "onrestart heppend");
+        Log.i("onstop", "onrestart heppend main");
     }
 
     @Override
     protected void onStop() {
         super.onStop();
-        Log.i("onstop", "onstop heppend");
+        Log.i("onstop", "onstop heppend main");
     }
 
     @Override
     protected void onPause() {
         super.onPause();
-        clearItemadaptorArr();
-        Log.i("onstop", "onpause heppend");
+        Log.i("onstop", "onpause heppend main");
     }
-
     @Override
     public void onDestroy() {
         super.onDestroy();
+        Log.i("onstop", "ondestroy happend");
+        clearItemadaptorArr();
         swipeProgress(false);
 
     }

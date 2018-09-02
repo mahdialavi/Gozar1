@@ -1,19 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#3F51B5</color>
-    <color name="colorPrimaryDark">#303F9F</color>
-    <color name="colorAccent">#ff4043</color>
-
-    <color name="colorLightest">#ffffff</color>
-    <color name="colorHint">#d9fbff</color>
-    <color name="colortexthint">#e41008</color>
-    <color name="colorlight">#b6d40e</color>
-
-    <color name="colorDark">#60ded5</color>
-    <color name="colorDarker">#283593</color>
-    <color name="colorDarkest">#020202</color>
-    <color name="textColor">#ac0404</color>
-
 
     <color name="grey">#e9eef1</color>
     <color name="grey_3">#f7f7f7</color>
@@ -24,12 +10,20 @@
     <color name="grey_60">#666666</color>
     <color name="grey_80">#37474F</color>
     <color name="grey_90">#263238</color>
-    <color name="colorGreen">#009f00</color>
     <color name="colorNormal">#9b0000</color>
+    <color name="colorAccent">#c21b1b</color>
 
-
+    <color name="colorToolbar">#79C753</color>
+    <color name="colorPrimary">#ff872b</color>
     <color name="colorback">#e9eef1</color>
     <color name="dialogcatcolor">#f2ffed</color>
+    <color name="colorPrimaryDark">#f2ffed</color>
+
+
+    <color name="titlecolor">#515151</color>
+    <color name="textcolor">#808080</color>
+
+
 
 
 </resources>

@@ -25,16 +25,18 @@ public class Dialog_Category extends Dialog {
     SharedPreferences.Editor editor;
     int selectedCatid=0;
 
-    int catsakhtemani=1,catkeshavarzi=2,catsanati=3,catkhayati=4,cathesabdari=5,catkarkhane=6;
+    int catsakhtemani=1,catkharidforosh=2,catsanati=3,catkhayati=4,cathesabdari=5,catkarkhane=6,catkeshavarzi=7,catmotafareghe=8;
 
-     RelativeLayout linearkashavarzi,linearsanati,linearsakhtemanni,linearkhayati,linearkarkhane,linearhesabdari;
+     RelativeLayout linearkashavarzi,linearsanati,linearsakhtemanni,linearkhayati,linearkarkhane,linearhesabdari,linearforosh,linearmotefareghe;
 
     String sakhteman= "مشاغل ساختمانی";
-    String keshavarzi= "کشاورزی و دامپروری";
+    String forosh= "خرید و فروش";
     String sanati= "صنعتی و تعمیراتی";
     String khayati= "خیاطی و دوزندگی";
     String hesabdari= "حسابداری و فروشندگی";
     String karkhane= "کارخانه های تولید کننده";
+    String keshavarzi= "کشاورزی و دامپروری";
+    String motafareghe= "متفرقه";
 
 
     public Dialog_Category(Context context, CustomButton button,int selectedCatid) {
@@ -58,6 +60,8 @@ public class Dialog_Category extends Dialog {
         linearhesabdari= findViewById(R.id.linearhesabdari);
         linearkhayati= findViewById(R.id.linearkhayati);
         linearkarkhane= findViewById(R.id.linearkarkhane);
+        linearforosh= findViewById(R.id.linearforosh);
+        linearmotefareghe= findViewById(R.id.linearmotefareghe);
 
         findViewById(R.id.imgclose).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -87,6 +91,20 @@ public class Dialog_Category extends Dialog {
                 selectedCatid=catsakhtemani;
                 editor.putString(spcatname, sakhteman);
                 editor.putInt(spcatid, catsakhtemani);
+                editor.apply();
+                dismiss();
+                Toast.makeText(context, sharedPreferences.getString(spcatname,"")+sharedPreferences.getInt(spcatid,0)+"", Toast.LENGTH_SHORT).show();
+
+            }
+        });
+        linearforosh.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                btncategoty.setText(forosh);
+                selectedCatid=catkharidforosh;
+                editor.putString(spcatname,forosh );
+                editor.putInt(spcatid, catkharidforosh);
                 editor.apply();
                 dismiss();
                 Toast.makeText(context, sharedPreferences.getString(spcatname,"")+sharedPreferences.getInt(spcatid,0)+"", Toast.LENGTH_SHORT).show();
@@ -142,6 +160,18 @@ public class Dialog_Category extends Dialog {
                 selectedCatid=catkhayati;
                 editor.putString(spcatname, khayati);
                 editor.putInt(spcatid, catkhayati);
+                editor.apply();
+                Toast.makeText(context, sharedPreferences.getString(spcatname,"")+sharedPreferences.getInt(spcatid,0)+"", Toast.LENGTH_SHORT).show();
+                dismiss();
+            }
+        });
+      linearmotefareghe.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                btncategoty.setText(motafareghe);
+                selectedCatid=catmotafareghe;
+                editor.putString(spcatname, motafareghe);
+                editor.putInt(spcatid, catmotafareghe);
                 editor.apply();
                 Toast.makeText(context, sharedPreferences.getString(spcatname,"")+sharedPreferences.getInt(spcatid,0)+"", Toast.LENGTH_SHORT).show();
                 dismiss();

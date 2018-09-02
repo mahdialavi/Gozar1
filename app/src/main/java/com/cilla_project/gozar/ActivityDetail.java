@@ -1,5 +1,6 @@
 package com.cilla_project.gozar;
 
+import android.content.DialogInterface;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -11,6 +12,7 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.cilla_project.gozar.CustomControl.CustomButton;
 import com.cilla_project.gozar.CustomControl.CustomTextView;
 import com.cilla_project.gozar.DataBase.Persons;
 import com.cilla_project.gozar.Retrofit.AnswerPosts;
@@ -27,7 +29,7 @@ public class ActivityDetail extends ActivityEnhanced {
     String name,tamas,image;
     int id=0;
     String tozihat="";
-    CustomTextView txttozih,txtname,txttamas;
+    CustomTextView txttozih,txtname;
     ViewPager viewPager;
     CircleIndicator indicator;
     Timer timer;
@@ -36,20 +38,31 @@ public class ActivityDetail extends ActivityEnhanced {
     ImageView imgfav;
     ArrayList<String> buisinessPics;
     LinearLayout linearwait;
-
-
-
+    CustomButton btncontact;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail);
         txttozih = findViewById(R.id.txttozih);
         txtname = findViewById(R.id.txtname);
-        txttamas= findViewById(R.id.txttamas);
         viewPager = (ViewPager) findViewById(R.id.viewpager);
         indicator = findViewById(R.id.indicator);
         linearwait =  findViewById(R.id.linearwait);
         linearwait.setVisibility(View.VISIBLE);
+        btncontact = findViewById(R.id.btncontact);
+
+
+        findViewById(R.id.btncontact).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                new DialogContact(ActivityDetail.this, items, imgfav).setListener(new DialogInterface.OnDismissListener() {
+                    @Override
+                    public void onDismiss(DialogInterface dialogInterface) {
+                    }
+                }).show();
+
+            }
+        });
         findViewById(R.id.linearfav).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -65,6 +78,7 @@ public class ActivityDetail extends ActivityEnhanced {
             id = bundle.getInt("id");
             requestitem(id);
         }
+
         timer = new Timer();
         timer.scheduleAtFixedRate(new TimerTask() {
             @Override
@@ -141,7 +155,12 @@ public class ActivityDetail extends ActivityEnhanced {
 
         txtname.setText(name);
         txttozih.setText(tozihat);
-        txttamas.setText(tamas);
+
+        if (tamas != null) {
+            items.tamas=tamas;
+            items.id = id;
+
+        }
 
     }
     private void onFailRequest() {

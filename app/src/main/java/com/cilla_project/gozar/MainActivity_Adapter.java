@@ -58,11 +58,11 @@ public class MainActivity_Adapter extends RecyclerView.Adapter<RecyclerView.View
             vItem.linearitem.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    Intent intent = new Intent(G.Context, ActivityDetail.class);
+                    Intent intent = new Intent(context, ActivityDetail.class);
                     intent.putExtra("id", heros.id);
-//                    Toast.makeText(context, heros.tozih, Toast.LENGTH_SHORT).show();
                     intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                     G.Context.startActivity(intent);
+
                 }
 
             });
@@ -77,8 +77,6 @@ public class MainActivity_Adapter extends RecyclerView.Adapter<RecyclerView.View
         ImageView image, imgfav;
         CardView linearitem;
         CustomTextView txttitle,txttime;
-
-
         OriginalViewHolder(View itemView) {
             super(itemView);
             image = itemView.findViewById(R.id.image);
@@ -87,9 +85,6 @@ public class MainActivity_Adapter extends RecyclerView.Adapter<RecyclerView.View
             linearitem = itemView.findViewById(R.id.linearitemcardview);
         }
     }
-
-
-
     @Override
     public int getItemViewType(int position) {
         return itemsArraylist.get(position) != null ? VIEW_ITEM : VIEW_PROG;

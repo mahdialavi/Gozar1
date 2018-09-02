@@ -254,7 +254,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="وارد کردن این فیلد اجباری است."
-                            android:textColor="@color/colortexthint"
+                            android:textColor="@color/grey"
                             android:visibility="gone" />
 
                         <LinearLayout
@@ -269,7 +269,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="طول عنوان کمتر از حد مجاز بوده و باید بیشتر از 10 کاراکتر باشد."
-                                android:textColor="@color/colortexthint"
+                                android:textColor="@color/grey"
                                 android:visibility="gone" />
 
 

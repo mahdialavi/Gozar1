@@ -3,23 +3,23 @@
 
     <item
         android:id="@+id/menukhane"
-        android:icon="@drawable/ic_action_action_bookmark"
+        android:icon="@drawable/home"
         android:title="خانه" />
     <item
         android:id="@+id/menuinsert"
-        android:icon="@drawable/ic_action_action_bookmark"
+        android:icon="@drawable/icon_add_new_ads_w"
         android:title="درج آگهی" />
 
     <item
         android:id="@+id/menuCategory"
-        android:icon="@drawable/ic_action_action_bookmark"
+        android:icon="@drawable/category"
         android:title="دسته بندی ها" />
 
 
 
     <item
         android:id="@+id/menumypage"
-        android:icon="@drawable/ic_action_action_bookmark"
+        android:icon="@drawable/user"
         android:title="صفحه من" />
 
 </menu>

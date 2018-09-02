@@ -82,11 +82,11 @@ public class JobAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
                     Toast.makeText(context, alldata.id+"", Toast.LENGTH_SHORT).show();
 
-                    Intent intent = new Intent(G.Context, MainActivity.class);
+                    Intent intent = new Intent(context, MainActivity.class);
                     intent.putExtra("catid", alldata.id);
                     intent.putExtra("catname",alldata.name);
                     intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                    G.Context.startActivity(intent);
+                    context.startActivity(intent);
                 }
 
             });

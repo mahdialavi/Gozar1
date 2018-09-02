@@ -5,7 +5,7 @@
 
     <android.support.v7.widget.Toolbar
         android:layout_width="match_parent"
-        android:background="#01bfd4"
+        android:background="@color/colorToolbar"
         android:layoutDirection="rtl"
         android:layout_height="?attr/actionBarSize">
         <LinearLayout

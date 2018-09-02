@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_marginTop="5dp"
     android:layout_width="match_parent"
+    android:textDirection="rtl"
     android:layoutDirection="rtl"
     android:layout_height="wrap_content">
     <android.support.v7.widget.CardView
@@ -23,29 +24,15 @@
             android:layout_width="match_parent"
             android:background="@drawable/border"
             android:padding="1dp"
-            android:layout_height="150dp"
+            android:layout_height="120dp"
             android:orientation="horizontal">
 
-            <RelativeLayout
-                android:layout_width="150dp"
-                android:layout_height="150dp"
-                android:background="#000">
-                <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="155dp"
-                    android:layout_centerInParent="true"
-                    android:src="@drawable/noimage" />
 
-                <ImageView
-                    android:id="@+id/image"
-                    android:layout_width="match_parent"
-                    android:layout_height="155dp"
-                    android:scaleType="fitXY" />
-            </RelativeLayout>
             <LinearLayout
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_gravity="right"
+                android:layout_weight="1"
                 android:background="#fcfcfc"
                 android:orientation="vertical"
                 android:padding="5dp"
@@ -63,8 +50,8 @@
                     android:layout_height="wrap_content"
                     android:text="استاد کار بنا"
                     android:lineSpacingMultiplier="1.2"
-                    android:textColor="@color/grey_90"
-                    android:textSize="16dp" />
+                    android:textColor="@color/textcolor"
+                    android:textSize="17dp" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -75,15 +62,31 @@
                     android:id="@+id/txttime"
                     android:layout_width="wrap_content"
                     android:layout_height="30dp"
-                    android:text="دقایقی پیش"
+                    android:text="ده قیقه پیش"
                     android:textColor="@color/grey_60"
                     android:textDirection="rtl"
                     android:layout_gravity="bottom"
-                    android:textSize="16dp" />
+                    android:textSize="15dp" />
 
 
             </LinearLayout>
             </LinearLayout>
+            <RelativeLayout
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                >
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="155dp"
+                    android:layout_centerInParent="true"
+                    android:src="@drawable/noimage" />
+
+                <ImageView
+                    android:id="@+id/image"
+                    android:layout_width="match_parent"
+                    android:layout_height="155dp"
+                    android:scaleType="fitXY" />
+            </RelativeLayout>
         </LinearLayout>
 
     </android.support.v7.widget.CardView>

@@ -59,7 +59,7 @@
     </RelativeLayout>
 
     <RelativeLayout
-        android:id="@+id/linearkeshavarzi"
+        android:id="@+id/linearforosh"
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:layout_marginTop="5dp"
@@ -73,8 +73,7 @@
             android:layout_alignParentRight="true"
             android:layout_marginRight="20dp"
             android:src="@drawable/noimage"
-
-            android:text="کارهای کشاورزی"
+            android:text="خرید و فروش"
             android:textSize="18dp" />
 
         <ImageView
@@ -190,6 +189,61 @@
             android:layout_alignParentLeft="true"
             android:layout_marginLeft="15dp"
             android:src="@color/grey_80" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/linearkeshavarzi"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginTop="5dp"
+        android:background="@color/dialogcatcolor"
+
+        android:gravity="center_vertical">
+
+        <com.cilla_project.gozar.CustomControl.CustomTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="20dp"
+            android:src="@drawable/noimage"
+
+            android:text="کارهای کشاورزی"
+            android:textSize="18dp" />
+
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="15dp"
+            android:src="@drawable/noimage" />
+
+    </RelativeLayout>
+    <RelativeLayout
+        android:id="@+id/linearmotefareghe"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginTop="5dp"
+        android:background="@color/dialogcatcolor"
+
+        android:gravity="center_vertical">
+
+        <com.cilla_project.gozar.CustomControl.CustomTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="20dp"
+            android:src="@drawable/noimage"
+
+            android:text="متفرقه"
+            android:textSize="18dp" />
+
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="15dp"
+            android:src="@drawable/noimage" />
 
     </RelativeLayout>
 
