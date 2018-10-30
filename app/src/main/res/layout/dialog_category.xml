@@ -9,6 +9,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
+        android:layoutDirection="rtl"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
 
@@ -16,18 +17,20 @@
             android:layout_width="35dp"
             android:layout_height="35dp"
             android:layout_marginTop="0dp"
+            android:padding="7dp"
             android:id="@+id/imgclose"
-            android:src="@drawable/noimage" />
+            android:src="@drawable/cancel" />
 
         <com.cilla_project.gozar.CustomControl.CustomTextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
             android:layout_weight="1"
-            android:gravity="center"
+            android:layout_marginRight="5dp"
+            android:gravity="right"
+            android:layout_marginTop="5dp"
             android:text="دسته مورد نظر خود را انتخاب کنید:"
-            android:textColor="#35c4f7"
-            android:textSize="18dp" />
+            android:textColor="#35960a"
+            android:textSize="17dp" />
 
     </LinearLayout>
 
@@ -46,15 +49,9 @@
             android:layout_alignParentRight="true"
             android:layout_marginRight="20dp"
             android:text="کارهای ساختمانی"
-            android:textColor="@color/grey_90"
-            android:textSize="18dp" />
+            android:textColor="@color/grey_60"
+            android:textSize="17dp" />
 
-        <ImageView
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:layout_alignParentLeft="true"
-            android:layout_marginLeft="15dp"
-            android:src="@drawable/noimage" />
 
     </RelativeLayout>
 
@@ -72,16 +69,12 @@
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
             android:layout_marginRight="20dp"
+            android:textColor="@color/grey_60"
+
             android:src="@drawable/noimage"
             android:text="خرید و فروش"
-            android:textSize="18dp" />
+            android:textSize="17dp" />
 
-        <ImageView
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:layout_alignParentLeft="true"
-            android:layout_marginLeft="15dp"
-            android:src="@drawable/noimage" />
 
     </RelativeLayout>
 
@@ -99,16 +92,12 @@
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
             android:layout_marginRight="20dp"
-            android:text="کارهای صنعتی"
-            android:textColor="@color/grey_90"
-            android:textSize="18dp" />
 
-        <ImageView
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:layout_alignParentLeft="true"
-            android:layout_marginLeft="15dp"
-            android:src="@color/grey_80" />
+            android:text="کارهای صنعتی"
+            android:textColor="@color/grey_60"
+            android:textSize="17dp" />
+
+
 
     </RelativeLayout>
 
@@ -126,15 +115,9 @@
             android:layout_alignParentRight="true"
             android:layout_marginRight="20dp"
             android:text="خیاطی و دوزندگی"
-            android:textColor="@color/grey_90"
-            android:textSize="18dp" />
+            android:textColor="@color/grey_60"
+            android:textSize="17dp" />
 
-        <ImageView
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:layout_alignParentLeft="true"
-            android:layout_marginLeft="15dp"
-            android:src="@color/grey_80" />
 
     </RelativeLayout>
 
@@ -153,15 +136,9 @@
             android:layout_alignParentRight="true"
             android:layout_marginRight="20dp"
             android:text="حسابداری و فروشندگی"
-            android:textColor="@color/grey_90"
-            android:textSize="18dp" />
+            android:textColor="@color/grey_60"
+            android:textSize="17dp" />
 
-        <ImageView
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:layout_alignParentLeft="true"
-            android:layout_marginLeft="15dp"
-            android:src="@color/grey_80" />
 
     </RelativeLayout>
 
@@ -180,15 +157,9 @@
             android:layout_alignParentRight="true"
             android:layout_marginRight="20dp"
             android:text="کارخانه های تولید کننده"
-            android:textColor="@color/grey_90"
-            android:textSize="18dp" />
+            android:textColor="@color/grey_60"
+            android:textSize="17dp" />
 
-        <ImageView
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:layout_alignParentLeft="true"
-            android:layout_marginLeft="15dp"
-            android:src="@color/grey_80" />
 
     </RelativeLayout>
 
@@ -208,15 +179,12 @@
             android:layout_marginRight="20dp"
             android:src="@drawable/noimage"
 
-            android:text="کارهای کشاورزی"
-            android:textSize="18dp" />
+            android:textColor="@color/grey_60"
 
-        <ImageView
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:layout_alignParentLeft="true"
-            android:layout_marginLeft="15dp"
-            android:src="@drawable/noimage" />
+            android:text="کارهای کشاورزی"
+            android:textSize="17dp" />
+
+
 
     </RelativeLayout>
     <RelativeLayout
@@ -234,16 +202,12 @@
             android:layout_alignParentRight="true"
             android:layout_marginRight="20dp"
             android:src="@drawable/noimage"
+            android:textColor="@color/grey_60"
 
             android:text="متفرقه"
-            android:textSize="18dp" />
+            android:textSize="17dp" />
 
-        <ImageView
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:layout_alignParentLeft="true"
-            android:layout_marginLeft="15dp"
-            android:src="@drawable/noimage" />
+
 
     </RelativeLayout>
 

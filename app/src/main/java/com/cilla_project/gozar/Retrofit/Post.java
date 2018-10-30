@@ -43,7 +43,7 @@ public class Post {
             @Override
             public void onFailure(Call<ArrayList<JobItemsList>> call, Throwable t) {
                 answerPosts.SendError(t);
-                Log.e("getPosts:", t.getMessage());
+//                Log.e("getPosts:", t.getMessage());
             }
         });
     }

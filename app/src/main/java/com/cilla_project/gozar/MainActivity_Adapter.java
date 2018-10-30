@@ -62,13 +62,10 @@ public class MainActivity_Adapter extends RecyclerView.Adapter<RecyclerView.View
                     intent.putExtra("id", heros.id);
                     intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                     G.Context.startActivity(intent);
-
-                }
+                    }
 
             });
-
-
-        } else {
+            } else {
             ((ProgressViewHolder) holder).progressBar.setIndeterminate(true);
         }
     }

@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".Activity_MyAd">
-    <include layout="@layout/toolbar5"/>
+    <include layout="@layout/toolbar4"/>
 
     <android.support.v4.widget.SwipeRefreshLayout
         android:id="@+id/swipe_refresh_layout"

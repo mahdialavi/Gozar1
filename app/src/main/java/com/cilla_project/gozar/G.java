@@ -3,6 +3,7 @@ package com.cilla_project.gozar;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.Application;
+import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.AssetManager;
@@ -15,6 +16,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.DisplayMetrics;
 import android.view.Display;
 import android.view.LayoutInflater;
+import android.view.Window;
 
 
 import com.cilla_project.gozar.DataBase.DB;
@@ -32,14 +34,17 @@ public class G extends Application {
     public static Context Context;
     public static LayoutInflater INFLATER;
     public static SQLiteDatabase DB;
-//    public static ArrayList<ItemsList> itemsArraylist;
+    public static Dialog custom_P_Dialog;
+
+    //    public static ArrayList<ItemsList> itemsArraylist;
     public static Typeface FONT_BOLD;
     public static Typeface FONT_NORMAL;
     public static String direction = Environment.getExternalStorageDirectory().getAbsolutePath() + "/herbal_meds";
     public static Handler hanler;
     public static int PRODUCT_PER_REQUEST = 16;
 
-    public static final String IMAGE_URL="http://192.168.1.101/gozar";
+//    public static final String IMAGE_URL="http://192.168.1.102/gozar";
+    public static final String IMAGE_URL="http://hendiabootik.com/test";
 
     @SuppressLint("CommitPrefEdits")
     @Override
@@ -102,5 +107,17 @@ public class G extends Application {
     }
     public static int getColorCompact(int colorId) {
         return ContextCompat.getColor(Context, colorId);
+    }
+    public static void show_P_Dialog(Context context, Boolean cancelable, Boolean outcancel) {
+        custom_P_Dialog = new Dialog(context);
+        custom_P_Dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        custom_P_Dialog.setContentView(R.layout.prograss_bar_dialog);
+        custom_P_Dialog.setCancelable(cancelable);
+        custom_P_Dialog.setCanceledOnTouchOutside(outcancel);
+        custom_P_Dialog.show();
+
+    }
+    public static void dismiss_P_Dialog() {
+        custom_P_Dialog.dismiss();
     }
 }

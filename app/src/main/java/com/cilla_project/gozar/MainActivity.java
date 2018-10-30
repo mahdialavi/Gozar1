@@ -3,6 +3,7 @@ package com.cilla_project.gozar;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.database.sqlite.SQLiteDatabase;
+import android.graphics.Color;
 import android.os.Handler;
 import android.preference.PreferenceManager;
 import android.support.annotation.NonNull;
@@ -54,17 +55,10 @@ public class MainActivity extends ActivityEnhanced {
 
         parent_view = findViewById(android.R.id.content);
         swipe_refresh = findViewById(R.id.swipe_refresh_layout);
+        swipe_refresh.setColorSchemeColors(Color.BLUE, Color.YELLOW, Color.BLUE);
         navigation = (BottomNavigationView) findViewById(R.id.bottomnavigation);
 
-        findViewById(R.id.imgsearch).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(G.Context, ActivitySearch.class);
-                startActivity(intent);
-                clearItemadaptorArr();
-                finish();
-            }
-        });
+
         txtcatname = findViewById(R.id.txttoolcatename);
         rvItems = findViewById(R.id.rvItems);
         itemsAdapter = new MainActivity_Adapter(G.Context, rvItems);
@@ -97,7 +91,15 @@ public class MainActivity extends ActivityEnhanced {
 
         }
         requestAction(command, 1, citycode, catid);
-
+        findViewById(R.id.imgsearch).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(G.Context, ActivitySearch.class);
+                startActivity(intent);
+                clearItemadaptorArr();
+                finish();
+            }
+        });
         swipe_refresh.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {

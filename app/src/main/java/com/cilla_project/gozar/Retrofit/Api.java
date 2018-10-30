@@ -4,11 +4,15 @@ import com.cilla_project.gozar.JobItemsList;
 
 import java.util.ArrayList;
 
+import okhttp3.MultipartBody;
+import okhttp3.RequestBody;
 import retrofit2.Call;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
+import retrofit2.http.Multipart;
 import retrofit2.http.POST;
+import retrofit2.http.Part;
 import retrofit2.http.Query;
 
 public interface Api {
@@ -49,6 +53,23 @@ public interface Api {
             @Field("mobile") String mobile,
             @Field("address") String address,
             @Field("tozih") String tozih
+
+    );
+
+    @Multipart
+    @POST("upload.php")
+    Call<ItemsListUpload> uploadfile(
+            @Part("userid") RequestBody userid,
+            @Part("catid") RequestBody catid,
+            @Part("citycode") RequestBody citycode,
+            @Part("code") RequestBody code,
+            @Part("title") RequestBody title,
+            @Part("mobile") RequestBody mobile,
+            @Part("tozih") RequestBody tozih,
+            @Part("address") RequestBody address,
+            @Part MultipartBody.Part file1,
+            @Part MultipartBody.Part file2,
+            @Part MultipartBody.Part file3
 
     );
     @FormUrlEncoded

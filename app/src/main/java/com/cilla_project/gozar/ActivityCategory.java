@@ -35,7 +35,6 @@ public class ActivityCategory extends ActivityEnhanced {
     String catname = "";
     int citycode=1;
     public int catid=0;
-    DrawerLayout drawerLayout;
     BottomNavigationView navigation;
 
     ImageView imgadd;
@@ -47,20 +46,13 @@ public class ActivityCategory extends ActivityEnhanced {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_drawer);
+        setContentView(R.layout.activity_category);
 
         swipe_refresh = findViewById(R.id.swipe_refresh_layout);
         txtmyad = findViewById(R.id.txtmyad);
         navigation = (BottomNavigationView) findViewById(R.id.bottomnavigation);
 
-        findViewById(R.id.linearbookmark).setOnClickListener(new View.OnClickListener() {
-              @Override
-              public void onClick(View view) {
-                  G.startActivity(ActivityBookmark.class);
 
-
-              }
-          });
 
 //        drawerLayout =  findViewById(R.id.activity_category);
 
@@ -82,47 +74,47 @@ public class ActivityCategory extends ActivityEnhanced {
 
 
 
-        findViewById(R.id.linearsetting).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
+//        findViewById(R.id.linearsetting).setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//
+//
+//                G.startActivity(Activity_register.class,true);
+//
+//            }
+//        });
+//        findViewById(R.id.imgadd).setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Intent intent = new Intent(G.Context,ActivityInsert.class);
+//                startActivity(intent);
+//                clearItemadaptorArr();
+//                finish();
+//            }
+////        });
+//        findViewById(R.id.txtmyad).setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//
+////                if (!userEmail.equals("")) {
+//                    G.startActivity(Activity_MyAd.class, true);
+////                    Activity_MyAd.activitydestination = "ActivityCheckAd";
+////                } else {
+//
+////                    Toast.makeText(G.Context, "لطفا وارد حساب کاربری شوید!", Toast.LENGTH_LONG).show();
+//
+//            }
+//        });
 
 
-                G.startActivity(Activity_register.class,true);
 
-            }
-        });
-        findViewById(R.id.imgadd).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(G.Context,ActivityInsert.class);
-                startActivity(intent);
-                clearItemadaptorArr();
-                finish();
-            }
-        });
-        findViewById(R.id.txtmyad).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-//                if (!userEmail.equals("")) {
-                    G.startActivity(Activity_MyAd.class, true);
-//                    Activity_MyAd.activitydestination = "ActivityCheckAd";
-//                } else {
-
-//                    Toast.makeText(G.Context, "لطفا وارد حساب کاربری شوید!", Toast.LENGTH_LONG).show();
-
-            }
-        });
-
-
-
-        drawerLayout = (DrawerLayout) findViewById(R.id.drawer);
-        findViewById(R.id.imgdrawer).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                drawerLayout.openDrawer(Gravity.RIGHT);
-            }
-        });
+//        drawerLayout = (DrawerLayout) findViewById(R.id.drawer);
+//        findViewById(R.id.imgdrawer).setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                drawerLayout.openDrawer(Gravity.RIGHT);
+//            }
+//        });
         txtcatname = findViewById(R.id.txttoolcatename);
         rvItems = findViewById(R.id.rvCats);
         itemsAdapter = new JobAdapter(G.Context,rvItems);
@@ -130,13 +122,7 @@ public class ActivityCategory extends ActivityEnhanced {
         rvItems.setLayoutManager(manager);
         rvItems.setHasFixedSize(true);
         rvItems.setAdapter(itemsAdapter);
-
-//        Bundle bundle = getIntent().getExtras();
-//        if (bundle != null) {
-//
-//            catname = bundle.getString("catname");
-//            txtcatname.setText(catname);
-//        }
+        txtcatname.setText("دسته بندی ها");
 
         requestAction("category",citycode,catid);
 

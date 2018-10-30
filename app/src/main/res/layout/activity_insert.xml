@@ -59,36 +59,159 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
 
-                    android:layoutDirection="ltr"
+                    android:layoutDirection="rtl"
                     android:orientation="horizontal"
 
-                    android:padding="10dp">
+                    android:padding="5dp">
 
-                    <RelativeLayout
-                        android:layout_width="100dp"
-                        android:layout_height="100dp">
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layoutDirection="rtl"
+                            android:orientation="horizontal"
+                            android:padding="5dp">
+
+                            <RelativeLayout
+                                android:id="@+id/linearimg1"
+                                android:layout_width="100dp"
+                                android:layout_height="100dp"
+                                android:visibility="gone">
+
+                                <ImageView
+                                    android:id="@+id/imgselect1"
+                                    android:layout_width="100dp"
+                                    android:layout_height="100dp"
+                                    android:background="@drawable/border" />
+
+                                <ImageView
+                                    android:id="@+id/del_img_logo"
+                                    android:layout_width="30dp"
+                                    android:layout_height="30dp"
+                                    android:layout_marginLeft="3dp"
+                                    android:layout_marginTop="5dp"
+                                    android:padding="3dp"
+                                    android:src="@drawable/ic_action_navigation_close_dark" />
+
+                                <com.cilla_project.gozar.CustomControl.CustomTextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_alignParentBottom="true"
+                                    android:text="تصویر اصلی"
+                                    android:textAlignment="center"
+                                    android:textColor="@color/grey_90"
+                                    android:textSize="16dp" />
+                            </RelativeLayout>
+
+                            <RelativeLayout
+                                android:id="@+id/linearimg2"
+                                android:layout_width="100dp"
+                                android:layout_height="100dp"
+                                android:layout_marginRight="5dp"
+                                android:visibility="gone">
+
+                                <ImageView
+                                    android:id="@+id/imgselect2"
+                                    android:layout_width="100dp"
+                                    android:layout_height="100dp"
+                                    android:background="@drawable/border" />
+
+                                <ImageView
+                                    android:id="@+id/del_img_logo2"
+                                    android:layout_width="30dp"
+                                    android:layout_height="30dp"
+                                    android:layout_marginLeft="3dp"
+                                    android:layout_marginTop="5dp"
+                                    android:padding="3dp"
+                                    android:src="@drawable/ic_action_navigation_close_dark"
+
+                                    />
+                            </RelativeLayout>
+
+                            <RelativeLayout
+                                android:id="@+id/linearimg3"
+                                android:layout_width="100dp"
+                                android:layout_height="100dp"
+                                android:layout_marginRight="5dp"
+                                android:visibility="gone">
 
 
-                        <ImageView
-                            android:id="@+id/imgselect1"
-                            android:layout_width="150dp"
-                            android:layout_height="150dp"
-                            android:background="@drawable/border"
-                            android:src="@drawable/noimage" />
+                                <ImageView
+                                    android:id="@+id/imgselect3"
+                                    android:layout_width="100dp"
+                                    android:layout_height="100dp"
+                                    android:background="@drawable/border" />
 
-                        <ImageView
-                            android:id="@+id/del_img_logo"
-                            android:layout_width="30dp"
-                            android:layout_height="30dp"
-                            android:layout_marginLeft="3dp"
-                            android:layout_marginTop="5dp"
-                            android:padding="3dp"
-                            android:src="@drawable/ic_action_navigation_close_dark"
-                            android:visibility="gone" />
+                                <ImageView
+                                    android:id="@+id/del_img_logo3"
+                                    android:layout_width="30dp"
+                                    android:layout_height="30dp"
+                                    android:layout_marginLeft="3dp"
+                                    android:layout_marginTop="5dp"
+                                    android:padding="3dp"
+                                    android:src="@drawable/ic_action_navigation_close_dark" />
+                            </RelativeLayout>
+
+                            <RelativeLayout
+                                android:id="@+id/linearimg4"
+                                android:layout_width="100dp"
+                                android:layout_height="100dp"
+                                android:layout_marginRight="5dp"
+                                android:visibility="gone">
 
 
-                    </RelativeLayout>
+                                <ImageView
+                                    android:id="@+id/imgselect4"
+                                    android:layout_width="100dp"
+                                    android:layout_height="100dp"
+                                    android:background="@drawable/border" />
 
+                                <ImageView
+                                    android:id="@+id/del_img_logo4"
+                                    android:layout_width="30dp"
+                                    android:layout_height="30dp"
+                                    android:layout_marginLeft="3dp"
+                                    android:layout_marginTop="5dp"
+                                    android:padding="3dp"
+                                    android:src="@drawable/ic_action_navigation_close_dark" />
+                            </RelativeLayout>
+
+                            <RelativeLayout
+                                android:id="@+id/linearimg5"
+                                android:layout_width="100dp"
+                                android:layout_height="100dp"
+                                android:layout_marginRight="5dp"
+                                android:visibility="gone">
+
+                                <ImageView
+                                    android:id="@+id/imgselect5"
+                                    android:layout_width="100dp"
+                                    android:layout_height="100dp"
+                                    android:background="@drawable/border" />
+
+                                <ImageView
+                                    android:id="@+id/del_img_logo5"
+                                    android:layout_width="30dp"
+                                    android:layout_height="30dp"
+                                    android:layout_marginLeft="3dp"
+                                    android:layout_marginTop="5dp"
+                                    android:padding="3dp"
+                                    android:src="@drawable/ic_action_navigation_close_dark" />
+                            </RelativeLayout>
+
+                            <RelativeLayout
+                                android:id="@+id/linearimgselect"
+                                android:layout_width="100dp"
+                                android:layout_height="100dp"
+                                >
+
+                                <ImageView
+                                    android:id="@+id/imgselect"
+                                    android:layout_width="100dp"
+                                    android:layout_height="100dp"
+                                    android:background="@drawable/border"
+                                    android:src="@drawable/noimage" />
+                            </RelativeLayout>
+                        </LinearLayout>
 
                 </LinearLayout>
 

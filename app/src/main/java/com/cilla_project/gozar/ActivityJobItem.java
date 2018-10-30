@@ -1,7 +1,9 @@
 package com.cilla_project.gozar;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
+import android.graphics.Color;
 import android.os.Handler;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.os.Bundle;
@@ -33,12 +35,14 @@ public class ActivityJobItem extends ActivityEnhanced {
     private View parent_view;
     private String command = "jobcatitem";
     CustomTextView txtcatname;
+    @SuppressLint("ResourceAsColor")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_job_item);
         parent_view = findViewById(android.R.id.content);
         swipe_refresh = findViewById(R.id.swipe_refresh_layout);
+        swipe_refresh.setColorSchemeColors(Color.BLUE, Color.YELLOW, Color.BLUE);
 
         findViewById(R.id.imgsearch).setOnClickListener(new View.OnClickListener() {
             @Override

@@ -61,7 +61,6 @@
                         android:id="@+id/viewpager"
                         android:layout_width="match_parent"
                         android:layout_height="240dp"
-                        android:background="@drawable/noimage"
                         android:fitsSystemWindows="true" />
 
                     <View
@@ -77,7 +76,6 @@
                     android:layout_width="match_parent"
                     android:layout_height="30dp"
                     android:layout_gravity="center"
-                    app:ci_drawable="@drawable/circlecolor"
                     app:ci_height="7dp"
                     app:ci_width="7dp" />
 
@@ -87,9 +85,9 @@
                     android:layout_height="match_parent"
                     android:layout_marginTop="15dp"
                     android:orientation="horizontal"
-
                     android:paddingLeft="10dp"
-                    android:paddingRight="20dp">
+                    android:paddingRight="20dp"
+                    >
 
                     <com.cilla_project.gozar.CustomControl.CustomTextView
                         android:id="@+id/txtname"
@@ -107,6 +105,7 @@
                     android:layout_width="wrap_content"
                     android:text="5 ذقیقه پیش"
                     android:paddingLeft="10dp"
+                    android:id="@+id/txtzaman"
                     android:paddingRight="20dp"
                     android:layout_height="wrap_content" />
                 </LinearLayout>

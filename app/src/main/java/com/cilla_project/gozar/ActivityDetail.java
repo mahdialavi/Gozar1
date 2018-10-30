@@ -26,10 +26,10 @@ import me.relex.circleindicator.CircleIndicator;
 
 public class ActivityDetail extends ActivityEnhanced {
 
-    String name,tamas,image;
+    String name,tamas,image,tarikh;
     int id=0;
     String tozihat="";
-    CustomTextView txttozih,txtname;
+    CustomTextView txttozih,txtname,txtzaman;
     ViewPager viewPager;
     CircleIndicator indicator;
     Timer timer;
@@ -37,7 +37,7 @@ public class ActivityDetail extends ActivityEnhanced {
     private JobItemsList items;
     ImageView imgfav;
     ArrayList<String> buisinessPics;
-    LinearLayout linearwait;
+    LinearLayout linearwait,linearback;
     CustomButton btncontact;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,6 +50,16 @@ public class ActivityDetail extends ActivityEnhanced {
         linearwait =  findViewById(R.id.linearwait);
         linearwait.setVisibility(View.VISIBLE);
         btncontact = findViewById(R.id.btncontact);
+        linearback= findViewById(R.id.linearback);
+        txtzaman = findViewById(R.id.txtzaman);
+
+        linearback.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                onBackPressed();
+            }
+        });
+
 
 
         findViewById(R.id.btncontact).setOnClickListener(new View.OnClickListener() {
@@ -113,6 +123,7 @@ public class ActivityDetail extends ActivityEnhanced {
                         name=answer.get(0).name;
                         tamas=answer.get(0).tamas;
                         tozihat=answer.get(0).tozihat;
+                        tarikh=answer.get(0).tarikh;
 
                         buisinessPics = answer.get(i).buisinesPics;
                         if (buisinessPics == null || buisinessPics.equals("")) {
@@ -140,14 +151,14 @@ public class ActivityDetail extends ActivityEnhanced {
         // we save into local database
         if (Persons.exists(id)) {
             Persons.delete(id);
-            imgfav.setImageResource(R.drawable.ic_action_action_bookmark_outline);
+            imgfav.setImageResource(R.drawable.imgfav);
             Toast.makeText(this, "deleted", Toast.LENGTH_SHORT).show();
         } else {
             items.id = id;
             items.name=name;
             items.image=image;
             Persons.insert(items);
-            imgfav.setImageResource(R.drawable.ic_action_action_bookmark);
+            imgfav.setImageResource(R.drawable.imgfav2);
             Toast.makeText(G.Context,"inserted", Toast.LENGTH_LONG).show();
         }
     }
@@ -155,6 +166,7 @@ public class ActivityDetail extends ActivityEnhanced {
 
         txtname.setText(name);
         txttozih.setText(tozihat);
+        txtzaman.setText(tarikh);
 
         if (tamas != null) {
             items.tamas=tamas;
@@ -210,13 +222,13 @@ public class ActivityDetail extends ActivityEnhanced {
         super.onStart();
         Log.i("onstart", "onstart_happend");
         if (Persons.exists(id)) {
-            imgfav.setImageResource(R.drawable.ic_action_action_bookmark);
+            imgfav.setImageResource(R.drawable.imgfav2);
             Toast.makeText(this, "exists", Toast.LENGTH_SHORT).show();
 
         } else {
             Toast.makeText(this, "not exists", Toast.LENGTH_SHORT).show();
 
-            imgfav.setImageResource(R.drawable.ic_action_action_bookmark_outline);
+            imgfav.setImageResource(R.drawable.imgfav);
         }
     }
 }

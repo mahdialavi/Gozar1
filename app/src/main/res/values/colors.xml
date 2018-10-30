@@ -10,14 +10,14 @@
     <color name="grey_60">#666666</color>
     <color name="grey_80">#37474F</color>
     <color name="grey_90">#263238</color>
-    <color name="colorNormal">#9b0000</color>
-    <color name="colorAccent">#c21b1b</color>
+    <color name="colorNormal">#ff872b</color>
+    <color name="colorAccent">#ff872b</color>
 
-    <color name="colorToolbar">#79C753</color>
+    <color name="colorToolbar">#87c753</color>
     <color name="colorPrimary">#ff872b</color>
     <color name="colorback">#e9eef1</color>
     <color name="dialogcatcolor">#f2ffed</color>
-    <color name="colorPrimaryDark">#f2ffed</color>
+    <color name="colorPrimaryDark">#a8df55</color>
 
 
     <color name="titlecolor">#515151</color>

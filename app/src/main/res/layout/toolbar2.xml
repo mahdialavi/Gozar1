@@ -13,6 +13,18 @@
                 android:orientation="horizontal"
                 android:layout_height="?actionBarSize">
             <LinearLayout
+                android:layout_width="47dp"
+                android:gravity="center"
+                android:id="@+id/linearback"
+                android:layout_height="match_parent">
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_marginLeft="5dp"
+                    android:background="@drawable/back"
+                    android:layout_height="30dp" />
+
+            </LinearLayout>
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="?actionBarSize">
                 <com.cilla_project.gozar.CustomControl.CustomTextView
@@ -25,12 +37,29 @@
                     android:layout_height="wrap_content" />
 
             </LinearLayout>
+
             <ImageView
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:layout_height="?actionBarSize" />
 
+            <LinearLayout
+                android:layout_width="47dp"
+                android:gravity="center"
+                android:padding="10dp"
+                android:id="@+id/linearfav"
+                android:layout_height="match_parent">
 
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:id="@+id/imgfav"
+                    android:padding="3dp"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/imgfav"
+                    />
+
+
+            </LinearLayout>
             <LinearLayout
                 android:layout_width="50dp"
                 android:id="@+id/linearshare"
@@ -42,35 +71,8 @@
                     android:background="@drawable/share"
                     android:layout_height="30dp" />
             </LinearLayout>
-            <LinearLayout
-                android:layout_width="47dp"
-                android:gravity="center"
-                android:padding="10dp"
-                android:id="@+id/linearfav"
-                android:layout_height="match_parent">
-
-                <ImageView
-                    android:layout_width="match_parent"
-                    android:id="@+id/imgfav"
-                    android:layout_height="match_parent"
-                    android:src="@drawable/ic_action_action_bookmark_outline"
-                    />
 
 
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="47dp"
-                android:gravity="center"
-                android:id="@+id/linearback"
-                android:layout_height="?actionBarSize">
-                <ImageView
-                    android:layout_width="30dp"
-                    android:layout_marginTop="5dp"
-                    android:layout_marginLeft="5dp"
-                    android:background="@drawable/back"
-                    android:layout_height="30dp" />
-
-            </LinearLayout>
 
         </LinearLayout>
 

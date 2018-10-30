@@ -1,73 +1,73 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
     android:layoutDirection="rtl"
     android:orientation="vertical"
     android:padding="20dp">
 
     <com.cilla_project.gozar.CustomControl.CustomTextView
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="انتخاب عکس"
-        android:textColor="#ba2424"
+        android:text="انتخاب عکس:"
+        android:textColor="#01be24"
         android:textSize="18dp"
-
         />
 
     <LinearLayout
-        android:id="@+id/linearcam"
         android:layout_width="match_parent"
+        android:layout_marginTop="10dp"
+        android:layout_height="wrap_content"
+        android:baselineAligned="false">
+    <LinearLayout
+        android:id="@+id/linearcam"
+        android:layout_width="0dp"
+        android:layout_weight="0.5"
         android:layout_height="wrap_content"
         android:layout_marginRight="5dp"
+        android:gravity="center_horizontal"
         android:layout_marginTop="16dp"
         android:orientation="horizontal">
 
-        <ImageView
-            android:layout_width="30dp"
-            android:layout_height="25dp"
-
- />
-
-        <com.cilla_project.gozar.CustomControl.CustomTextView
+        <com.cilla_project.gozar.CustomControl.CustomButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:id="@+id/btncam"
+            android:gravity="center_horizontal"
+            android:clickable="true"
             android:layout_gravity="center_vertical"
             android:layout_marginRight="10dp"
             android:text="دوربین"
             android:textColor="@color/grey_60"
-            android:textSize="17dp"
+            android:textSize="16dp"
 
             />
     </LinearLayout>
 
     <LinearLayout
         android:id="@+id/lineargal"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
+        android:layout_weight="0.5"
         android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
         android:layout_marginRight="5dp"
         android:layout_marginTop="16dp"
         android:orientation="horizontal">
-
-        <ImageView
-            android:layout_width="30dp"
-            android:layout_height="25dp"
-
-            />
-
-
-        <com.cilla_project.gozar.CustomControl.CustomTextView
-            android:id="@+id/txtgallery"
+        <com.cilla_project.gozar.CustomControl.CustomButton
+            android:id="@+id/btngal"
             android:layout_width="wrap_content"
+            android:clickable="true"
             android:layout_height="wrap_content"
+
             android:layout_gravity="center_vertical"
+            android:gravity="center_horizontal"
             android:layout_marginRight="10dp"
-            android:text="انتخاب از گالری"
+            android:text="گالری"
             android:textColor="@color/grey_60"
-            android:textSize="17dp"
+            android:textSize="16dp"
 
             />
     </LinearLayout>
-
+    </LinearLayout>
 
 </LinearLayout>

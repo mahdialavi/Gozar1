@@ -16,11 +16,23 @@ public class DB extends SQLiteOpenHelper {
         TABLE_SCHEMA.add("CREATE  TABLE  IF NOT EXISTS \"persons\" (" +
                 "\"id\" INTEGER PRIMARY KEY  AUTOINCREMENT  NOT NULL , " +
                 "\"itemname\" VARCHAR, " +
-                "\"imglogo\" VARCHAR, " +
+                "\"imglogo\" VARCHAR " +
 
                 ")");
     }
-
+//    public DB2() {
+//        super(G.Context, DB_NAME, null, DB_VERSION);
+//        TABLE_SCHEMA.add("CREATE  TABLE  IF NOT EXISTS \"persons\" (" +
+//                "\"id\" INTEGER PRIMARY KEY  AUTOINCREMENT  NOT NULL , " +
+//                "\"itemname\" VARCHAR, " +
+//                "\"telephone\" VARCHAR, " +
+//                "\"website\" VARCHAR, " +
+//                "\"imglogo\" VARCHAR, " +
+//                "\"email\" VARCHAR, " +
+//                "\"area\" VARCHAR, " +
+//                "\"address\" VARCHAR" +
+//                ")");
+//    }
     @Override
     public void onCreate(SQLiteDatabase db) {
         create(db);
@@ -48,6 +60,10 @@ public class DB extends SQLiteOpenHelper {
     }
 
     private void drop(SQLiteDatabase db) {
-        db.execSQL("DROP TABLE IF EXISTS \"persons\"");
+//        db.execSQL("DROP TABLE IF EXISTS \"persons\"");
     }
+
+//    private void drop(SQLiteDatabase db) {
+//        db.execSQL("DROP TABLE IF EXISTS \"persons\"");
+//    }
 }

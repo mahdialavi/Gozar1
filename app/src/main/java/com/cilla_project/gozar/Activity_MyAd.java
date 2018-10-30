@@ -49,25 +49,15 @@ public class Activity_MyAd extends AppCompatActivity {
         swipe_refresh = findViewById(R.id.swipe_refresh_layout);
 
         userId = sharedPreferences.getInt("userId", 0);
-        Toast.makeText(this, userId+"", Toast.LENGTH_SHORT).show();
-//        findViewById(R.id.linearback).setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                onBackPressed();
-//            }
-//        });
 
-//        Toast.makeText(G.Context,userId+"",Toast.LENGTH_LONG).show();
-//        findViewById(R.id.imgsearch).setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Intent intent = new Intent(G.Context, ActivitySearch.class);
-//                startActivity(intent);
-//                clearItemadaptorArr();
-//                finish();
-//                ActivitySearch.command="karyabisearch";
-//            }
-//        });
+        Toast.makeText(this, userId+"", Toast.LENGTH_SHORT).show();
+        findViewById(R.id.linearback).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                onBackPressed();
+            }
+        });
+
         txtcatname = findViewById(R.id.txttoolcatename);
         rvItems = findViewById(R.id.rvItems);
         myAdAdaptor = new MyAdAdaptor(Activity_MyAd.this, rvItems);
@@ -75,11 +65,7 @@ public class Activity_MyAd extends AppCompatActivity {
         rvItems.setLayoutManager(manager);
         rvItems.setHasFixedSize(true);
         rvItems.setAdapter(myAdAdaptor);
-
-//        Bundle bundle = getIntent().getExtras();
-//        catname = bundle.getString("catname");
-//        txtcatname.setText(catname);
-
+        txtcatname.setText("اعلان های من");
         swipe_refresh.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {

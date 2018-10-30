@@ -10,7 +10,7 @@
     tools:context=".ActivityCategory">
 
 
-    <include layout="@layout/toolbar"/>
+    <include layout="@layout/toolbar3"/>
     <android.support.v4.widget.SwipeRefreshLayout
         android:id="@+id/swipe_refresh_layout"
         android:layout_width="match_parent"
