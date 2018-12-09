@@ -90,9 +90,10 @@ public class Activity_my_silla extends ActivityEnhanced {
 
             String mobile = sharedPreferences.getString(ActivityInsert.spmobile, "");
             btnexit.setText("خروج");
-
             txtmatn.setText("کاربر گرامی شما با شماره " + mobile + "وارد سیلا شده اید.");
             Toast.makeText(this, "userid not null", Toast.LENGTH_SHORT).show();
+
+
         } else {
             Toast.makeText(this, "userid null", Toast.LENGTH_SHORT).show();
 
@@ -100,13 +101,13 @@ public class Activity_my_silla extends ActivityEnhanced {
         btnexit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
                 if (userId > 0) {
                     editor.remove("userId");
                     editor.apply();
-
                     txtmatn.setText("برای استفاده از برنامه سیلا وارد حساب کاربری خود شوید.");
                     btnexit.setText("ورود");
+                    G.startActivity(MainActivity.class,true);
+
                 } else {
                     G.startActivity(Activity_register.class, true);
                 }

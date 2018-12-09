@@ -108,16 +108,17 @@ public class G extends Application {
     public static int getColorCompact(int colorId) {
         return ContextCompat.getColor(Context, colorId);
     }
-    public static void show_P_Dialog(Context context, Boolean cancelable, Boolean outcancel) {
+
+    public static void show_progress_dialog(Context context, Boolean cancelable, Boolean outcancel) {
+
         custom_P_Dialog = new Dialog(context);
         custom_P_Dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
         custom_P_Dialog.setContentView(R.layout.prograss_bar_dialog);
         custom_P_Dialog.setCancelable(cancelable);
         custom_P_Dialog.setCanceledOnTouchOutside(outcancel);
         custom_P_Dialog.show();
-
     }
-    public static void dismiss_P_Dialog() {
+        public static void dismiss_P_Dialog() {
         custom_P_Dialog.dismiss();
     }
 }

@@ -41,6 +41,7 @@ import android.widget.Toast;
 import com.bumptech.glide.Glide;
 import com.cilla_project.gozar.CustomControl.CustomButton;
 import com.cilla_project.gozar.Retrofit.Api;
+import com.cilla_project.gozar.Retrofit.ItemsListResponse;
 import com.cilla_project.gozar.Retrofit.ItemsListUpload;
 import com.cilla_project.gozar.Retrofit.Post;
 import com.cilla_project.gozar.Retrofit.ServiceGenerator;
@@ -73,9 +74,10 @@ public class ActivityInsert extends ActivityEnhanced {
     int userId = 0;
     int id=0;
     private static CropConfig config = new CropConfig();
-    RequestBody requestBody1 = null, requestBody2 = null, requestBody3 = null,R_title=null,R_city_code=null,R_userid=null,R_mobile=null,R_code=null,R_address=null,R_catid=null,R_tozih=null;
-    MultipartBody.Part fileToUpload1 = null, fileToUpload2 = null, fileToUpload3 = null;
+    RequestBody R_title=null,R_city_code=null,R_userid=null,R_mobile=null,R_code=null,R_address=null,R_catid=null,R_tozih=null;
 
+    RequestBody requestBody1 = null, requestBody2 = null, requestBody3 = null;
+    MultipartBody.Part fileToUpload1=null;
 
     ImageView imgselect1,imgselect2,imgselect3,imgselect, img_delete_logo, img_delete_logo2, img_delete_logo3;
     CustomButton btncategory,btncam,btngal;
@@ -93,7 +95,7 @@ public class ActivityInsert extends ActivityEnhanced {
     File photoFile = null;
     Uri uri = null, picUri = null;
     private String imageFilePath = "";
-    File file1 = null, file2 = null, file3 = null, file4 = null, file5 = null;
+    File file1 = null, file2 = null, file3 = null;
 
 
 //    Dialog show_P_Dialog;
@@ -225,7 +227,7 @@ public class ActivityInsert extends ActivityEnhanced {
                 imglogo2 = "";
                 file2 = null;
                 requestBody2 = null;
-                fileToUpload2 = null;
+//                fileToUpload2 = null;
                 visibilityImgSelect();
 
             }
@@ -241,7 +243,7 @@ public class ActivityInsert extends ActivityEnhanced {
 
                 file3 = null;
                 requestBody3 = null;
-                fileToUpload3 = null;
+//                fileToUpload3 = null;
 
 
             }
@@ -250,6 +252,13 @@ public class ActivityInsert extends ActivityEnhanced {
             @Override
             public void onClick(View view) {
                 onBackPressed();
+            }
+        });
+
+        imgselect1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                selectImageFrom();
             }
         });
         imgselect.setOnClickListener(new View.OnClickListener() {
@@ -267,15 +276,15 @@ public class ActivityInsert extends ActivityEnhanced {
                         int userId = sharedPreferences.getInt("userId", 0);
 
                         //                    insert
-                        if (userId > 0) {
+//                        if (userId > 0) {
                             uploadtoserver(id,catid,userId,1,citycode );
 
-                        }
-                        else {
-                            Intent intent = new Intent(G.Context, Activity_register.class);
-                            startActivity(intent);
-                            finish();
-                        }
+//                        }
+//                        else {
+//                            Intent intent = new Intent(G.Context, Activity_register.class);
+//                            startActivity(intent);
+//                            finish();
+//                        }
                     }
                 } else {
                     Toast.makeText(ActivityInsert.this, "دستگاه به اینترنت متصل نیست", Toast.LENGTH_SHORT).show();
@@ -556,7 +565,7 @@ public class ActivityInsert extends ActivityEnhanced {
     private void setImagebitmap(String comp_img_path) {
 
         if (linearimg1.getVisibility() == View.GONE) {
-//            Toast.makeText(this, "img1", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "img1", Toast.LENGTH_SHORT).show();
             linearimg1.setVisibility(View.VISIBLE);
             Glide.with(this).load(bitmap)
                     .into(imgselect1);
@@ -655,37 +664,36 @@ public class ActivityInsert extends ActivityEnhanced {
     }
 
     private void uploadtoserver(int id, final int catid , final int userid, final int code, int citycode) {
-        G.show_P_Dialog(ActivityInsert.this, false, false);
+//        G.show_P_Dialog(ActivityInsert.this, false, false);
+
+//        fileToUpload1 = MultipartBody.Part.createFormData("file1", file1.getName(), requestBody1);
 
         if (!imglogo.equals("")) {
             file1 = new File(imglogo);
             requestBody1 = RequestBody.create(MediaType.parse("*/*"), file1);
-            Log.i("mahdi 11", imglogo);
 
             fileToUpload1 = MultipartBody.Part.createFormData("file1", file1.getName(), requestBody1);
-        } else {
-            Log.i("mahdi 11", imglogo);
-
+            Log.i("mahdi 11", String.valueOf(requestBody1));
         }
-        if (!imglogo2.equals("")) {
-            Log.i("mahdi 12", imglogo2);
-
-            file2 = new File(imglogo2);
-            requestBody2 = RequestBody.create(MediaType.parse("*/*"), file2);
-            fileToUpload2 = MultipartBody.Part.createFormData("file2", file2.getName(), requestBody2);
-        } else {
-            Log.i("mahdi 2", imglogo2);
-        }
-        if (!imglogo3.equals("")) {
-            Log.i("mahdi 13", imglogo3);
-
-            file3 = new File(imglogo3);
-            requestBody3 = RequestBody.create(MediaType.parse("*/*"), file3);
-            fileToUpload3 = MultipartBody.Part.createFormData("file3", file3.getName(), requestBody3);
-        } else {
-            Log.i("mahdi 3", imglogo3);
-        }
-        R_userid = RequestBody.create(MediaType.parse("text/plain"), String.valueOf(userid));
+//        if (!imglogo2.equals("")) {
+//            Log.i("mahdi 12", imglogo2);
+//
+//            file2 = new File(imglogo2);
+//            requestBody2 = RequestBody.create(MediaType.parse("*/*"), file2);
+//            fileToUpload2 = MultipartBody.Part.createFormData("file2", file2.getName(), requestBody2);
+//        } else {
+//            Log.i("mahdi 2", imglogo2);
+//        }
+//        if (!imglogo3.equals("")) {
+//            Log.i("mahdi 13", imglogo3);
+//
+//            file3 = new File(imglogo3);
+//            requestBody3 = RequestBody.create(MediaType.parse("*/*"), file3);
+//            fileToUpload3 = MultipartBody.Part.createFormData("file3", file3.getName(), requestBody3);
+//        } else {
+//            Log.i("mahdi 3", imglogo3);
+//        }
+        R_userid = RequestBody.create(MediaType.parse("text/plain"), String.valueOf(20));
         R_catid= RequestBody.create(MediaType.parse("text/plain"), String.valueOf(catid));
         R_city_code= RequestBody.create(MediaType.parse("text/plain"), String.valueOf(citycode));
         R_code = RequestBody.create(MediaType.parse("text/plain"), String.valueOf(code));
@@ -695,37 +703,17 @@ public class ActivityInsert extends ActivityEnhanced {
         R_address= RequestBody.create(MediaType.parse("text/plain"), address);
 
         Api getResponse = ServiceGenerator.getClient().create(Api.class);
-
-        Call call = getResponse.uploadfile(R_userid,R_catid, R_city_code, R_code,  R_title,R_mobile, R_address, R_tozih, fileToUpload1, fileToUpload2, fileToUpload3);
+        Call call = getResponse.uploadfile(R_userid,R_catid, R_city_code, R_code,  R_title,R_mobile, R_address, R_tozih, fileToUpload1);
         call.enqueue(new Callback<ItemsListUpload>() {
             @Override
-            public void onResponse(@NonNull Call<ItemsListUpload> call, @NonNull Response<ItemsListUpload> response) {
-
-                ItemsListUpload answer = response.body();
-
-                Toast.makeText(G.Context, answer.response + answer.getLastId(), Toast.LENGTH_SHORT).show();
-                assert answer != null;
-                if (answer.response.equals("Image_upload_Successfully")) {
-                    int lastId = answer.getLastId();
-                    intent = new Intent(G.Context, ActivityCheckAd.class);
-                    intent.putExtra("lastid", lastId);
-                    intent.putExtra("catid", catid);
-                    intent.putExtra("catname", sharedPreferences.getString(spcatname, ""));
-                    startActivity(intent);
-                    Toast.makeText(G.Context, "اعلان با موفقیت ثبت گردید", Toast.LENGTH_SHORT).show();
-                    //                clearInputs();
-                    finish();
-                    Activity_MyAd.activitydestination = "ActivityCheckAd";
-                } else if (answer.response.equals("Image_upload_Failed")) {
-                    Toast.makeText(G.Context, "ثبت اعلان با مشکل مواجه گردید", Toast.LENGTH_SHORT).show();
+            public void onResponse(Call<ItemsListUpload> call, Response<ItemsListUpload> response) {
+                ItemsListUpload answer=response.body();
+                Toast.makeText(ActivityInsert.this,answer.getResponse() , Toast.LENGTH_SHORT).show();
                 }
-                G.dismiss_P_Dialog();
-
-            }
 
             @Override
             public void onFailure(@NonNull Call<ItemsListUpload> call, @NonNull Throwable t) {
-                G.dismiss_P_Dialog();
+//                G.dismiss_P_Dialog();
                 Toast.makeText(G.Context, "اتصال دستگاه به سرور با مشکل مواجه گردید", Toast.LENGTH_SHORT).show();
             }
         });

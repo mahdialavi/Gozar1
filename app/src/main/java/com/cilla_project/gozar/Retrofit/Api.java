@@ -56,8 +56,26 @@ public interface Api {
 
     );
 
+//    @Multipart
+//    @POST("upload_file.php")
+//    Call<ItemsListUpload> uploadfile(
+//            @Part("userid") RequestBody userid,
+//            @Part("catid") RequestBody catid,
+//            @Part("citycode") RequestBody citycode,
+//            @Part("code") RequestBody code,
+//            @Part("title") RequestBody title,
+//            @Part("mobile") RequestBody mobile,
+//            @Part("tozih") RequestBody tozih,
+//            @Part("address") RequestBody address,
+//
+//            @Part MultipartBody.Part file1,
+//            @Part MultipartBody.Part file2,
+//            @Part MultipartBody.Part file3
+//
+//    );
+
     @Multipart
-    @POST("upload.php")
+    @POST("upload_file.php")
     Call<ItemsListUpload> uploadfile(
             @Part("userid") RequestBody userid,
             @Part("catid") RequestBody catid,
@@ -67,9 +85,9 @@ public interface Api {
             @Part("mobile") RequestBody mobile,
             @Part("tozih") RequestBody tozih,
             @Part("address") RequestBody address,
-            @Part MultipartBody.Part file1,
-            @Part MultipartBody.Part file2,
-            @Part MultipartBody.Part file3
+            @Part MultipartBody.Part file1
+//            @Part MultipartBody.Part file2,
+//            @Part MultipartBody.Part file3
 
     );
     @FormUrlEncoded

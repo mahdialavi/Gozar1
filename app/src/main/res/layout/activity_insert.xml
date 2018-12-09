@@ -151,52 +151,9 @@
                                     android:src="@drawable/ic_action_navigation_close_dark" />
                             </RelativeLayout>
 
-                            <RelativeLayout
-                                android:id="@+id/linearimg4"
-                                android:layout_width="100dp"
-                                android:layout_height="100dp"
-                                android:layout_marginRight="5dp"
-                                android:visibility="gone">
 
 
-                                <ImageView
-                                    android:id="@+id/imgselect4"
-                                    android:layout_width="100dp"
-                                    android:layout_height="100dp"
-                                    android:background="@drawable/border" />
 
-                                <ImageView
-                                    android:id="@+id/del_img_logo4"
-                                    android:layout_width="30dp"
-                                    android:layout_height="30dp"
-                                    android:layout_marginLeft="3dp"
-                                    android:layout_marginTop="5dp"
-                                    android:padding="3dp"
-                                    android:src="@drawable/ic_action_navigation_close_dark" />
-                            </RelativeLayout>
-
-                            <RelativeLayout
-                                android:id="@+id/linearimg5"
-                                android:layout_width="100dp"
-                                android:layout_height="100dp"
-                                android:layout_marginRight="5dp"
-                                android:visibility="gone">
-
-                                <ImageView
-                                    android:id="@+id/imgselect5"
-                                    android:layout_width="100dp"
-                                    android:layout_height="100dp"
-                                    android:background="@drawable/border" />
-
-                                <ImageView
-                                    android:id="@+id/del_img_logo5"
-                                    android:layout_width="30dp"
-                                    android:layout_height="30dp"
-                                    android:layout_marginLeft="3dp"
-                                    android:layout_marginTop="5dp"
-                                    android:padding="3dp"
-                                    android:src="@drawable/ic_action_navigation_close_dark" />
-                            </RelativeLayout>
 
                             <RelativeLayout
                                 android:id="@+id/linearimgselect"
@@ -409,17 +366,11 @@
                                 android:textColor="@color/grey"
                                 android:visibility="gone" />
 
-
                         </LinearLayout>
-
-
                     </LinearLayout>
                 </LinearLayout>
 
-
             </LinearLayout>
-
-
         </ScrollView>
 
         <com.cilla_project.gozar.CustomControl.CustomButton

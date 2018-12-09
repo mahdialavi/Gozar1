@@ -37,8 +37,6 @@ public class ItemsListUpload {
     public int getLastId() {
         return lastId;
     }
-
-
     @SerializedName("response")
     public String response;
 

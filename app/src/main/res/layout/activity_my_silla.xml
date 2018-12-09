@@ -29,6 +29,10 @@
 
             />
     </LinearLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_marginBottom="20dp"
+        android:layout_height="wrap_content">
         <LinearLayout
             android:id="@+id/linearLayout"
             android:layout_width="match_parent"
@@ -42,9 +46,10 @@
                 android:layout_marginTop="10dp">
 
                 <ImageView
-                    android:layout_width="20dp"
+                    android:layout_width="30dp"
                     android:layout_height="40dp"
                     android:layout_marginLeft="15dp"
+                    android:src="@drawable/user"
                     android:layout_marginRight="13dp" />
 
                 <com.cilla_project.gozar.CustomControl.CustomTextView
@@ -55,14 +60,15 @@
                     android:textColor="@color/grey_60"
                     android:textSize="@dimen/menu_text_size" />
 
-                <com.cilla_project.gozar.CustomControl.CustomTextView
+                /<com.cilla_project.gozar.CustomControl.CustomTextView
                     android:id="@+id/txtcity"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
+                    android:layout_marginRight="10dp"
                     android:text="قم"
-                    android:textColor="@color/grey_60"
-                    android:textSize="@dimen/menu_text_size" />
+                    android:textColor="#d40000"
+                    android:textSize="18dp" />
 
             </LinearLayout>
             <ImageView
@@ -79,6 +85,8 @@
                     android:layout_width="20dp"
                     android:layout_height="40dp"
                     android:layout_marginLeft="15dp"
+                    android:src="@drawable/user"
+
                     android:layout_marginRight="13dp" />
 
                 <com.cilla_project.gozar.CustomControl.CustomTextView
@@ -100,6 +108,9 @@
                 <ImageView
                     android:layout_width="20dp"
                     android:layout_height="40dp"
+
+                    android:src="@drawable/user"
+
                     android:layout_marginLeft="15dp"
                     android:layout_marginRight="13dp"
 
@@ -125,6 +136,8 @@
                     android:layout_width="20dp"
                     android:layout_height="40dp"
                     android:layout_marginLeft="15dp"
+                    android:src="@drawable/user"
+
                     android:layout_marginRight="13dp"
 
                     />
@@ -139,9 +152,16 @@
                     android:textSize="@dimen/menu_text_size" />
 
             </LinearLayout>
-
-
         </LinearLayout>
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_alignParentBottom="true"
+            android:src="@drawable/logo300"
+
+            />
+
+    </RelativeLayout>
 
 
 </LinearLayout>

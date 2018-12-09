@@ -1,5 +1,6 @@
 package com.cilla_project.gozar;
 
+import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.SharedPreferences;
 import android.graphics.Color;
@@ -37,7 +38,7 @@ public class ActivityConfirmCode extends ActivityEnhanced {
         sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
         editor = sharedPreferences.edit();
 
-        Snackbar.make(findViewById(android.R.id.content), "تا لحظات دیگر کد برای شما ارسال میگردید!", Snackbar.LENGTH_LONG)
+        Snackbar.make(findViewById(android.R.id.content), "تا لحظات دیگر کد تایید برای شما ارسال میگردد!", Snackbar.LENGTH_LONG)
                 .setActionTextColor(Color.RED)
                 .show();
 
@@ -51,24 +52,37 @@ public class ActivityConfirmCode extends ActivityEnhanced {
                 @Override
                 public void onClick(View view) {
                     code = edt_code.getText().toString().trim();
-                    if (code.length() == 5) {//code is valid
+                    if (code.length() ==0) {
+                        Snackbar.make(findViewById(android.R.id.content), "کد تایید را وارد نمایید!", Snackbar.LENGTH_LONG)
+                                .setActionTextColor(Color.RED)
+                                .show();
+                    } else if (code.length() < 5) {
+                        Snackbar.make(findViewById(android.R.id.content), "کد 5 رقمی را با دقت وارد نمایید!", Snackbar.LENGTH_LONG)
+                                .setActionTextColor(Color.RED)
+                                .show();
+                    }else if (code.length() == 5) {//code is valid
+                        G.show_progress_dialog(ActivityConfirmCode.this,false,false);
                         new Post().registerSms("verify_code", mobile, "", code, new RegisteruserMobile() {
                             @Override
                             public void AnswerBase(registerMobileModel answer) {
+                                G.dismiss_P_Dialog();
                                 if (answer.response.equals("result_ok")) {
+
+
                                     int user_id = answer.userId;
                                     String mobile = answer.mobile;
                                     String name = answer.name;
 
-                                    onBackPressed();
                                     editor.putInt("userId", user_id);
+//                                    editor.putString("usermobile", answer.mobile);
                                     editor.putString(ActivityInsert.spmobile, mobile);
                                     editor.putString(ActivityInsert.spName, name);
                                     editor.apply();
                                     Toast.makeText(ActivityConfirmCode.this, "به سیلا خوش امدید", Toast.LENGTH_LONG).show();
+                                    onBackPressed();
 
                                 } else {
-                                    Snackbar.make(findViewById(android.R.id.content), "کد وارد شده صحیح نمی باشد!", Snackbar.LENGTH_LONG)
+                                    Snackbar.make(findViewById(android.R.id.content), "کد وارد شده معتبر نمی باشد!", Snackbar.LENGTH_LONG)
                                             .setActionTextColor(Color.RED)
                                             .show();
                                 }
@@ -76,6 +90,8 @@ public class ActivityConfirmCode extends ActivityEnhanced {
 
                             @Override
                             public void SendError(Throwable t) {
+                                G.dismiss_P_Dialog();
+
                                 Toast.makeText(G.Context, "خطا در ارتباط با سرور", Toast.LENGTH_SHORT).show();
 
                             }

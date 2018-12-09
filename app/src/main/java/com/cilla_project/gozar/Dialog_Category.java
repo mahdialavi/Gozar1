@@ -27,7 +27,7 @@ public class Dialog_Category extends Dialog {
 
     int catsakhtemani=1,catkharidforosh=2,catsanati=3,catkhayati=4,cathesabdari=5,catkarkhane=6,catkeshavarzi=7,catmotafareghe=8;
 
-     RelativeLayout linearkashavarzi,linearsanati,linearsakhtemanni,linearkhayati,linearkarkhane,linearhesabdari,linearforosh,linearmotefareghe;
+     Button linearkashavarzi,linearsanati,linearsakhtemanni,linearkhayati,linearkarkhane,linearhesabdari,linearforosh,linearmotefareghe;
 
     String sakhteman= "مشاغل ساختمانی";
     String forosh= "خرید و فروش";
