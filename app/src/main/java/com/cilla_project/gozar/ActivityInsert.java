@@ -248,7 +248,7 @@ public class ActivityInsert extends ActivityEnhanced {
 
             }
         });
-        findViewById(R.id.linearback).setOnClickListener(new View.OnClickListener() {
+        findViewById(R.id.imgback).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 onBackPressed();

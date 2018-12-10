@@ -8,24 +8,27 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:padding="10dp"
-        android:layout_height="100dp">
+        android:layout_height="100dp"
+        android:padding="10dp">
+
         <com.cilla_project.gozar.CustomControl.CustomButton
-            android:layout_width="wrap_content"
-            android:text="ورود"
             android:id="@+id/btnexit"
-            android:layout_height="wrap_content" />
+            android:layout_marginTop="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ورود"
+            />
 
         <com.cilla_project.gozar.CustomControl.CustomTextView
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:layout_height="wrap_content"
             android:id="@+id/txtmatn"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
             android:gravity="right"
             android:lineSpacingMultiplier="1.2"
             android:text="برای استفاده از برنامه سیلا وارد حساب کاربری خود شوید."
             android:textColor="@color/grey_90"
-            android:textSize="16dp"
+            android:textSize="17dp"
 
             />
     </LinearLayout>

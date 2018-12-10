@@ -49,6 +49,12 @@ public class Activity_my_silla extends ActivityEnhanced {
 
             }
         });
+        findViewById(R.id.imgback).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                onBackPressed();
+            }
+        });
 
         txtcity.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -90,7 +96,8 @@ public class Activity_my_silla extends ActivityEnhanced {
 
             String mobile = sharedPreferences.getString(ActivityInsert.spmobile, "");
             btnexit.setText("خروج");
-            txtmatn.setText("کاربر گرامی شما با شماره " + mobile + "وارد سیلا شده اید.");
+            btnexit.setVisibility(View.GONE);
+            txtmatn.setText("کاربر گرامی شما با شماره " + mobile + " وارد سیلا شده اید.");
             Toast.makeText(this, "userid not null", Toast.LENGTH_SHORT).show();
 
 

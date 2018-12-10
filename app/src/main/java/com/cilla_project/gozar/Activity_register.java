@@ -1,6 +1,7 @@
 package com.cilla_project.gozar;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -8,9 +9,11 @@ import android.graphics.Color;
 import android.preference.PreferenceManager;
 import android.support.design.widget.Snackbar;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.cilla_project.gozar.CustomControl.CustomButton;
@@ -66,6 +69,12 @@ public class Activity_register extends ActivityEnhanced {
         btnexit = findViewById(R.id.btnexit);
         txtmatn = findViewById(R.id.txtmatn);
 
+        findViewById(R.id.imgback).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                onBackPressed();
+            }
+        });
 
         int userId = (sharedPreferences.getInt("userId", 0));
         if (userId > 0) {
@@ -74,7 +83,7 @@ public class Activity_register extends ActivityEnhanced {
             String name = sharedPreferences.getString(ActivityInsert.spName, "");
             btnexit.setVisibility(View.VISIBLE);
 
-            txtmatn.setText("کاربر گرامی شما با شماره " + mobile + "وارد سیلا شده اید.");
+            txtmatn.setText("شما با شماره " + mobile + " وارد سیلا شده اید.");
             edtname.setText(name);
             edtmobile.setText(mobile);
             edtmobile.setEnabled(false);
@@ -88,11 +97,36 @@ public class Activity_register extends ActivityEnhanced {
         btnexit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                editor.remove("userId");
-                editor.apply();
+                final AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(Activity_register.this);
 
-                G.startActivity(ActivityCategory.class, true);
-                btnexit.setVisibility(View.GONE);
+                LayoutInflater inflater = Activity_register.this.getLayoutInflater();
+                View dialogView = inflater.inflate(R.layout.custom_alert_dialog, null);
+                dialogBuilder.setView(dialogView);
+                final AlertDialog alertDialog = dialogBuilder.create();
+                alertDialog.setCancelable(false);
+                alertDialog.show();
+
+                dialogView.findViewById(R.id.btn_negative).setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        alertDialog.dismiss();
+                    }
+                });
+
+                dialogView.findViewById(R.id.btn_positive).setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+
+                        editor.remove("userId");
+                        editor.apply();
+
+                        G.startActivity(ActivityCategory.class, true);
+                        btnexit.setVisibility(View.GONE);
+                    }
+                });
+
+
+
             }
         });
         btn_submit.setOnClickListener(new View.OnClickListener() {
@@ -111,6 +145,8 @@ public class Activity_register extends ActivityEnhanced {
     }
 
     private void updateUser(String command) {
+
+        G.show_progress_dialog(this,false,false);
         hideKeyboard(Activity_register.this);
         name = edtname.getText().toString();
         mobile = edtmobile.getText().toString().trim();
@@ -119,9 +155,8 @@ public class Activity_register extends ActivityEnhanced {
                 new Post().registerSms(command, mobile, name, "", new RegisteruserMobile() {
                     @Override
                     public void AnswerBase(registerMobileModel answer) {
-
+                        G.dismiss_P_Dialog();
                         if (answer.response.equals("user_updated_successfully")) {
-
                             editor.putString(ActivityInsert.spName, name);
                             editor.apply();
 
@@ -136,6 +171,8 @@ public class Activity_register extends ActivityEnhanced {
                     @Override
                     public void SendError(Throwable t) {
                         onFailRequest();
+                        G.dismiss_P_Dialog();
+
 
                     }
                 });
@@ -164,12 +201,12 @@ public class Activity_register extends ActivityEnhanced {
                         .setActionTextColor(Color.RED)
                         .show();
             } else {
-                if (!(mobile.length() ==11) || !mobile.startsWith("09")) {
+                if (!(mobile.length() == 11) || !mobile.startsWith("09")) {
                     Snackbar.make(findViewById(android.R.id.content), "شماره وارد شده معتبر نمی باشد!", Snackbar.LENGTH_LONG)
                             .setActionTextColor(Color.RED)
                             .show();
-                    } else {
-                    G.show_progress_dialog(this,false,false);
+                } else {
+                    G.show_progress_dialog(this, false, false);
                     new Post().registerSms(command, mobile, name, "", new RegisteruserMobile() {
                         @Override
                         public void AnswerBase(registerMobileModel answer) {
@@ -179,7 +216,6 @@ public class Activity_register extends ActivityEnhanced {
                                 intent.putExtra("mobile", answer.mobile);
                                 startActivity(intent);
                                 finish();
-
 
 
                             } else {
@@ -227,7 +263,7 @@ public class Activity_register extends ActivityEnhanced {
     @Override
     public void onBackPressed() {
         super.onBackPressed();
-        G.startActivity(ActivityCategory.class, true);
+        G.startActivity(Activity_my_silla.class, true);
     }
 
 }

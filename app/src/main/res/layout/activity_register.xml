@@ -21,6 +21,7 @@
             <com.cilla_project.gozar.CustomControl.CustomButton
                 android:layout_width="wrap_content"
                 android:text="خروج"
+                android:layout_marginTop="10dp"
                 android:id="@+id/btnexit"
                 android:layout_height="wrap_content" />
 
@@ -33,7 +34,7 @@
                 android:lineSpacingMultiplier="1.2"
                 android:text="برای ثبت نام شماره تماس خود را وارد کنید."
                 android:textColor="@color/grey_90"
-                android:textSize="16dp"
+                android:textSize="17dp"
 
                 />
 

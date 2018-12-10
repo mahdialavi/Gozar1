@@ -39,6 +39,7 @@
         android:background="@drawable/custom_button"
         android:textColor="@color/grey_80"
         android:layout_marginTop="0dp"
+        android:textSize="17dp"
         android:layout_gravity="center"
 
         />
