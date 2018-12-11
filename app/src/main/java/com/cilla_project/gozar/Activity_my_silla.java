@@ -68,6 +68,12 @@ public class Activity_my_silla extends ActivityEnhanced {
 
             }
         });
+        findViewById(R.id.imgfragment).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                G.startActivity(MainactivityforFragment.class);
+            }
+        });
         findViewById(R.id.txtmyad).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

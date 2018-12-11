@@ -2,7 +2,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.cilla_project.gozar">
 
-
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.CALL_PHONE" />
@@ -32,8 +31,7 @@
                 android:resource="@xml/provider_paths" />
         </provider>
 
-        <activity android:name=".ActivityCategory">
-        </activity>
+        <activity android:name=".ActivityCategory"></activity>
         <activity android:name=".ActivitySearch" />
         <activity android:name=".ActivityJobItem" />
         <activity android:name=".ActivityDetail" />
@@ -50,12 +48,10 @@
         <activity android:name=".ActivityConfirmCode" />
         <activity android:name=".Activity_Sale" />
         <activity android:name=".Activity_my_silla" />
-
         <activity
             android:name="com.yalantis.ucrop.UCropActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
-
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -63,6 +59,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".MainactivityforFragment"></activity>
     </application>
 
 </manifest>

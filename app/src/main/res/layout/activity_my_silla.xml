@@ -159,6 +159,7 @@
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="100dp"
+            android:id="@+id/imgfragment"
             android:layout_alignParentBottom="true"
             android:src="@drawable/logo300"
 

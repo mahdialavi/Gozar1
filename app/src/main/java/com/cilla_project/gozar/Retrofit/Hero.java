@@ -19,7 +19,6 @@ public class Hero {
         this.name = name;
         this.website = website;
     }
-
     public void setName(String name) {
             this.name = name;
         }

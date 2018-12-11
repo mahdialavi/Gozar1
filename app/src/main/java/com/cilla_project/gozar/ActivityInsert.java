@@ -835,7 +835,7 @@ public class ActivityInsert extends ActivityEnhanced {
     @Override
     public void onBackPressed() {
         super.onBackPressed();
-        G.startActivity(MainActivity.class, true);
+        G.startActivity(MainactivityforFragment.class, true);
     }
 }
 
