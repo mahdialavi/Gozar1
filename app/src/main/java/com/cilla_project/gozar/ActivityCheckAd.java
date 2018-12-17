@@ -135,7 +135,6 @@ public class ActivityCheckAd extends  ActivityEnhanced {
                             public void onClick(View view) {
 
                                 alertDialog.dismiss();
-
                                 if (lastId > 0) {
                                     deleteItem(lastId, 3);
                                 }

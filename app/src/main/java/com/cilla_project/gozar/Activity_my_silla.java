@@ -1,20 +1,14 @@
 package com.cilla_project.gozar;
 
-import android.app.ActivityManager;
-import android.app.Dialog;
 import android.content.DialogInterface;
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 import android.os.Bundle;
 import android.view.View;
-import android.view.Window;
 import android.widget.Button;
 import android.widget.Toast;
 
 import com.cilla_project.gozar.CustomControl.CustomTextView;
-
-import static com.cilla_project.gozar.R.style.WideDialog;
 
 public class Activity_my_silla extends ActivityEnhanced {
     SharedPreferences sharedPreferences;
@@ -71,7 +65,7 @@ public class Activity_my_silla extends ActivityEnhanced {
         findViewById(R.id.imgfragment).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                G.startActivity(MainactivityforFragment.class);
+                G.startActivity(MainActivity.class);
             }
         });
         findViewById(R.id.txtmyad).setOnClickListener(new View.OnClickListener() {
@@ -119,7 +113,7 @@ public class Activity_my_silla extends ActivityEnhanced {
                     editor.apply();
                     txtmatn.setText("برای استفاده از برنامه سیلا وارد حساب کاربری خود شوید.");
                     btnexit.setText("ورود");
-                    G.startActivity(MainActivity.class,true);
+                    G.startActivity(MainActivity2.class,true);
 
                 } else {
                     G.startActivity(Activity_register.class, true);
@@ -132,6 +126,6 @@ public class Activity_my_silla extends ActivityEnhanced {
     public void onBackPressed() {
         super.onBackPressed();
 
-        G.startActivity(MainActivity.class, true);
+        G.startActivity(MainActivity2.class, true);
     }
 }

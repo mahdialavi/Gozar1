@@ -151,7 +151,7 @@ public class ActivityEdit extends ActivityEnhanced{
                 editor.apply();
             }
         });
-        findViewById(R.id.linearback).setOnClickListener(new View.OnClickListener() {
+        findViewById(R.id.imgback).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 onBackPressed();

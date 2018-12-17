@@ -5,16 +5,13 @@ import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
-import android.content.ActivityNotFoundException;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
-import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Environment;
@@ -41,21 +38,15 @@ import android.widget.Toast;
 import com.bumptech.glide.Glide;
 import com.cilla_project.gozar.CustomControl.CustomButton;
 import com.cilla_project.gozar.Retrofit.Api;
-import com.cilla_project.gozar.Retrofit.ItemsListResponse;
 import com.cilla_project.gozar.Retrofit.ItemsListUpload;
-import com.cilla_project.gozar.Retrofit.Post;
 import com.cilla_project.gozar.Retrofit.ServiceGenerator;
-import com.cilla_project.gozar.Retrofit.UploadPosts;
 import com.soundcloud.android.crop.Crop;
 import com.yalantis.ucrop.UCrop;
 import com.yalantis.ucrop.UCropActivity;
 
-import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.io.InputStream;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Random;
@@ -66,7 +57,6 @@ import okhttp3.RequestBody;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-import retrofit2.http.Part;
 
 public class ActivityInsert extends ActivityEnhanced {
     String catname = "";
@@ -663,8 +653,8 @@ public class ActivityInsert extends ActivityEnhanced {
         return uri_1;
     }
 
-    private void uploadtoserver(int id, final int catid , final int userid, final int code, int citycode) {
-//        G.show_P_Dialog(ActivityInsert.this, false, false);
+    private void uploadtoserver(int id, final int catid ,  int userid, int code, int citycode) {
+        G.show_progress_dialog(ActivityInsert.this, false, false);
 
 //        fileToUpload1 = MultipartBody.Part.createFormData("file1", file1.getName(), requestBody1);
 
@@ -693,7 +683,7 @@ public class ActivityInsert extends ActivityEnhanced {
 //        } else {
 //            Log.i("mahdi 3", imglogo3);
 //        }
-        R_userid = RequestBody.create(MediaType.parse("text/plain"), String.valueOf(20));
+        R_userid = RequestBody.create(MediaType.parse("text/plain"), String.valueOf(userid));
         R_catid= RequestBody.create(MediaType.parse("text/plain"), String.valueOf(catid));
         R_city_code= RequestBody.create(MediaType.parse("text/plain"), String.valueOf(citycode));
         R_code = RequestBody.create(MediaType.parse("text/plain"), String.valueOf(code));
@@ -707,13 +697,36 @@ public class ActivityInsert extends ActivityEnhanced {
         call.enqueue(new Callback<ItemsListUpload>() {
             @Override
             public void onResponse(Call<ItemsListUpload> call, Response<ItemsListUpload> response) {
-                ItemsListUpload answer=response.body();
-                Toast.makeText(ActivityInsert.this,answer.getResponse() , Toast.LENGTH_SHORT).show();
+                G.dismiss_P_Dialog();
+                try {
+                    ItemsListUpload answer=response.body();
+                    if (answer != null) {
+                        if (answer.response.equals("inserted_ok") ) {
+
+                            int lastId = answer.getLastId();
+//                            Toast.makeText(ActivityInsert.this,answer.getResponse()+"-----------"+lastId , Toast.LENGTH_LONG).show();
+//                    intent = new Intent(G.Context, ActivityCheckAd.class);
+//                    intent.putExtra("lastid", lastId);
+//                    intent.putExtra("catid", catid);
+//                    intent.putExtra("catname", sharedPreferences.getString(spcatname, ""));
+//                    startActivity(intent);
+
+//                    G.startActivity(ActivityCheckAd.class,true);
+
+                        }
+                    }
+
+                } catch (NullPointerException e) {
+
+                    Log.i("log", "null");
+                }
+
+
                 }
 
             @Override
             public void onFailure(@NonNull Call<ItemsListUpload> call, @NonNull Throwable t) {
-//                G.dismiss_P_Dialog();
+                G.dismiss_P_Dialog();
                 Toast.makeText(G.Context, "اتصال دستگاه به سرور با مشکل مواجه گردید", Toast.LENGTH_SHORT).show();
             }
         });
@@ -835,7 +848,7 @@ public class ActivityInsert extends ActivityEnhanced {
     @Override
     public void onBackPressed() {
         super.onBackPressed();
-        G.startActivity(MainactivityforFragment.class, true);
+        G.startActivity(MainActivity.class, true);
     }
 }
 

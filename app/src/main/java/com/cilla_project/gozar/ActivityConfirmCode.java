@@ -1,6 +1,5 @@
 package com.cilla_project.gozar;
 
-import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.SharedPreferences;
 import android.graphics.Color;
@@ -115,6 +114,6 @@ public class ActivityConfirmCode extends ActivityEnhanced {
     @Override
     public void onBackPressed() {
         super.onBackPressed();
-        G.startActivity(MainActivity.class, true);
+        G.startActivity(MainActivity2.class, true);
     }
 }

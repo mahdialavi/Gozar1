@@ -9,12 +9,10 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
-import com.bumptech.glide.Glide;
 import com.cilla_project.gozar.CustomControl.CustomTextView;
 
 
@@ -82,7 +80,7 @@ public class JobAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
                     Toast.makeText(context, alldata.id+"", Toast.LENGTH_SHORT).show();
 
-                    Intent intent = new Intent(context, MainActivity.class);
+                    Intent intent = new Intent(context, MainActivity2.class);
                     intent.putExtra("catid", alldata.id);
                     intent.putExtra("catname",alldata.name);
                     intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);

@@ -51,14 +51,14 @@ public class Activity_MyAd extends AppCompatActivity {
         userId = sharedPreferences.getInt("userId", 0);
 
         Toast.makeText(this, userId+"", Toast.LENGTH_SHORT).show();
-        findViewById(R.id.linearback).setOnClickListener(new View.OnClickListener() {
+        findViewById(R.id.imgback).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 onBackPressed();
             }
         });
 
-        txtcatname = findViewById(R.id.txttoolcatename);
+        txtcatname = findViewById(R.id.txttitle);
         rvItems = findViewById(R.id.rvItems);
         myAdAdaptor = new MyAdAdaptor(Activity_MyAd.this, rvItems);
         manager = new LinearLayoutManager(this);
@@ -198,7 +198,7 @@ public class Activity_MyAd extends AppCompatActivity {
 //            G.startActivity(ActivityJobFSeeking.class,true);
         }
         if (activitydestination.equals("ActivityCheckAd")) {
-            G.startActivity(MainActivity.class,true);
+            G.startActivity(MainActivity2.class,true);
         }
     }
     public void clearItemadaptorArr() {
