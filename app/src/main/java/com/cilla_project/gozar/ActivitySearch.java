@@ -229,7 +229,7 @@ public class ActivitySearch extends ActivityEnhanced {
         clearItemadaptorArr();
         text = "";
 
-        G.startActivity(MainActivity2.class,true);
+        G.startActivity(MainActivity.class,true);
 //        if (command.equals("karyabisearch")) {
 //            G.startActivity(ActivityJobFSeeking.class,true);
 //        }

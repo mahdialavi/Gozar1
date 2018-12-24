@@ -73,6 +73,7 @@
 
                 <me.relex.circleindicator.CircleIndicator
                     android:id="@+id/indicator"
+                    app:ci_drawable="@drawable/circlecolor"
                     android:layout_width="match_parent"
                     android:layout_height="30dp"
                     android:layout_gravity="center"
@@ -135,6 +136,35 @@
                         android:layout_marginTop="20dp"
                         android:paddingRight="10dp"
                         android:text="توضیحات آگهی برای تاثیر بیشتر ضروری میباشد."
+                        android:textColor="@color/textcolor"
+                        android:textSize="16dp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/linearaddress"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:orientation="vertical"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="20dp">
+
+                    <com.cilla_project.gozar.CustomControl.CustomTextViewBold
+                        android:layout_width="wrap_content"
+
+                        android:layout_height="wrap_content"
+                        android:lineSpacingMultiplier="1.2"
+                        android:text="آدرس:"
+                        android:textColor="#a30b1f"
+                        android:textSize="17dp" />
+
+                    <com.cilla_project.gozar.CustomControl.CustomTextView
+                        android:id="@+id/txtaddress"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:paddingRight="10dp"
+                        android:text="آدرس"
                         android:textColor="@color/textcolor"
                         android:textSize="16dp" />
                 </LinearLayout>

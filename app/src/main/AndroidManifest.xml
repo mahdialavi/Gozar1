@@ -36,7 +36,6 @@
         <activity android:name=".ActivityJobItem" />
         <activity android:name=".ActivityDetail" />
         <activity android:name=".ActivityInsert" />
-        <activity android:name=".LoginActivity" />
         <activity android:name=".ActivityCheckAd" />
         <activity android:name=".Activity_MyAd" />
         <activity android:name=".Activity_Select_Cat" />
@@ -59,7 +58,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MainActivity2"></activity>
     </application>
 
 </manifest>

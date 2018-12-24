@@ -26,19 +26,19 @@ import me.relex.circleindicator.CircleIndicator;
 
 public class ActivityDetail extends ActivityEnhanced {
 
-    String name,tamas,image,tarikh;
-    int id=0;
-    String tozihat="";
-    CustomTextView txttozih,txtname,txtzaman;
+    String name, tamas, image,image2,image3, tarikh,address;
+    int id = 0;
+    String tozihat = "";
+    CustomTextView txttozih, txtname, txtzaman,txtaddress;
     ViewPager viewPager;
     CircleIndicator indicator;
     Timer timer;
     public static ArrayList<String> sliderArr = new ArrayList<>();
     private JobItemsList items;
     ImageView imgfav;
-    ArrayList<String> buisinessPics;
-    LinearLayout linearwait,linearback;
+    LinearLayout linearwait, linearback;
     CustomButton btncontact;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,11 +47,12 @@ public class ActivityDetail extends ActivityEnhanced {
         txtname = findViewById(R.id.txtname);
         viewPager = (ViewPager) findViewById(R.id.viewpager);
         indicator = findViewById(R.id.indicator);
-        linearwait =  findViewById(R.id.linearwait);
+        linearwait = findViewById(R.id.linearwait);
         linearwait.setVisibility(View.VISIBLE);
         btncontact = findViewById(R.id.btncontact);
-        linearback= findViewById(R.id.linearback);
+        linearback = findViewById(R.id.linearback);
         txtzaman = findViewById(R.id.txtzaman);
+        txtaddress= findViewById(R.id.txtaddress);
 
         linearback.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -59,8 +60,6 @@ public class ActivityDetail extends ActivityEnhanced {
                 onBackPressed();
             }
         });
-
-
 
         findViewById(R.id.btncontact).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -88,7 +87,6 @@ public class ActivityDetail extends ActivityEnhanced {
             id = bundle.getInt("id");
             requestitem(id);
         }
-
         timer = new Timer();
         timer.scheduleAtFixedRate(new TimerTask() {
             @Override
@@ -96,7 +94,6 @@ public class ActivityDetail extends ActivityEnhanced {
                 runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
-
                         if (sliderArr.size() > 0) {
                             activitydetailImages adapterView = new activitydetailImages(G.Context, sliderArr);
                             viewPager.setAdapter(adapterView);
@@ -111,28 +108,33 @@ public class ActivityDetail extends ActivityEnhanced {
             }
         }, 1, 300);
     }
+
     private void requestitem(final int id) {
 
         new Post().getOneItem(id, new AnswerPosts() {
             @Override
             public void AnswerBase(ArrayList<JobItemsList> answer) {
-                if (answer!=null) {
+                if (answer != null) {
                     for (int i = 0; i < answer.size(); i++) {
-                        image= answer.get(0).image;
+                        image = answer.get(0).image;
+                        image2 = answer.get(0).image2;
+                        image3 = answer.get(0).image3;
 
-                        name=answer.get(0).name;
-                        tamas=answer.get(0).tamas;
-                        tozihat=answer.get(0).tozihat;
-                        tarikh=answer.get(0).tarikh;
+                        name = answer.get(0).name;
+                        tamas = answer.get(0).tamas;
+                        tozihat = answer.get(0).tozihat;
+                        tarikh = answer.get(0).tarikh;
+                        address= answer.get(0).address;
 
-                        buisinessPics = answer.get(i).buisinesPics;
-                        if (buisinessPics == null || buisinessPics.equals("")) {
-                            ActivityDetail.sliderArr.add(G.IMAGE_URL + image);
-                        } else {
-                            for (int b = 0; b < buisinessPics.size(); b++) {
-                                sliderArr.add(G.IMAGE_URL + buisinessPics.get(b));
-                            }
-                            }
+
+
+//                        if (buisinessPics == null || buisinessPics.equals("")) {
+//                            ActivityDetail.sliderArr.add(G.IMAGE_URL + image);
+//                        } else {
+//                            for (int b = 0; b < buisinessPics.size(); b++) {
+//                                sliderArr.add(G.IMAGE_URL + buisinessPics.get(b));
+//                            }
+//                        }
                         setDataToTxts();
                         linearwait.setVisibility(View.GONE);
                     }
@@ -155,26 +157,34 @@ public class ActivityDetail extends ActivityEnhanced {
             Toast.makeText(this, "deleted", Toast.LENGTH_SHORT).show();
         } else {
             items.id = id;
-            items.name=name;
-            items.image=image;
+            items.name = name;
+            items.image = image;
             Persons.insert(items);
             imgfav.setImageResource(R.drawable.imgfav2);
-            Toast.makeText(G.Context,"inserted", Toast.LENGTH_LONG).show();
+            Toast.makeText(G.Context, "inserted", Toast.LENGTH_LONG).show();
         }
     }
+
     private void setDataToTxts() {
 
+        sliderArr.add(G.IMAGE_URL + image);
+        if (image2 != null&&image2.length()>2) {
+            sliderArr.add(G.IMAGE_URL + image2);
+            }if (image3!=null&&image3.length()>2) {
+            sliderArr.add(G.IMAGE_URL + image3);
+        }
         txtname.setText(name);
         txttozih.setText(tozihat);
+        txtaddress.setText(address);
         txtzaman.setText(tarikh);
 
         if (tamas != null) {
-            items.tamas=tamas;
+            items.tamas = tamas;
             items.id = id;
-
         }
 
     }
+
     private void onFailRequest() {
         linearwait.setVisibility(View.GONE);
 
@@ -199,12 +209,13 @@ public class ActivityDetail extends ActivityEnhanced {
         findViewById(R.id.failed_retry).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                showFailedView(false,"");
+                showFailedView(false, "");
                 linearwait.setVisibility(View.VISIBLE);
                 requestitem(id);
             }
         });
     }
+
     @Override
     protected void onStop() {
         super.onStop();

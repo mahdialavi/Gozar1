@@ -14,6 +14,9 @@ public class JobItemsList {
     @SerializedName("tarikh")
     @Expose
     public String tarikh;
+ @SerializedName("address")
+    @Expose
+    public String address;
 
 
     @SerializedName("tamas")
@@ -35,6 +38,12 @@ public class JobItemsList {
     @SerializedName("image")
     @Expose
     public String image;
+    @SerializedName("image2")
+    @Expose
+    public String image2;
+    @SerializedName("image3")
+    @Expose
+    public String image3;
 
     @SerializedName("id")
     @Expose

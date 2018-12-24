@@ -77,14 +77,15 @@ public class JobAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
             vItem.linearitem.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-
-                    Toast.makeText(context, alldata.id+"", Toast.LENGTH_SHORT).show();
-
-                    Intent intent = new Intent(context, MainActivity2.class);
+                    Intent intent = new Intent(context, MainActivity.class);
                     intent.putExtra("catid", alldata.id);
                     intent.putExtra("catname",alldata.name);
                     intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                    HomeFragment.code=1;
                     context.startActivity(intent);
+
+
+
                 }
 
             });

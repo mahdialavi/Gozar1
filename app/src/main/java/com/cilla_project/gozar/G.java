@@ -44,7 +44,7 @@ public class G extends Application {
     public static int PRODUCT_PER_REQUEST = 16;
 
 //    public static final String IMAGE_URL="http://192.168.1.102/gozar";
-    public static final String IMAGE_URL="http://hendiabootik.com/test";
+    public static final String IMAGE_URL="http://hendiabootik.com/test/images/";
 
     @SuppressLint("CommitPrefEdits")
     @Override

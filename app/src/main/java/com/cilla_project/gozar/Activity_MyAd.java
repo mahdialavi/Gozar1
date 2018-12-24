@@ -198,7 +198,7 @@ public class Activity_MyAd extends AppCompatActivity {
 //            G.startActivity(ActivityJobFSeeking.class,true);
         }
         if (activitydestination.equals("ActivityCheckAd")) {
-            G.startActivity(MainActivity2.class,true);
+            G.startActivity(MainActivity.class,true);
         }
     }
     public void clearItemadaptorArr() {

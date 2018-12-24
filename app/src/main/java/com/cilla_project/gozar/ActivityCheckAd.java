@@ -4,8 +4,10 @@ import android.app.AlertDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.LinearLayout;
@@ -14,11 +16,19 @@ import android.widget.Toast;
 import com.cilla_project.gozar.CustomControl.CustomTextView;
 import com.cilla_project.gozar.CustomControl.CustomTextViewBold;
 import com.cilla_project.gozar.Retrofit.AnswerPosts;
+import com.cilla_project.gozar.Retrofit.Api;
 import com.cilla_project.gozar.Retrofit.ItemsListUpload;
 import com.cilla_project.gozar.Retrofit.Post;
+import com.cilla_project.gozar.Retrofit.ServiceGenerator;
 import com.cilla_project.gozar.Retrofit.UploadPosts;
 
 import java.util.ArrayList;
+
+import okhttp3.MediaType;
+import okhttp3.RequestBody;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class ActivityCheckAd extends  ActivityEnhanced {
 
@@ -28,7 +38,8 @@ public class ActivityCheckAd extends  ActivityEnhanced {
     CustomTextView txtcat;
     CustomTextViewBold txtconfirm;
     LinearLayout linearedit, lineardelete;
-    int itemid, lastId;
+    int itemid;
+    int lastId;
     String title = "";
     String imglogo = "";
     String mobile = "";
@@ -140,7 +151,6 @@ public class ActivityCheckAd extends  ActivityEnhanced {
                                 }
                                 if (itemid > 0) {
                                     deleteItem(itemid, 3);
-//                                    Toast.makeText(ActivityCheckAd.this, "item id clicked", Toast.LENGTH_SHORT).show();
                                 }
                             }
                         });
@@ -151,63 +161,87 @@ public class ActivityCheckAd extends  ActivityEnhanced {
 
             }
 
+    public void deleteItem(int catid,int code) {
+
+        G.show_progress_dialog(this,false,false);
+      RequestBody R_catid = RequestBody.create(MediaType.parse("text/plain"), String.valueOf(catid));
+        RequestBody  R_code = RequestBody.create(MediaType.parse("text/plain"), String.valueOf(3));
+
+    Api getResponse = ServiceGenerator.getClient().create(Api.class);
+    Call call = getResponse.uploadfile(null, R_catid, null, R_code,null,null, null, null,null, null, null);
+        call.enqueue(new Callback<ItemsListUpload>() {
+        @Override
+        public void onResponse(Call<ItemsListUpload> call, Response<ItemsListUpload> response) {
+            G.dismiss_P_Dialog();
+            try {
+                ItemsListUpload answer = response.body();
+                if (answer != null) {
+                    if (answer.response.equals("updated_ok")) {
+                        onBackPressed();
+                    }else {
+                        Toast.makeText(ActivityCheckAd.this, "مشکل در حذف آگهی", Toast.LENGTH_LONG).show();
+                        }
+                }
+            } catch (NullPointerException e) {
+                Log.i("log", "null");
+            }
 
 
-//            private void requestitem(final int id) {
+        }
+
+        @Override
+        public void onFailure(@NonNull Call<ItemsListUpload> call, @NonNull Throwable t) {
+            G.dismiss_P_Dialog();
+            Toast.makeText(G.Context, "مشکل در ارتباط با سرور ", Toast.LENGTH_SHORT).show();
+        }
+    });
+}
+
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        G.startActivity(Activity_MyAd.class, true);
+
+
+    }
+}
+
+
+
+//            private void deleteItem(int id, int code) {
+//                G.show_P_Dialog(ActivityCheckAd.this,false,false);
+//                new Post().uploadfile(0, code, 0,0, id, "", "", "", "", "", new UploadPosts() {
+//                            @Override
+//                            public void AnswerBase(ItemsListUpload answer) {
+//                                G.dismiss_P_Dialog();
+//                                try{
+//                                    Toast.makeText(G.Context, answer.getResponse(), Toast.LENGTH_SHORT).show();
+//                                    Log.i("answer", answer.getResponse());
+//                                    G.startActivity(Activity_MyAd.class, true);
+//                                }catch (Exception e) {
+//                                    Log.i("log", String.valueOf(e));
+//                                }
+//                                if (answer.response.equals("item_deleted")) {
+//                                    Toast.makeText(G.Context, "آگهی به موفقیت حذف گردید", Toast.LENGTH_SHORT).show();
+//                                    G.startActivity(Activity_MyAd.class, true);
 //
-//                new Post().getOneItem(id, new AnswerPosts() {
-//                    @Override
-//                    public void AnswerBase(ArrayList<ItemsList> answer) {
-//                        if (answer.size() > 0) {
-//                            for (int i = 0; i < answer.size(); i++) {
-////                        Toast.makeText(G.Context, answer.get(0).itemname,Toast.LENGTH_LONG).show();
+//                                } else if (answer.response.equals("Delete_Failed")) {
+//                                    Toast.makeText(G.Context, "حذف با مشکل مواجه گردید", Toast.LENGTH_SHORT).show();
+//                                }
 //                            }
-//                        }
-//                    }
+//                            @Override
+//                            public void SendError(Throwable t) {
+//                                G.dismiss_P_Dialog();
 //
-//                    @Override
-//                    public void SendError(Throwable t) {
-//
-//                    }
-//                });
-//
+//                                if (OnlineCheck.isConnect(ActivityCheckAd.this)) {
+//                                    Toast.makeText(G.Context, "حذف با مشکل مواجه گردید", Toast.LENGTH_SHORT).show();
+//                                } else {
+//                                    Toast.makeText(ActivityCheckAd.this, "لطفا اتصال دستگاه به انترنت را چک کنید", Toast.LENGTH_SHORT).show();
+//                                }
+
+//                            }
+//                        });
 //            }
 
-            private void deleteItem(int id, int code) {
-//                G.show_P_Dialog(ActivityCheckAd.this,false,false);
-                new Post().uploadToServer(id, code, 0,0, catid, "", "", "", "", "", new UploadPosts() {
-                            @Override
-                            public void AnswerBase(ItemsListUpload answer) {
-//                                G.dismiss_P_Dialog();
-                                if (answer.response.equals("Item_Deleted_Successfully")) {
-                                    Toast.makeText(G.Context, "آگهی به موفقیت حذف گردید", Toast.LENGTH_SHORT).show();
-                                    G.startActivity(Activity_MyAd.class, true);
 
-                                } else if (answer.response.equals("Delete_Failed")) {
-                                    Toast.makeText(G.Context, "حذف با مشکل مواجه گردید", Toast.LENGTH_SHORT).show();
-
-                                }
-
-                            }
-                            @Override
-                            public void SendError(Throwable t) {
-//                                G.dismiss_P_Dialog();
-
-                                if (OnlineCheck.isConnect(ActivityCheckAd.this)) {
-                                    Toast.makeText(G.Context, "حذف با مشکل مواجه گردید", Toast.LENGTH_SHORT).show();
-                                } else {
-                                    Toast.makeText(ActivityCheckAd.this, "لطفا اتصال دستگاه به انترنت را چک کنید", Toast.LENGTH_SHORT).show();
-                                }
-
-                            }
-                        });
-            }
-
-            @Override
-            public void onBackPressed() {
-                super.onBackPressed();
-                G.startActivity(Activity_MyAd.class, true);
-
-
-            }
-        }

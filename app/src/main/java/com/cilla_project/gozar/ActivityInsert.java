@@ -62,26 +62,26 @@ public class ActivityInsert extends ActivityEnhanced {
     String catname = "";
     int catid = 0;
     int userId = 0;
-    int id=0;
+    int id = 0;
     private static CropConfig config = new CropConfig();
-    RequestBody R_title=null,R_city_code=null,R_userid=null,R_mobile=null,R_code=null,R_address=null,R_catid=null,R_tozih=null;
+    RequestBody R_title = null, R_city_code = null, R_userid = null, R_mobile = null, R_code = null, R_address = null, R_catid = null, R_tozih = null;
 
-    RequestBody requestBody1 = null, requestBody2 = null, requestBody3 = null;
-    MultipartBody.Part fileToUpload1=null;
+    RequestBody requestBody1 = null, requestBody2 = null, requestBody3 = null, requestBody4 = null, requestBody5 = null;
+    MultipartBody.Part fileToUpload1 = null, fileToUpload2 = null, fileToUpload3 = null, fileToUpload4 = null, fileToUpload5 = null;
 
-    ImageView imgselect1,imgselect2,imgselect3,imgselect, img_delete_logo, img_delete_logo2, img_delete_logo3;
-    CustomButton btncategory,btncam,btngal;
-    TextInputEditText edtmobile, edtaddress, edttozihat, edttitle,edtcat;
+    ImageView imgselect1, imgselect2, imgselect3, imgselect, img_delete_logo, img_delete_logo2, img_delete_logo3;
+    CustomButton btncategory, btncam, btngal;
+    TextInputEditText edtmobile, edtaddress, edttozihat, edttitle, edtcat;
     Bitmap bitmap = null;
     public static final int MY_PERMISSIONS_REQUEST_CAMERA = 123;
-    LinearLayout linearcam, catwraper,lineargal;
+    LinearLayout linearcam, catwraper, lineargal;
     String comp_img_path;
     private static Uri uri_1;
 
     String mediaPath = "", mediaPath1 = "", path = "";
 
-    int citycode=1;
-    String title, mobile, address, imglogo,imglogo2,imglogo3, tozih;
+    int citycode = 1;
+    String title, mobile, address, imglogo, imglogo2, imglogo3, tozih;
     File photoFile = null;
     Uri uri = null, picUri = null;
     private String imageFilePath = "";
@@ -92,14 +92,14 @@ public class ActivityInsert extends ActivityEnhanced {
 
     public static int currentAndroidDeviceVersion = Build.VERSION.SDK_INT;
 
-    File file=null;
+    File file = null;
     Intent CamIntent, GalIntent, CropIntent, intent;
     public static final int RequestPermissionCode = 1;
     SharedPreferences sharedPreferences;
     SharedPreferences.Editor editor;
 
     public static final String sptitle = "SPTITLE";
-    public static final String spName= "SPNAME";
+    public static final String spName = "SPNAME";
     public static final String spcatid = "SPCATID";
     public static final String spcatname = "SPCATNAME";
     public static final String spAddress = "spaddress";
@@ -111,7 +111,7 @@ public class ActivityInsert extends ActivityEnhanced {
 
     Bundle bundle = null;
     Button btnSubmit;
-    public static int selectedCatid=0;
+    public static int selectedCatid = 0;
 
     RelativeLayout linearimg1, linearimg2, linearimg3, linearimgselect;
 
@@ -132,7 +132,7 @@ public class ActivityInsert extends ActivityEnhanced {
         edtmobile = findViewById(R.id.edtmobile);
         edtaddress = findViewById(R.id.edtaddress);
         imgselect1 = findViewById(R.id.imgselect1);
-        imgselect= findViewById(R.id.imgselect);
+        imgselect = findViewById(R.id.imgselect);
         imgselect2 = findViewById(R.id.imgselect2);
         imgselect3 = findViewById(R.id.imgselect3);
         img_delete_logo = findViewById(R.id.del_img_logo);
@@ -148,7 +148,7 @@ public class ActivityInsert extends ActivityEnhanced {
 
         int CityCode = sharedPreferences.getInt("cat_city", 0);
         if (CityCode != 0) {
-            citycode=CityCode;
+            citycode = CityCode;
         }
 
 //                findViewById(R.id.lineardelete).setOnClickListener(new View.OnClickListener() {
@@ -175,7 +175,6 @@ public class ActivityInsert extends ActivityEnhanced {
         }
 
 
-
         setSharedPdata();
         txtChangeLinstener();
         btnSubmit.setText("ثبت اطلاعات");
@@ -184,7 +183,7 @@ public class ActivityInsert extends ActivityEnhanced {
         btncategory.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                new Dialog_Category(ActivityInsert.this,btncategory,selectedCatid).setListener(new DialogInterface.OnDismissListener() {
+                new Dialog_Category(ActivityInsert.this, btncategory, selectedCatid).setListener(new DialogInterface.OnDismissListener() {
                     @Override
                     public void onDismiss(DialogInterface dialogInterface) {
 
@@ -245,12 +244,6 @@ public class ActivityInsert extends ActivityEnhanced {
             }
         });
 
-        imgselect1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                selectImageFrom();
-            }
-        });
         imgselect.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -266,15 +259,14 @@ public class ActivityInsert extends ActivityEnhanced {
                         int userId = sharedPreferences.getInt("userId", 0);
 
                         //                    insert
-//                        if (userId > 0) {
-                            uploadtoserver(id,catid,userId,1,citycode );
-
-//                        }
-//                        else {
-//                            Intent intent = new Intent(G.Context, Activity_register.class);
-//                            startActivity(intent);
-//                            finish();
-//                        }
+                        if (userId > 0) {
+                        uploadtoserver(id, catid, userId, 1, citycode);
+                        }
+                        else {
+                            Intent intent = new Intent(G.Context, Activity_register.class);
+                            startActivity(intent);
+                            finish();
+                        }
                     }
                 } else {
                     Toast.makeText(ActivityInsert.this, "دستگاه به اینترنت متصل نیست", Toast.LENGTH_SHORT).show();
@@ -298,12 +290,12 @@ public class ActivityInsert extends ActivityEnhanced {
             edttitle.setText(sharedPreferences.getString(sptitle, ""));
         }
         if (sharedPreferences.contains(spImage)) {
-             String photo = sharedPreferences.getString(spImage, "");
-                //image path to bitmap
-                Bitmap bitmap = BitmapFactory.decodeFile(photo);
-                Glide.with(this).load(bitmap)
-                        .into(imgselect1);
-                linearimg1.setVisibility(View.VISIBLE);
+            String photo = sharedPreferences.getString(spImage, "");
+            //image path to bitmap
+            Bitmap bitmap = BitmapFactory.decodeFile(photo);
+            Glide.with(this).load(bitmap)
+                    .into(imgselect1);
+            linearimg1.setVisibility(View.VISIBLE);
 
         }
         if (sharedPreferences.contains(spImage2)) {
@@ -344,6 +336,7 @@ public class ActivityInsert extends ActivityEnhanced {
             linearimgselect.setVisibility(View.VISIBLE);
         }
     }
+
     private void clearInputs() {
         edttitle.setText("");
 
@@ -370,14 +363,15 @@ public class ActivityInsert extends ActivityEnhanced {
         userId = sharedPreferences.getInt("userId", 0);
         mobile = edtmobile.getText().toString();
         tozih = edttozihat.getText().toString();
-        catname= sharedPreferences.getString(spcatname, "");
-        catid= sharedPreferences.getInt(spcatid,0);
+        catname = sharedPreferences.getString(spcatname, "");
+        catid = sharedPreferences.getInt(spcatid, 0);
 
         imglogo = sharedPreferences.getString(spImage, "");
         imglogo2 = sharedPreferences.getString(spImage2, "");
         imglogo3 = sharedPreferences.getString(spImage3, "");
 
     }
+
     private boolean validate() {
         Boolean valid = true;
 
@@ -400,20 +394,19 @@ public class ActivityInsert extends ActivityEnhanced {
         if (address.length() < 15) {
 
             edtaddress.setError("لطفا حداقل 15 حرف وارد کنید");
-                valid = false;
-            } else {
+            valid = false;
+        } else {
             valid = true;
-            }
+        }
 
         return valid;
     }
 
 
-
-
     private void displayMessage(Context baseContext, String s) {
-            Toast.makeText(baseContext, s, Toast.LENGTH_LONG).show();
-        }
+        Toast.makeText(baseContext, s, Toast.LENGTH_LONG).show();
+    }
+
     private File createImageFile() throws IOException {
         // Create an image file name
         String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
@@ -428,6 +421,7 @@ public class ActivityInsert extends ActivityEnhanced {
         imageFilePath = image.getAbsolutePath();
         return image;
     }
+
     public boolean checkPermission() {
         int currentAPIVersion = Build.VERSION.SDK_INT;
         if (currentAPIVersion >= android.os.Build.VERSION_CODES.M) {
@@ -458,12 +452,13 @@ public class ActivityInsert extends ActivityEnhanced {
             return true;
         }
     }
+
     @Override
     public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
         switch (requestCode) {
             case MY_PERMISSIONS_REQUEST_CAMERA:
                 if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                    ClickImageFromCamera(this,null);
+                    ClickImageFromCamera(this, null);
                 } else {
                     Toast.makeText(G.Context, "اجازه دسترسی داده نشد!", Toast.LENGTH_SHORT).show();
                 }
@@ -515,12 +510,13 @@ public class ActivityInsert extends ActivityEnhanced {
             ActivityInsert.config = new ActivityInsert.CropConfig();
         }
         CamIntent = new Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
-        file = new File(Environment.getExternalStorageDirectory(),"file" + String.valueOf(System.currentTimeMillis()) + ".jpg");
+        file = new File(Environment.getExternalStorageDirectory(), "file" + String.valueOf(System.currentTimeMillis()) + ".jpg");
         picUri = Uri.fromFile(file);
         CamIntent.putExtra(android.provider.MediaStore.EXTRA_OUTPUT, picUri);
         CamIntent.putExtra("return-data", true);
         startActivityForResult(CamIntent, 1);
     }
+
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -552,6 +548,7 @@ public class ActivityInsert extends ActivityEnhanced {
         }
 
     }
+
     private void setImagebitmap(String comp_img_path) {
 
         if (linearimg1.getVisibility() == View.GONE) {
@@ -563,9 +560,7 @@ public class ActivityInsert extends ActivityEnhanced {
             editor.putString(spImage, comp_img_path);
             editor.commit();
             checksixthimg();
-        }
-
-        else if (linearimg2.getVisibility() == View.GONE) {
+        } else if (linearimg2.getVisibility() == View.GONE) {
 
             Toast.makeText(this, "img2", Toast.LENGTH_SHORT).show();
             linearimg2.setVisibility(View.VISIBLE);
@@ -593,12 +588,13 @@ public class ActivityInsert extends ActivityEnhanced {
     }
 
     private void checksixthimg() {
-        if (linearimg1.getVisibility() == View.VISIBLE && linearimg2.getVisibility() == View.VISIBLE && linearimg3.getVisibility() == View.VISIBLE ) {
+        if (linearimg1.getVisibility() == View.VISIBLE && linearimg2.getVisibility() == View.VISIBLE && linearimg3.getVisibility() == View.VISIBLE) {
 
             Toast.makeText(this, "third gon", Toast.LENGTH_SHORT).show();
             linearimgselect.setVisibility(View.GONE);
         }
     }
+
     @SuppressLint("NewApi")
     private String imgToString() {
         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
@@ -606,6 +602,7 @@ public class ActivityInsert extends ActivityEnhanced {
         byte[] imgbyte = byteArrayOutputStream.toByteArray();
         return Base64.encodeToString(imgbyte, Base64.DEFAULT);
     }
+
     public void crop(Uri picUri) {
 
         Uri mDestinationUri = buildUri();
@@ -633,6 +630,7 @@ public class ActivityInsert extends ActivityEnhanced {
         uCrop.withOptions(options);
         uCrop.start(this);
     }
+
     private static Uri buildUri() {
         File cacheFolder = new File(Environment.getExternalStorageDirectory() + File.separator + "crop");
         if (!cacheFolder.exists()) {
@@ -653,11 +651,10 @@ public class ActivityInsert extends ActivityEnhanced {
         return uri_1;
     }
 
-    private void uploadtoserver(int id, final int catid ,  int userid, int code, int citycode) {
+    private void uploadtoserver(int id, final int catid, int userid, int code, int citycode) {
         G.show_progress_dialog(ActivityInsert.this, false, false);
 
 //        fileToUpload1 = MultipartBody.Part.createFormData("file1", file1.getName(), requestBody1);
-
         if (!imglogo.equals("")) {
             file1 = new File(imglogo);
             requestBody1 = RequestBody.create(MediaType.parse("*/*"), file1);
@@ -665,53 +662,57 @@ public class ActivityInsert extends ActivityEnhanced {
             fileToUpload1 = MultipartBody.Part.createFormData("file1", file1.getName(), requestBody1);
             Log.i("mahdi 11", String.valueOf(requestBody1));
         }
-//        if (!imglogo2.equals("")) {
-//            Log.i("mahdi 12", imglogo2);
-//
-//            file2 = new File(imglogo2);
-//            requestBody2 = RequestBody.create(MediaType.parse("*/*"), file2);
-//            fileToUpload2 = MultipartBody.Part.createFormData("file2", file2.getName(), requestBody2);
-//        } else {
-//            Log.i("mahdi 2", imglogo2);
-//        }
-//        if (!imglogo3.equals("")) {
-//            Log.i("mahdi 13", imglogo3);
-//
-//            file3 = new File(imglogo3);
-//            requestBody3 = RequestBody.create(MediaType.parse("*/*"), file3);
-//            fileToUpload3 = MultipartBody.Part.createFormData("file3", file3.getName(), requestBody3);
-//        } else {
-//            Log.i("mahdi 3", imglogo3);
-//        }
+        if (!imglogo2.equals("")) {
+            Log.i("mahdi 12", imglogo2);
+
+            file2 = new File(imglogo2);
+            requestBody2 = RequestBody.create(MediaType.parse("*/*"), file2);
+            fileToUpload2 = MultipartBody.Part.createFormData("file2", file2.getName(), requestBody2);
+        } else {
+            Log.i("mahdi 2", imglogo2);
+        }
+        if (!imglogo3.equals("")) {
+            Log.i("mahdi 13", imglogo3);
+
+            file3 = new File(imglogo3);
+            requestBody3 = RequestBody.create(MediaType.parse("*/*"), file3);
+            fileToUpload3 = MultipartBody.Part.createFormData("file3", file3.getName(), requestBody3);
+        } else {
+            Log.i("mahdi 3", imglogo3);
+        }
         R_userid = RequestBody.create(MediaType.parse("text/plain"), String.valueOf(userid));
-        R_catid= RequestBody.create(MediaType.parse("text/plain"), String.valueOf(catid));
-        R_city_code= RequestBody.create(MediaType.parse("text/plain"), String.valueOf(citycode));
+        R_catid = RequestBody.create(MediaType.parse("text/plain"), String.valueOf(catid));
+        R_city_code = RequestBody.create(MediaType.parse("text/plain"), String.valueOf(citycode));
         R_code = RequestBody.create(MediaType.parse("text/plain"), String.valueOf(code));
-        R_title= RequestBody.create(MediaType.parse("text/plain"), title);
+        R_title = RequestBody.create(MediaType.parse("text/plain"), title);
         R_mobile = RequestBody.create(MediaType.parse("text/plain"), mobile);
-        R_tozih= RequestBody.create(MediaType.parse("text/plain"), tozih);
-        R_address= RequestBody.create(MediaType.parse("text/plain"), address);
+        R_tozih = RequestBody.create(MediaType.parse("text/plain"), tozih);
+        R_address = RequestBody.create(MediaType.parse("text/plain"), address);
 
         Api getResponse = ServiceGenerator.getClient().create(Api.class);
-        Call call = getResponse.uploadfile(R_userid,R_catid, R_city_code, R_code,  R_title,R_mobile, R_address, R_tozih, fileToUpload1);
+        Call call = getResponse.uploadfile(R_userid, R_catid, R_city_code, R_code, R_title, R_mobile, R_tozih, R_address ,fileToUpload1, fileToUpload2, fileToUpload3);
         call.enqueue(new Callback<ItemsListUpload>() {
             @Override
             public void onResponse(Call<ItemsListUpload> call, Response<ItemsListUpload> response) {
                 G.dismiss_P_Dialog();
+
+                Log.i("mahdi", "answer ok");
                 try {
-                    ItemsListUpload answer=response.body();
+                    ItemsListUpload answer = response.body();
                     if (answer != null) {
-                        if (answer.response.equals("inserted_ok") ) {
-
+                        if (answer.response.equals("inserted_ok")) {
                             int lastId = answer.getLastId();
-//                            Toast.makeText(ActivityInsert.this,answer.getResponse()+"-----------"+lastId , Toast.LENGTH_LONG).show();
-//                    intent = new Intent(G.Context, ActivityCheckAd.class);
-//                    intent.putExtra("lastid", lastId);
-//                    intent.putExtra("catid", catid);
-//                    intent.putExtra("catname", sharedPreferences.getString(spcatname, ""));
-//                    startActivity(intent);
+                            Toast.makeText(ActivityInsert.this, answer.getResponse() + "-----------" + lastId, Toast.LENGTH_LONG).show();
+                            intent = new Intent(G.Context, ActivityCheckAd.class);
+                            intent.putExtra("lastid", lastId);
+                            intent.putExtra("catid", catid);
+                            intent.putExtra("catname", sharedPreferences.getString(spcatname, ""));
+                            startActivity(intent);
+//
 
-//                    G.startActivity(ActivityCheckAd.class,true);
+                        }else {
+                            Toast.makeText(ActivityInsert.this, "مشکل در ثبت آگهی ", Toast.LENGTH_LONG).show();
+
 
                         }
                     }
@@ -722,7 +723,7 @@ public class ActivityInsert extends ActivityEnhanced {
                 }
 
 
-                }
+            }
 
             @Override
             public void onFailure(@NonNull Call<ItemsListUpload> call, @NonNull Throwable t) {
@@ -785,6 +786,7 @@ public class ActivityInsert extends ActivityEnhanced {
             }
         }
     }
+
     private void selectImageFromCamera(Activity context, CropConfig config) {
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
             ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.CAMERA, Manifest.permission.WRITE_EXTERNAL_STORAGE}, 0);
@@ -830,10 +832,13 @@ public class ActivityInsert extends ActivityEnhanced {
         public boolean showGridLine = false;
         public boolean showOutLine = true;
 
-        public @ColorInt int toolbarColor = ContextCompat.getColor(G.Context, R.color.colorToolbar);
-        public @ColorInt int statusBarColor = ContextCompat.getColor(G.Context, R.color.colorPrimaryDark);
+        public @ColorInt
+        int toolbarColor = ContextCompat.getColor(G.Context, R.color.colorToolbar);
+        public @ColorInt
+        int statusBarColor = ContextCompat.getColor(G.Context, R.color.colorPrimaryDark);
 
     }
+
     @Override
     protected void onPause() {
         super.onPause();

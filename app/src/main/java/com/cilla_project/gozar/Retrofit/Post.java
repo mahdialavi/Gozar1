@@ -102,24 +102,24 @@ public class Post {
 
 
     }
-    public void uploadToServer(int id,int code,int userId,int citycode,int  catid,String title,String image,String mobile,String address,String tozih,
-                               final UploadPosts answerPosts) {
-        Api service = ServiceGenerator.getClient().create(Api.class);
-        Call<ItemsListUpload> call = service.uploadToServer(id,code,userId,catid,citycode,title,image,mobile,address,tozih);
-//        id,code,userId,itemname,imglogo,email,website,manager,boss,mobile,phonenumber
-        call.enqueue(new Callback<ItemsListUpload>() {
-            @Override
-            public void onResponse(Call<ItemsListUpload>call, Response<ItemsListUpload>response) {
-                ItemsListUpload res= response.body();
-                answerPosts.AnswerBase(res);
-            }
-            @Override
-            public void onFailure(Call<ItemsListUpload> call, Throwable t) {
-                answerPosts.SendError(t);
-                Log.e("getPosts:", t.getMessage());
-            }
-        });
-    }
+//    public void uploadToServer(int id,int code,int userId,int citycode,int  catid,String title,String image,String mobile,String address,String tozih,
+//                               final UploadPosts answerPosts) {
+//        Api service = ServiceGenerator.getClient().create(Api.class);
+//        Call<ItemsListUpload> call = service.uploadfile(id,code,userId,catid,citycode,title,image,mobile,address,tozih);
+////        id,code,userId,itemname,imglogo,email,website,manager,boss,mobile,phonenumber
+//        call.enqueue(new Callback<ItemsListUpload>() {
+//            @Override
+//            public void onResponse(Call<ItemsListUpload>call, Response<ItemsListUpload>response) {
+//                ItemsListUpload res= response.body();
+//                answerPosts.AnswerBase(res);
+//            }
+//            @Override
+//            public void onFailure(Call<ItemsListUpload> call, Throwable t) {
+//                answerPosts.SendError(t);
+//                Log.e("getPosts:", t.getMessage());
+//            }
+//        });
+//    }
     public void getPostsSearch(String command,String text,int citycode,int page, final AnswerPosts answerPosts) {
         Api service = ServiceGenerator.getClient().create(Api.class);
         Call<ArrayList<JobItemsList>> call = service.getPostsSearch(command,text,citycode,page);

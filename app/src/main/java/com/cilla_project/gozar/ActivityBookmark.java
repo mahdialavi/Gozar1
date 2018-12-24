@@ -53,8 +53,7 @@ public class ActivityBookmark extends ActivityEnhanced {
         super.onRestart();
         //when we back from activity show this activity onrestarts
         Log.i("onstop", "onrestart");
-        FavItemAdaptor.persons = Persons.all();
-        adapter.notifyDataSetChanged();
+
 
     }
 
@@ -79,6 +78,16 @@ public class ActivityBookmark extends ActivityEnhanced {
         FavItemAdaptor.persons.clear();
         adapter.notifyDataSetChanged();
     }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Log.i("onstop","onresume" );
+        FavItemAdaptor.persons = Persons.all();
+        adapter.notifyDataSetChanged();
+
+    }
+
     private void showNoItemView(boolean show) {
         View lyt_no_item = (View) findViewById(R.id.lyt_no_item);
         if (show) {
@@ -147,8 +156,6 @@ public class ActivityBookmark extends ActivityEnhanced {
 
 
     }
-
-
 
 
 

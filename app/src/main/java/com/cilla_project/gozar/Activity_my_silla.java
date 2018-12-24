@@ -113,7 +113,7 @@ public class Activity_my_silla extends ActivityEnhanced {
                     editor.apply();
                     txtmatn.setText("برای استفاده از برنامه سیلا وارد حساب کاربری خود شوید.");
                     btnexit.setText("ورود");
-                    G.startActivity(MainActivity2.class,true);
+                    G.startActivity(MainActivity.class,true);
 
                 } else {
                     G.startActivity(Activity_register.class, true);
@@ -126,6 +126,6 @@ public class Activity_my_silla extends ActivityEnhanced {
     public void onBackPressed() {
         super.onBackPressed();
 
-        G.startActivity(MainActivity2.class, true);
+        G.startActivity(MainActivity.class, true);
     }
 }

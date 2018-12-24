@@ -154,7 +154,7 @@ public class ActivityCategory extends ActivityEnhanced {
 //                item.setChecked(true);
                 switch (item.getItemId()) {
                     case R.id.menukhane:
-                        G.startActivity(MainActivity2.class, true);
+                        G.startActivity(MainActivity.class, true);
                         MainActivity_Adapter.itemsArraylist.clear();
                         return true;
                     case R.id.menuCategory:
@@ -302,7 +302,7 @@ public class ActivityCategory extends ActivityEnhanced {
     public void onBackPressed() {
         super.onBackPressed();
         clearItemadaptorArr();
-        G.startActivity(MainActivity2.class,true);
+        G.startActivity(MainActivity.class,true);
 
     }
 

@@ -31,15 +31,20 @@ public class MainActivity extends ActivityEnhanced {
                 switch (item.getItemId()) {
                     case R.id.menukhane:
                         item.setChecked(true);
-                        selectedfragment = FirstFragment.newInstance();
+                        selectedfragment = HomeFragment.newInstance();
+                        HomeFragment.code=0;
                         MainActivity_Adapter.itemsArraylist.clear();
                         break;
-                    case R.id.menuCategory:
+
+                        case R.id.menuCategory:
                         item.setChecked(true);
-                        selectedfragment = SecondFragment.newInstance();
+                        selectedfragment = Fragment_Categories.newInstance();
+                        //empty mainactivity array before setting new data
+                        MainActivity_Adapter.itemsArraylist.clear();
                         JobAdapter.itemsArraylist.clear();
 
                         break;
+
                     case R.id.menuinsert:
                         item.setChecked(true);
                         G.startActivity(ActivityInsert.class,true);
@@ -50,14 +55,18 @@ public class MainActivity extends ActivityEnhanced {
                         selectedfragment = Fragment_My_Page.newInstance();
                         break;
                 }
+
+
                 FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
                 transaction.replace(R.id.frame_layout, selectedfragment);
                 transaction.commit();
                 return false;
             }
         });
+
+
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-        transaction.replace(R.id.frame_layout, FirstFragment.newInstance());
+        transaction.replace(R.id.frame_layout, HomeFragment.newInstance());
         transaction.commit();
     }
 
@@ -88,7 +97,7 @@ public class MainActivity extends ActivityEnhanced {
     @Override
     public void onBackPressed() {
         super.onBackPressed();
-
+        finish();
     }
 
     @Override
