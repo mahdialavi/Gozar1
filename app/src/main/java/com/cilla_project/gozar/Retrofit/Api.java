@@ -18,7 +18,6 @@ import retrofit2.http.Query;
 public interface Api {
 
 
-
     @GET("index.php")
     Call<ArrayList<JobItemsList>> getPosts();
 
@@ -73,6 +72,7 @@ public interface Api {
             @Part MultipartBody.Part file3
 //
     );
+
     @FormUrlEncoded
     @POST("registeruser.php")
     Call<registerUserModel> registerUser(
@@ -88,11 +88,10 @@ public interface Api {
             @Query("name") String name,
             @Query("code") String code
     );
+
     @FormUrlEncoded
     @POST("getitems.php")
     Call<ArrayList<JobItemsList>> getPostsCat(@Field("cat") int cat);
-
-
 
 
 //    @FormUrlEncoded
@@ -113,15 +112,33 @@ public interface Api {
             @Query("citycode") int citycode,
             @Query("catid") int catid
     );
+
+
+    @GET("get_ads_list.php")
+    Call<ArrayList<JobItemsList>> getadslist(
+            @Query("page") int page,
+            @Query("count") int count,
+            @Query("q") String query,
+            @Query("category_id") int category_id
+    );
+
     @GET("allmyads.php")
     Call<ArrayList<JobItemsList>> getmyads(
             @Query("page") int page,
             @Query("count") int count,
             @Query("userId") int userId
     );
+
     @GET("getjobdetails.php")
     Call<ArrayList<JobItemsList>> getOneItem(
             @Query("id") int id
     );
 
+    @GET("get_ads_list.php")
+    Call<ArrayList<JobItemsList>> get_ads_list(
+            @Query("page") int page,
+            @Query("count") int count,
+            @Query("q") String query,
+            @Query("category_id") int category_id
+    );
 }

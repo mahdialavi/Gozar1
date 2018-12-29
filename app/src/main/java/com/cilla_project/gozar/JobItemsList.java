@@ -57,6 +57,18 @@ public class JobItemsList {
     public ArrayList<String> buisinesPics = null;
 
 
+//   @SerializedName("ads_id")
+//   @Expose
+//   public int ads_id;
+//
+//   @SerializedName("ads_image")
+//   @Expose
+//   public String ads_image;
+//
+//   @SerializedName("ads_name")
+//   @Expose
+//   public String ads_name;
+
 
 
 }

@@ -36,7 +36,6 @@ public class G extends Application {
     public static SQLiteDatabase DB;
     public static Dialog custom_P_Dialog;
 
-    //    public static ArrayList<ItemsList> itemsArraylist;
     public static Typeface FONT_BOLD;
     public static Typeface FONT_NORMAL;
     public static String direction = Environment.getExternalStorageDirectory().getAbsolutePath() + "/herbal_meds";

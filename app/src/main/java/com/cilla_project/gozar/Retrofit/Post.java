@@ -48,6 +48,23 @@ public class Post {
         });
     }
 
+    public void getadslist(int page, int catId, final AnswerPosts answerPosts) {
+        Api service = ServiceGenerator.getClient().create(Api.class);
+        Call<ArrayList<JobItemsList>> call = service.get_ads_list(page, Constants.PRODUCT_PER_REQUEST, null, catId);
+        call.enqueue(new Callback<ArrayList<JobItemsList>>() {
+            @Override
+            public void onResponse(Call<ArrayList<JobItemsList>> call, Response<ArrayList<JobItemsList>> response) {
+                ArrayList<JobItemsList> res = response.body();
+                answerPosts.AnswerBase(res);
+            }
+
+            @Override
+            public void onFailure(Call<ArrayList<JobItemsList>> call, Throwable t) {
+                answerPosts.SendError(t);
+//                Log.e("getPosts:", t.getMessage());
+            }
+        });
+    }
     public void getOneItem(int id, final AnswerPosts answerPosts) {
         Api service = ServiceGenerator.getClient().create(Api.class);
         Call<ArrayList<JobItemsList>> call = service.getOneItem(id);
@@ -99,8 +116,22 @@ public class Post {
                 checkVersion.SendError(t);
             }
         });
-
-
+        }
+    public void get_ads_list(int page, int catId, final AnswerPosts answerPosts) {
+        Api service = ServiceGenerator.getClient().create(Api.class);
+        Call<ArrayList<JobItemsList>> call = service.get_ads_list(page,catId,"",0);
+        call.enqueue(new Callback<ArrayList<JobItemsList>>() {
+            @Override
+            public void onResponse(Call<ArrayList<JobItemsList>> call, Response<ArrayList<JobItemsList>> response) {
+                ArrayList<JobItemsList> res = response.body();
+                answerPosts.AnswerBase(res);
+            }
+            @Override
+            public void onFailure(Call<ArrayList<JobItemsList>> call, Throwable t) {
+                answerPosts.SendError(t);
+//                Log.e("getPosts:", t.getMessage());
+            }
+        });
     }
 //    public void uploadToServer(int id,int code,int userId,int citycode,int  catid,String title,String image,String mobile,String address,String tozih,
 //                               final UploadPosts answerPosts) {

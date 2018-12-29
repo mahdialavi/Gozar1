@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_marginTop="5dp"
+    android:layout_marginTop="3dp"
     android:layout_width="match_parent"
     android:textDirection="rtl"
     android:layoutDirection="rtl"
@@ -10,9 +10,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:clickable="true"
-        android:layout_marginLeft="3dp"
+        android:layout_marginLeft="2dp"
         android:id="@+id/linearitemcardview"
-        android:layout_marginRight="3dp"
+        android:layout_marginRight="2dp"
         android:clipToPadding="false"
         app:cardBackgroundColor="@android:color/white"
         app:cardCornerRadius="@dimen/card_radius"
@@ -27,7 +27,17 @@
             android:layout_height="120dp"
             android:orientation="horizontal">
 
-
+            <RelativeLayout
+                android:layout_width="160dp"
+                android:layout_height="120dp"
+                >
+                <ImageView
+                    android:src="@drawable/noimage"
+                    android:id="@+id/image"
+                    android:layout_width="match_parent"
+                    android:layout_height="155dp"
+                    android:scaleType="fitXY" />
+            </RelativeLayout>
             <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
@@ -62,7 +72,7 @@
                     android:id="@+id/txttime"
                     android:layout_width="wrap_content"
                     android:layout_height="30dp"
-                    android:text="ده قیقه پیش"
+                    android:text="همین الان"
                     android:textColor="@color/grey_60"
                     android:textDirection="rtl"
                     android:layout_gravity="bottom"
@@ -71,22 +81,7 @@
 
             </LinearLayout>
             </LinearLayout>
-            <RelativeLayout
-                android:layout_width="120dp"
-                android:layout_height="120dp"
-                >
-                <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="155dp"
-                    android:layout_centerInParent="true"
-                    android:src="@drawable/noimage" />
 
-                <ImageView
-                    android:id="@+id/image"
-                    android:layout_width="match_parent"
-                    android:layout_height="155dp"
-                    android:scaleType="fitXY" />
-            </RelativeLayout>
         </LinearLayout>
 
     </android.support.v7.widget.CardView>

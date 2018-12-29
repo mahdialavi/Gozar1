@@ -16,6 +16,12 @@
         android:title="دسته بندی ها" />
 
 
+    <item
+        android:id="@+id/menutablighat"
+        android:icon="@drawable/ads_icon"
+        android:title="تبلیغات" />
+
+
 
     <item
         android:id="@+id/menumypage"

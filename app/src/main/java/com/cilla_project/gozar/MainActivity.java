@@ -50,6 +50,12 @@ public class MainActivity extends ActivityEnhanced {
                         G.startActivity(ActivityInsert.class,true);
                         MainActivity_Adapter.itemsArraylist.clear();
                         return false;
+                    case R.id.menutablighat:
+                        item.setChecked(true);
+                        selectedfragment = Fragment_tablighat.newInstance();
+                        ItemAdapter.itemsArraylist.clear();
+
+                        break;
                     case R.id.menumypage:
                         item.setChecked(true);
                         selectedfragment = Fragment_My_Page.newInstance();
