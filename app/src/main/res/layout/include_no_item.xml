@@ -16,7 +16,7 @@
             android:layout_height="80dp"
             android:src="@drawable/img_no_internet" />
 
-        <com.cilla_project.gozar.CustomControl.CustomTextView
+        <com.af.silaa_grp.CustomControl.CustomTextView
             android:id="@+id/no_item_message"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

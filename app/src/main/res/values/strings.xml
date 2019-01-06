@@ -16,4 +16,24 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
+    <string name="not_connected_to_internet">ظاهرا اینترنت شما قطع میباشد.</string>
+    <string name="problem_in_recieving_data">مشکل در دریافت اطلاعات</string>
+    <string name="no_internet_message">برنامه به اینترنت متصل نیست</string>
+    <string name="mobile_not_valid_text">شماره وارد شده معتبر نمیباشد!</string>
+    <string name="write_3_words_text">برای نام حداقل سه حرف وارد کنید</string>
+    <string name="register_failed_message">ثبت نام با مشکل مواجه گردیده است!</string>
+    <string name="permission_not_alow_text">اجازه دسترسی داده نشد!</string>
+    <string name="agahi_register_failed_text">مشکل در ثبت آگهی</string>
+    <string name="agahi_inserted_successfuly">آگهی شما ثبت گردید</string>
+    <string name="insert_confirm_code_txt">کد تایید را وارد نمایید!</string>
+    <string name="inset_code_carefuly_txt">کد 5 رقمی را با دقت وارد نمایید!</string>
+    <string name="code_not_valid_txt">کد وارد شده معتبر نمی باشد!</string>
+    <string name="code_sending_to_you_txt">تا لحظات دیگر کد تایید برای شما ارسال میگردد!</string>
+    <string name="insert_mobile_num_txt">لطفا شماره تلفن همراه خود را وارد کنید!</string>
+    <string name="mobile_not_valid_txt">شماره وارد شده معتبر نمی باشد!</string>
+    <string name="update_text">نسخه جدیدی از برنامه موجود است، مایل به دریافت نسخه جدید هستید؟</string>
+    <string name="yes">بله</string>
+    <string name="no">خیر</string>
+    <string name="msg_app_out_date">پیغام آپدیت</string>
+
 </resources>

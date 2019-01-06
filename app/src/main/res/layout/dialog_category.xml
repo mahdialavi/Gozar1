@@ -2,6 +2,8 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:minHeight="350dp"
+    android:minWidth="200dp"
     android:orientation="vertical"
     android:padding="5dp"
 
@@ -21,7 +23,7 @@
             android:padding="7dp"
             android:src="@drawable/cancel" />
 
-        <com.cilla_project.gozar.CustomControl.CustomTextView
+        <com.af.silaa_grp.CustomControl.CustomTextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginRight="5dp"
@@ -34,139 +36,18 @@
 
     </LinearLayout>
 
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_gravity="center"
+    android:orientation="vertical"
+    android:layout_height="wrap_content">
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="45dp"
-        android:layout_marginTop="5dp"
-        android:gravity="center_vertical">
-
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="-5dp"
-            android:id="@+id/linearsakhtemani"
-            android:text="کارهای ساختمانی"
-            android:textSize="18dp" />
-
-    </RelativeLayout>
-
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="45dp"
-        android:gravity="center_vertical">
-
-        <Button
-            android:id="@+id/linearforosh"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="-5dp"
-
-            android:text="خرید و فروش"
-            android:textSize="18dp" />
-
-    </RelativeLayout>
-
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="45dp"
-        android:gravity="center_vertical">
-
-        <Button
-            android:id="@+id/linearsanati"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="-5dp"
-
-            android:text="کارهای صنعتی"
-            android:textSize="18dp" />
+   <android.support.v7.widget.RecyclerView
+       android:id="@+id/rvCats"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content">
 
 
-    </RelativeLayout>
-
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="45dp"
-        android:gravity="center_vertical">
-
-        <Button
-            android:id="@+id/linearkhayati"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-
-            android:layout_marginTop="-5dp"
-            android:text="خیاطی و دوزندگی"
-
-            android:textSize="18dp" />
-
-
-    </RelativeLayout>
-
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="45dp"
-        android:gravity="center_vertical">
-
-        <Button
-            android:id="@+id/linearhesabdari"
-            android:layout_width="match_parent"
-            android:layout_marginTop="-5dp"
-
-            android:layout_height="wrap_content"
-            android:text="حسابداری و دوزندگی"
-            android:textSize="18dp" />
-
-    </RelativeLayout>
-
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="45dp"
-
-        android:gravity="center_vertical">
-
-        <Button
-            android:id="@+id/linearkarkhane"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="-5dp"
-
-            android:text="کارخانه های تولید کننده"
-            android:textSize="18dp" />
-
-    </RelativeLayout>
-
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="45dp"
-        android:gravity="center_vertical">
-
-        <Button
-            android:id="@+id/linearkeshavarzi"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="-5dp"
-            android:text="کارهای کشاورزی"
-
-
-            android:textSize="18dp" />
-
-
-    </RelativeLayout>
-
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="45dp"
-        android:gravity="center_vertical">
-
-        <Button
-            android:id="@+id/linearmotefareghe"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="-5dp"
-            android:text="متفرقه"
-            android:textSize="18dp" />
-
-
-    </RelativeLayout>
-
+   </android.support.v7.widget.RecyclerView>
+</LinearLayout>
 </LinearLayout>

@@ -14,21 +14,24 @@
         android:orientation="vertical"
         android:padding="@dimen/spacing_mlarge">
 
-        <com.cilla_project.gozar.CustomControl.CustomTextView
+        <com.af.silaa_grp.CustomControl.CustomTextView
             android:id="@+id/title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="right"
             android:text="سیلا"
+            android:layout_marginRight="20dp"
             android:textSize="18dp"
-            android:textColor="#c10d0d"/>
+            android:textColor="@color/colorAccent"/>
 
-        <com.cilla_project.gozar.CustomControl.CustomTextView
+        <com.af.silaa_grp.CustomControl.CustomTextView
             android:id="@+id/content"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/spacing_small"
-            android:text="مطمئنید میخواهید خارج شوید؟"
+            android:textSize="17dp"
+
+            android:text="آگهی حذف شود؟"
             android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
             android:textColor="@color/grey_80"/>
     </LinearLayout>
@@ -41,7 +44,7 @@
         android:gravity="left"
         android:paddingRight="@dimen/spacing_large">
 
-        <com.cilla_project.gozar.CustomControl.CustomTextView
+        <com.af.silaa_grp.CustomControl.CustomTextView
             android:id="@+id/btn_positive"
             android:layout_width="wrap_content"
             android:layout_height="40dp"
@@ -50,23 +53,23 @@
             android:paddingLeft="30dp"
             android:paddingRight="30dp"
             android:text="خوبه"
-            android:textColor="@color/grey_80"
-
+            android:textColor="@color/colorToolbar"
+            android:textSize="16dp"
             android:textStyle="bold" />
 
-        <com.cilla_project.gozar.CustomControl.CustomTextView
+        <com.af.silaa_grp.CustomControl.CustomTextView
             android:id="@+id/btn_negative"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_marginLeft="5dp"
             android:baselineAligned="false"
             android:gravity="center"
-
+            android:textSize="16dp"
             android:paddingLeft="30dp"
             android:paddingRight="30dp"
             android:text="بیخیال"
 
-            android:textColor="@color/colorAccent"
+            android:textColor="@color/grey_60"
             android:textStyle="bold" />
 
 

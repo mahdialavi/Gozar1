@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:id="@+id/linearviewinsert"
     tools:context=".ActivityInsert">
 
     <include layout="@layout/toolbar4" />
@@ -48,7 +49,7 @@
                 android:orientation="vertical"
                 android:padding="10dp">
 
-                <com.cilla_project.gozar.CustomControl.CustomTextView
+                <com.af.silaa_grp.CustomControl.CustomTextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="انتخاب تصویر مناسب برای آگهی"
@@ -92,7 +93,7 @@
                                     android:padding="3dp"
                                     android:src="@drawable/ic_action_navigation_close_dark" />
 
-                                <com.cilla_project.gozar.CustomControl.CustomTextView
+                                <com.af.silaa_grp.CustomControl.CustomTextView
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_alignParentBottom="true"
@@ -179,7 +180,7 @@
                     android:padding="5dp">
 
 
-                    <com.cilla_project.gozar.CustomControl.CustomTextView
+                    <com.af.silaa_grp.CustomControl.CustomTextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="انتخاب مجموعه"
@@ -191,7 +192,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content">
 
-                        <com.cilla_project.gozar.CustomControl.CustomButton
+                        <com.af.silaa_grp.CustomControl.CustomButton
                             android:id="@+id/btncategory"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -216,7 +217,7 @@
                         android:orientation="vertical"
                         android:padding="@dimen/linearpadding">
 
-                        <com.cilla_project.gozar.CustomControl.CustomTextView
+                        <com.af.silaa_grp.CustomControl.CustomTextView
                             android:id="@+id/txttitle"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -248,7 +249,7 @@
                         android:orientation="vertical"
                         android:padding="@dimen/linearpadding">
 
-                        <com.cilla_project.gozar.CustomControl.CustomTextView
+                        <com.af.silaa_grp.CustomControl.CustomTextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginRight="10dp"
@@ -279,7 +280,7 @@
                         android:orientation="vertical"
                         android:padding="@dimen/linearpadding">
 
-                        <com.cilla_project.gozar.CustomControl.CustomTextView
+                        <com.af.silaa_grp.CustomControl.CustomTextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginRight="10dp"
@@ -310,7 +311,7 @@
                         android:orientation="vertical"
                         android:padding="@dimen/linearpadding">
 
-                        <com.cilla_project.gozar.CustomControl.CustomTextView
+                        <com.af.silaa_grp.CustomControl.CustomTextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginRight="10dp"
@@ -341,7 +342,7 @@
                         android:orientation="vertical"
                         android:padding="@dimen/linearpadding">
 
-                        <com.cilla_project.gozar.CustomControl.CustomTextView
+                        <com.af.silaa_grp.CustomControl.CustomTextView
                             android:id="@+id/txthintaddres"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -356,7 +357,7 @@
                             android:orientation="vertical"
                             android:padding="@dimen/linearpadding">
 
-                            <com.cilla_project.gozar.CustomControl.CustomTextView
+                            <com.af.silaa_grp.CustomControl.CustomTextView
                                 android:id="@+id/txthintaddressshort"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
@@ -371,7 +372,7 @@
             </LinearLayout>
         </ScrollView>
 
-        <com.cilla_project.gozar.CustomControl.CustomButton
+        <com.af.silaa_grp.CustomControl.CustomButton
             android:id="@+id/btnsubmit"
             style="@style/Widget.AppCompat.Button.Colored"
             android:layout_width="match_parent"

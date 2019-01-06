@@ -53,7 +53,7 @@
 
                     android:layout_weight="1"
                     >
-                <com.cilla_project.gozar.CustomControl.CustomTextView
+                <com.af.silaa_grp.CustomControl.CustomTextView
                     android:id="@+id/txttitle"
                     android:layout_width="match_parent"
                     android:layout_marginTop="5dp"
@@ -68,7 +68,7 @@
                     android:layout_width="match_parent"
                     android:orientation="horizontal"
                     android:layout_height="wrap_content">
-                <com.cilla_project.gozar.CustomControl.CustomTextView
+                <com.af.silaa_grp.CustomControl.CustomTextView
                     android:id="@+id/txttime"
                     android:layout_width="wrap_content"
                     android:layout_height="30dp"

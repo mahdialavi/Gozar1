@@ -9,6 +9,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:gravity="right"
+        android:id="@+id/linearregister"
         android:layout_height="match_parent"
         android:orientation="vertical"
         android:padding="20dp">
@@ -18,14 +19,14 @@
             android:layout_height="70dp"
             android:gravity="right"
             android:orientation="horizontal">
-            <com.cilla_project.gozar.CustomControl.CustomButton
+            <com.af.silaa_grp.CustomControl.CustomButton
                 android:layout_width="wrap_content"
                 android:text="خروج"
                 android:layout_marginTop="10dp"
                 android:id="@+id/btnexit"
                 android:layout_height="wrap_content" />
 
-            <com.cilla_project.gozar.CustomControl.CustomTextView
+            <com.af.silaa_grp.CustomControl.CustomTextView
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:layout_height="wrap_content"
@@ -46,7 +47,7 @@
             android:layout_width="match_parent"
             android:layout_marginTop="50dp"
             android:layout_height="wrap_content">
-            <com.cilla_project.gozar.CustomControl.CustomEditText
+            <com.af.silaa_grp.CustomControl.CustomEditText
                 android:id="@+id/edtname"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -62,7 +63,7 @@
 
           >
 
-            <com.cilla_project.gozar.CustomControl.CustomEditText
+            <com.af.silaa_grp.CustomControl.CustomEditText
                 android:id="@+id/edt_mobile"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -74,7 +75,7 @@
                 android:textSize="18dp" />
         </android.support.design.widget.TextInputLayout>
 
-        <com.cilla_project.gozar.CustomControl.CustomButton
+        <com.af.silaa_grp.CustomControl.CustomButton
             android:id="@+id/btn_submit"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
