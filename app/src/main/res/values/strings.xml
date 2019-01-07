@@ -36,4 +36,13 @@
     <string name="no">خیر</string>
     <string name="msg_app_out_date">پیغام آپدیت</string>
 
+
+    <!-- activityinsert strings-->
+    <string name="title_min_letter_error">عنوان نمیتواند کمتر از 5 حرف باشد</string>
+    <string name="mobile_corect_num_error">شماره موبایل را به درستی وارد نمایید</string>
+    <string name="select_cat_error">برای آگهی مجموعه انتخاب کنید</string>
+    <string name="tozih_min_letter_error">توضیحات آگهی نمیتواند کمتر از 20 حرف باشد</string>
+    <string name="enter_account_txt">لطفا وارد حساب کاربری شوید!</string>
+
+
 </resources>

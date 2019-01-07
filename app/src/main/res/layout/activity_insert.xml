@@ -167,7 +167,7 @@
                                     android:layout_width="100dp"
                                     android:layout_height="100dp"
                                     android:background="@drawable/border"
-                                    android:src="@drawable/noimage" />
+                                    android:src="@drawable/image_empty" />
                             </RelativeLayout>
                         </LinearLayout>
 
@@ -329,6 +329,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:maxLines="2"
+                                android:hint="غیر ضروری"
                                 android:textColor="@color/grey_80"
                                 android:textDirection="rtl"
                                 android:textSize="17dp" />

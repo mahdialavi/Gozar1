@@ -28,7 +28,9 @@
 
     <include layout="@layout/toolbar4" />
 
-
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
         <!--<include layout="@layout/toolbarad" />-->
 
@@ -164,7 +166,7 @@
                                 android:layout_width="100dp"
                                 android:layout_height="100dp"
                                 android:background="@drawable/border"
-                                android:src="@drawable/noimage" />
+                                android:src="@drawable/image_empty" />
                         </RelativeLayout>
                     </LinearLayout>
 
@@ -367,7 +369,9 @@
                 </LinearLayout>
 
             </LinearLayout>
+
         </ScrollView>
+
 
         <com.af.silaa_grp.CustomControl.CustomButton
             android:id="@+id/btnsubmit"
@@ -376,7 +380,8 @@
             android:layout_height="60dp"
             android:layout_alignParentBottom="true"
 
-            android:text="ثبت آگهی" />
+            android:text="ویرایش آگهی" />
+    </RelativeLayout>
 
     </LinearLayout>
 

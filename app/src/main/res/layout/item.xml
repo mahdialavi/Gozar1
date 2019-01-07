@@ -5,7 +5,7 @@
 
     <ImageView
             android:layout_width="match_parent"
-        android:background="@drawable/noimage"
+        android:background="@drawable/image_empty"
             android:layout_height="match_parent"
         android:scaleType="fitXY"
         android:id="@+id/imageView"/>
