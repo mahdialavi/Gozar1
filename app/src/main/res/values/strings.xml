@@ -43,6 +43,8 @@
     <string name="select_cat_error">برای آگهی مجموعه انتخاب کنید</string>
     <string name="tozih_min_letter_error">توضیحات آگهی نمیتواند کمتر از 20 حرف باشد</string>
     <string name="enter_account_txt">لطفا وارد حساب کاربری شوید!</string>
+    <string name="exit_message">مطمئنید میخواهید خارج شوید؟</string>
+
 
 
 </resources>
