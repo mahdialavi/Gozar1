@@ -56,9 +56,10 @@
         android:layout_width="wrap_content"
         android:text="شماره اشتباه است؟"
         android:id="@+id/txtwrongnumber"
-        android:padding="20dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginRight="5dp"
         android:textSize="17dp"
-        android:textColor="#3c7800"
+        android:textColor="#224500"
         android:layout_alignParentRight="true"
         android:layout_alignParentBottom="true"
         android:layout_height="wrap_content" />

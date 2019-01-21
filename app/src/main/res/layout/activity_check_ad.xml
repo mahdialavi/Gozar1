@@ -8,7 +8,6 @@
     android:layout_height="match_parent"
     android:id="@+id/linearcheckad"
     tools:context=".ActivityCheckAd">
-
     <include layout="@layout/toolbar5" />
     <LinearLayout
         android:layout_width="match_parent"
@@ -84,7 +83,7 @@
                 />
             <com.af.silaa_grp.CustomControl.CustomTextView
                 android:layout_width="wrap_content"
-                android:text=" ویرایش اعلان"
+                android:text=" ویرایش آگهی"
                 android:layout_marginRight="10dp"
                 android:textSize="18dp"
                 android:textColor="@color/colorAccent"
@@ -103,7 +102,7 @@
                 />
             <com.af.silaa_grp.CustomControl.CustomTextView
                 android:layout_width="wrap_content"
-                android:text="حذف اعلان"
+                android:text="حذف آگهی"
                 android:layout_marginRight="10dp"
                 android:textSize="18dp"
                 android:textColor="@color/colorAccent"

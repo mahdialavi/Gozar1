@@ -1,43 +1,55 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_marginTop="3dp"
     android:layout_width="match_parent"
-    android:textDirection="rtl"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="3dp"
     android:layoutDirection="rtl"
-    android:layout_height="wrap_content">
+    android:textDirection="rtl">
+
     <android.support.v7.widget.CardView
+        android:id="@+id/linearitemcardview"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:clickable="true"
         android:layout_marginLeft="2dp"
-        android:id="@+id/linearitemcardview"
         android:layout_marginRight="2dp"
+        android:clickable="true"
         android:clipToPadding="false"
+        android:focusable="true"
         app:cardBackgroundColor="@android:color/white"
         app:cardCornerRadius="@dimen/card_radius"
-        app:cardElevation="@dimen/card_elevation"
-        android:focusable="true">
+        app:cardElevation="@dimen/card_elevation">
 
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:background="@drawable/border"
-            android:padding="1dp"
             android:layout_height="120dp"
-            android:orientation="horizontal">
+            android:background="@drawable/border"
+            android:orientation="horizontal"
+            android:padding="1dp">
 
             <RelativeLayout
                 android:layout_width="160dp"
-                android:layout_height="120dp"
-                >
+                android:layout_height="120dp">
+
                 <ImageView
-                    android:src="@drawable/image_empty"
                     android:id="@+id/image"
                     android:layout_width="match_parent"
                     android:layout_height="155dp"
-                    android:scaleType="fitXY" />
+                    android:scaleType="fitXY"
+                    android:src="@drawable/image_empty" />
+
+                <com.af.silaa_grp.CustomControl.CustomTextView
+                    android:layout_width="50dp"
+                    android:layout_height="20dp"
+                    android:layout_alignParentBottom="true"
+                    android:layout_alignParentLeft="true"
+                    android:layout_marginBottom="8dp"
+                    android:layout_marginLeft="5dp"
+                    android:background="@drawable/sila_fade"
+                    android:textColor="@color/color_update_btn" />
             </RelativeLayout>
+
             <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
@@ -45,41 +57,42 @@
                 android:layout_weight="1"
                 android:background="#fcfcfc"
                 android:orientation="vertical"
-                android:padding="5dp"
-                >
+                android:padding="5dp">
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
 
-                    android:layout_weight="1"
-                    >
-                <com.af.silaa_grp.CustomControl.CustomTextView
-                    android:id="@+id/txttitle"
-                    android:layout_width="match_parent"
-                    android:layout_marginTop="5dp"
-                    android:layout_height="wrap_content"
-                    android:text="استاد کار بنا"
-                    android:lineSpacingMultiplier="1.2"
-                    android:textColor="@color/textcolor"
-                    android:textSize="17dp" />
+                    android:layout_weight="1">
+
+                    <com.af.silaa_grp.CustomControl.CustomTextView
+                        android:id="@+id/txttitle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:lineSpacingMultiplier="1.2"
+                        android:text="استاد کار بنا"
+                        android:textColor="@color/textcolor"
+                        android:textSize="17dp" />
                 </LinearLayout>
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:orientation="horizontal"
-                    android:layout_height="wrap_content">
-                <com.af.silaa_grp.CustomControl.CustomTextView
-                    android:id="@+id/txttime"
-                    android:layout_width="wrap_content"
-                    android:layout_height="30dp"
-                    android:text="همین الان"
-                    android:textColor="@color/grey_60"
-                    android:textDirection="rtl"
-                    android:layout_gravity="bottom"
-                    android:textSize="15dp" />
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <com.af.silaa_grp.CustomControl.CustomTextView
+                        android:id="@+id/txttime"
+                        android:layout_width="wrap_content"
+                        android:layout_height="30dp"
+                        android:layout_gravity="bottom"
+                        android:text="همین الان"
+                        android:textColor="@color/grey_60"
+                        android:textDirection="rtl"
+                        android:textSize="15dp" />
 
 
-            </LinearLayout>
+                </LinearLayout>
             </LinearLayout>
 
         </LinearLayout>
@@ -87,12 +100,7 @@
     </android.support.v7.widget.CardView>
 
 
-
-
-
-
-
-    </LinearLayout>
+</LinearLayout>
 
 
 

@@ -6,18 +6,19 @@
     android:layout_height="match_parent"
     android:layoutDirection="rtl"
     android:orientation="vertical">
+
     <LinearLayout
         android:id="@+id/linearwait"
         android:layout_width="match_parent"
-        android:orientation="vertical"
         android:layout_height="match_parent"
+        android:orientation="vertical"
         android:visibility="gone">
 
         <ProgressBar
             android:id="@+id/progressbar"
-            android:layout_marginTop="80dp"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:layout_marginTop="80dp" />
 
     </LinearLayout>
 
@@ -25,167 +26,198 @@
         android:id="@+id/lyt_failed"
         layout="@layout/no_internet"
         android:visibility="gone" />
+
     <include layout="@layout/toolbar2" />
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1">
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="vertical">
 
-        <android.support.v4.widget.NestedScrollView
-
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+
+            >
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    >
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <ProgressBar
+                            android:id="@+id/progressImage"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="95dp"
+                            android:visibility="visible"
+
+                            />
+
+                        <android.support.v4.view.ViewPager
+                            android:id="@+id/viewpager"
+                            android:layout_width="match_parent"
+                            android:layout_height="240dp"
+                            android:fitsSystemWindows="true" />
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:background="@color/grey_40" />
+
+
+                    </RelativeLayout>
+
+                    <me.relex.circleindicator.CircleIndicator
+                        android:id="@+id/indicator"
+                        android:layout_width="match_parent"
+                        android:layout_height="30dp"
+                        android:layout_gravity="center"
+                        app:ci_drawable="@drawable/circlecolor"
+                        app:ci_height="7dp"
+                        app:ci_width="7dp" />
+
+                    <LinearLayout
+                        android:id="@+id/linearname"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="15dp"
+                        android:orientation="horizontal"
+                        android:paddingLeft="10dp"
+                        android:paddingRight="20dp">
+
+                        <com.af.silaa_grp.CustomControl.CustomTextView
+                            android:id="@+id/txtname"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="انتخاب عنوان برای آگهی شما ضروری میباشد"
+                            android:textColor="#050618"
+                            android:textSize="18dp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp">
+
+                        <com.af.silaa_grp.CustomControl.CustomTextView
+                            android:id="@+id/txtzaman"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingLeft="10dp"
+                            android:paddingRight="20dp"
+                            android:text="5 ذقیقه پیش" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/linearmobile"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="15dp"
+                        android:orientation="vertical"
+                        android:paddingLeft="10dp"
+                        android:paddingRight="20dp">
+
+                        <com.af.silaa_grp.CustomControl.CustomTextViewBold
+                            android:layout_width="wrap_content"
+
+                            android:layout_height="wrap_content"
+                            android:lineSpacingMultiplier="1.2"
+                            android:text="توضیح آگهی:"
+                            android:textColor="#a30b1f"
+                            android:textSize="17dp" />
+
+                        <com.af.silaa_grp.CustomControl.CustomTextView
+                            android:id="@+id/txttozih"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="20dp"
+                            android:paddingRight="10dp"
+                            android:text="توضیحات"
+                            android:textColor="@color/textcolor"
+                            android:textSize="16dp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/linearaddress"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="15dp"
+                        android:orientation="vertical"
+                        android:layout_marginBottom="60dp"
+                        android:paddingLeft="10dp"
+                        android:paddingRight="20dp">
+
+                        <com.af.silaa_grp.CustomControl.CustomTextViewBold
+                            android:layout_width="wrap_content"
+
+                            android:layout_height="wrap_content"
+                            android:lineSpacingMultiplier="1.2"
+                            android:text="آدرس:"
+                            android:textColor="#a30b1f"
+                            android:textSize="17dp" />
+
+                        <com.af.silaa_grp.CustomControl.CustomTextView
+                            android:id="@+id/txtaddress"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="20dp"
+                            android:paddingRight="10dp"
+                            android:text="آدرس"
+                            android:textColor="@color/textcolor"
+                            android:textSize="16dp" />
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+
+            </ScrollView>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:paddingBottom="40dp">
+                android:layout_marginLeft="30dp"
+                android:layout_alignParentBottom="true"
+                android:layout_marginRight="30dp"
+                android:background="@android:color/transparent"
+                android:orientation="horizontal">
 
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
-
-                    <ProgressBar
-                        android:id="@+id/progressImage"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="95dp"
-                        android:visibility="visible"
-
-                        />
-
-                    <android.support.v4.view.ViewPager
-                        android:id="@+id/viewpager"
-                        android:layout_width="match_parent"
-                        android:layout_height="240dp"
-                        android:fitsSystemWindows="true" />
-
-                    <View
-                        android:layout_width="match_parent"
-                        android:layout_height="1dp"
-                        android:background="@color/grey_40" />
-
-
-                </RelativeLayout>
-
-                <me.relex.circleindicator.CircleIndicator
-                    android:id="@+id/indicator"
-                    app:ci_drawable="@drawable/circlecolor"
-                    android:layout_width="match_parent"
-                    android:layout_height="30dp"
-                    android:layout_gravity="center"
-                    app:ci_height="7dp"
-                    app:ci_width="7dp" />
-
-                <LinearLayout
-                    android:id="@+id/linearname"
-                    android:layout_width="match_parent"
+                <com.af.silaa_grp.CustomControl.CustomButton
+                    android:id="@+id/btnpayam"
+                    style="@style/Widget.AppCompat.Button.Colored"
+                    android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_marginTop="15dp"
-                    android:orientation="horizontal"
-                    android:paddingLeft="10dp"
-                    android:paddingRight="20dp"
-                    >
+                    android:layout_weight="0.5"
+                    android:text="پیامک"
 
-                    <com.af.silaa_grp.CustomControl.CustomTextView
-                        android:id="@+id/txtname"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="انتخاب عنوان برای آگهی شما ضروری میباشد"
-                        android:textColor="#050618"
-                        android:textSize="18dp" />
-                </LinearLayout>
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_marginTop="10dp"
-                    android:layout_height="wrap_content">
-                <com.af.silaa_grp.CustomControl.CustomTextView
-                    android:layout_width="wrap_content"
-                    android:text="5 ذقیقه پیش"
-                    android:paddingLeft="10dp"
-                    android:id="@+id/txtzaman"
-                    android:paddingRight="20dp"
-                    android:layout_height="wrap_content" />
-                </LinearLayout>
+                    android:textColor="#ffffff"
+                    android:textSize="18dp" />
 
-                <LinearLayout
-                    android:id="@+id/linearmobile"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="15dp"
-                    android:orientation="vertical"
-                    android:paddingLeft="10dp"
-                    android:paddingRight="20dp">
-
-                    <com.af.silaa_grp.CustomControl.CustomTextViewBold
-                        android:layout_width="wrap_content"
-
-                        android:layout_height="wrap_content"
-                        android:lineSpacingMultiplier="1.2"
-                        android:text="توضیح آگهی:"
-                        android:textColor="#a30b1f"
-                        android:textSize="17dp" />
-
-                    <com.af.silaa_grp.CustomControl.CustomTextView
-                        android:id="@+id/txttozih"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="20dp"
-                        android:paddingRight="10dp"
-                        android:text="توضیحات آگهی برای تاثیر بیشتر ضروری میباشد."
-                        android:textColor="@color/textcolor"
-                        android:textSize="16dp" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:id="@+id/linearaddress"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="15dp"
-                    android:orientation="vertical"
-                    android:paddingLeft="10dp"
-                    android:paddingRight="20dp">
-
-                    <com.af.silaa_grp.CustomControl.CustomTextViewBold
-                        android:layout_width="wrap_content"
-
-                        android:layout_height="wrap_content"
-                        android:lineSpacingMultiplier="1.2"
-                        android:text="آدرس:"
-                        android:textColor="#a30b1f"
-                        android:textSize="17dp" />
-
-                    <com.af.silaa_grp.CustomControl.CustomTextView
-                        android:id="@+id/txtaddress"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="20dp"
-                        android:paddingRight="10dp"
-                        android:text="آدرس"
-                        android:textColor="@color/textcolor"
-                        android:textSize="16dp" />
-                </LinearLayout>
+                <com.af.silaa_grp.CustomControl.CustomButton
+                    android:id="@+id/btntamas"
+                    style="@style/Widget.AppCompat.Button.Colored"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.5"
+                    android:text="تماس"
+                    android:textColor="#ffffff"
+                    android:textSize="18dp" />
             </LinearLayout>
-        </android.support.v4.widget.NestedScrollView>
+        </RelativeLayout>
 
     </LinearLayout>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="#ffffff"
-        android:padding="3dp">
-
-        <com.af.silaa_grp.CustomControl.CustomButton
-            android:id="@+id/btncontact"
-            style="@style/Widget.AppCompat.Button.Colored"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="اطلاعات تماس"
-            android:textColor="#ffffff" />
-    </LinearLayout>
 
 </LinearLayout>

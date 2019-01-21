@@ -13,13 +13,16 @@
     <item
         android:id="@+id/menuCategory"
         android:icon="@drawable/category"
-        android:title="دسته بندی ها" />
+        android:title="دسته بندی ها"
+
+        />
 
 
     <item
         android:id="@+id/menutablighat"
         android:icon="@drawable/ads_icon"
-        android:title="تبلیغات" />
+        android:title="تبلیغات"
+        />
 
 
 

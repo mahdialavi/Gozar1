@@ -1,62 +1,56 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
 
     <android.support.v7.widget.Toolbar
         android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
         android:background="@color/colorToolbar"
-        android:layoutDirection="rtl"
-        android:layout_height="?attr/actionBarSize">
+        android:layoutDirection="rtl">
+
         <LinearLayout
             android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:gravity="right|center_vertical"
-            android:orientation="horizontal"
-            android:layout_height="match_parent">
+            android:orientation="horizontal">
 
             <LinearLayout
+                android:id="@+id/linearback"
                 android:layout_width="40dp"
-                android:gravity="center"
+                android:layout_height="match_parent"
                 android:clickable="true"
                 android:foreground="?android:attr/selectableItemBackground"
-                android:id="@+id/linearback"
-                android:layout_height="match_parent">
+                android:gravity="center">
+
                 <ImageView
                     android:layout_width="30dp"
-                    android:layout_marginLeft="5dp"
-                    android:background="@drawable/back"
                     android:layout_height="30dp"
-                    />
-
+                    android:layout_marginLeft="5dp"
+                    android:background="@drawable/back" />
             </LinearLayout>
-
-            <com.af.silaa_grp.CustomControl.CustomTextView                android:layout_width="wrap_content"
+            <com.af.silaa_grp.CustomControl.CustomTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="-3dp"
                 android:text="@string/app_name"
-                android:textSize="20dp"
                 android:textColor="#ffffff"
-                android:layout_height="wrap_content" />
-            <com.af.silaa_grp.CustomControl.CustomTextView                android:layout_width="wrap_content"
-                android:layout_marginRight="10dp"
+                android:textSize="20dp" />
+            <com.af.silaa_grp.CustomControl.CustomTextView
                 android:id="@+id/txttoolcatename"
-                android:text="اعلان های من"
-                android:textSize="16dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
+                android:text="آگهی من"
                 android:textColor="#ffffff"
-                android:layout_height="wrap_content" />
+                android:textSize="16dp" />
             <ImageView
                 android:layout_width="0dp"
-                android:layout_weight="1"
-                android:layout_height="match_parent" />
-
-
+                android:layout_height="match_parent"
+                android:layout_weight="1" />
         </LinearLayout>
-
-
-
     </android.support.v7.widget.Toolbar>
-
-
-
 </LinearLayout>
 
 
