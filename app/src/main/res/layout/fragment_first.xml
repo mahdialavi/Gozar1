@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/linear_firsfragment_view"
+    tools:context=".HomeFragment">
+    <LinearLayout
+        android:orientation="vertical"
+        android:layoutDirection="rtl"
+        android:layout_marginBottom="@dimen/padding_for_bottom_nav_space"
+
+        android:textDirection="rtl"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+
+
+        <include layout="@layout/toolbar3"/>
+        <android.support.v4.widget.SwipeRefreshLayout
+            android:id="@+id/swipe_refresh_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/app_bar_layout"
+            android:background="@color/grey_3"
+            >
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                >
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/rvItems"
+                    android:layout_width="match_parent"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_height="match_parent">
+                </android.support.v7.widget.RecyclerView>
+                <include
+                    android:id="@+id/lyt_no_item"
+                    layout="@layout/include_no_item"
+                    android:visibility="gone" />
+                <include
+                    android:id="@+id/lyt_failed"
+                    layout="@layout/no_internet"
+                    android:visibility="gone" />
+
+            </RelativeLayout>
+
+
+        </android.support.v4.widget.SwipeRefreshLayout>
+
+    </LinearLayout>
+
+
+
+
+
+
+
+</LinearLayout>

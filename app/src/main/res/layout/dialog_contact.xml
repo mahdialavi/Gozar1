@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layoutDirection="rtl"
+    android:textDirection="rtl"
+    android:layout_width="match_parent"
+    android:padding="15dp"
+    android:layout_height="wrap_content">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal">
+        <com.af.silaa_grp.CustomControl.CustomTextView
+            android:layout_width="wrap_content"
+            android:textColor="#af0000"
+            android:paddingRight="15dp"
+            android:layout_marginTop="5dp"
+            android:layout_alignParentRight="true"
+            android:text="اطلاعات تماس"
+            android:textSize="18dp"
+            android:layout_height="wrap_content" />
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_gravity="left"
+            android:layout_alignParentLeft="true"
+            android:layout_height="wrap_content"
+            android:id="@+id/imgcancel"
+            />
+    </RelativeLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/linearcal"
+        android:layout_marginTop="20dp"
+        android:gravity="right|center_vertical"
+        android:paddingRight="15dp"
+        android:orientation="horizontal">
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            />
+        <com.af.silaa_grp.CustomControl.CustomTextView
+            android:layout_width="wrap_content"
+            android:text="تماس با 09356437133 "
+            android:textColor="@color/grey_80"
+            android:textSize="16dp"
+            android:id="@+id/txtCall"
+            android:layout_marginRight="10dp"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingRight="15dp"
+        android:id="@+id/linearmessage"
+        android:layout_marginTop="15dp"
+        android:gravity="right|center_vertical"
+        android:orientation="horizontal">
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            />
+        <com.af.silaa_grp.CustomControl.CustomTextView
+            android:layout_width="wrap_content"
+            android:text="ارسال پیامک به 09356437133"
+            android:textColor="@color/grey_80"
+            android:id="@+id/txtmessage"
+            android:textSize="16dp"
+            android:layout_marginRight="10dp"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="right|center_vertical"
+        android:paddingRight="15dp"
+        android:id="@+id/linearbookmark"
+        android:layout_marginTop="15dp"
+        android:orientation="horizontal">
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="35dp"
+            />
+        <com.af.silaa_grp.CustomControl.CustomTextView
+            android:layout_width="wrap_content"
+            android:text="نشان کن تا بعدا تماس بگیرم"
+            android:textColor="@color/grey_80"
+            android:textSize="16dp"
+            android:layout_marginRight="10dp"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+</LinearLayout>

@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+
+    android:layout_height="match_parent"
+    tools:context=".HomeFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layoutDirection="rtl"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        >
+
+        <include layout="@layout/toolbar4" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:padding="10dp">
+            <com.af.silaa_grp.CustomControl.CustomTextView
+                android:id="@+id/txtmatn"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="right"
+                android:lineSpacingMultiplier="1.2"
+                android:text="برای استفاده از برنامه سیلا وارد حساب کاربری خود شوید."
+                android:textColor="@color/grey_90"
+                android:textSize="17dp"
+
+                />
+            <com.af.silaa_grp.CustomControl.CustomButton
+                android:id="@+id/btnexit"
+                android:layout_marginTop="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="ورود"
+                />
+        </LinearLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_marginBottom="60dp"
+            android:layout_height="wrap_content">
+            <LinearLayout
+                android:id="@+id/linearLayout"
+                android:layout_width="match_parent"
+                android:layoutDirection="rtl"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="10dp">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_marginTop="10dp">
+
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:layout_height="40dp"
+                        android:layout_marginLeft="15dp"
+                        android:src="@drawable/user"
+                        android:layout_marginRight="13dp" />
+
+                    <com.af.silaa_grp.CustomControl.CustomTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="انتخاب شهر: "
+                        android:textColor="@color/grey_60"
+                        android:textSize="@dimen/menu_text_size" />
+
+                    /<com.af.silaa_grp.CustomControl.CustomTextView
+                    android:id="@+id/txtcity"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginRight="10dp"
+                    android:text="قم"
+                    android:textColor="#d40000"
+                    android:textSize="18dp" />
+
+                </LinearLayout>
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:background="@color/grey_20"
+                    android:layout_height="1dp" />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="45dp"
+
+                    android:layout_marginTop="10dp">
+
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="40dp"
+                        android:layout_marginLeft="15dp"
+                        android:src="@drawable/user"
+
+                        android:layout_marginRight="13dp" />
+
+                    <com.af.silaa_grp.CustomControl.CustomTextView
+                        android:id="@+id/txtmyad"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="آگهی های من"
+                        android:textColor="@color/grey_60"
+                        android:textSize="@dimen/menu_text_size" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/linearbookmark"
+                    android:layout_width="match_parent"
+                    android:layout_height="45dp">
+
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="40dp"
+
+                        android:src="@drawable/user"
+
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginRight="13dp"
+
+                        />
+
+                    <com.af.silaa_grp.CustomControl.CustomTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="نشان شده ها"
+
+                        android:textColor="@color/grey_60"
+                        android:textSize="@dimen/menu_text_size" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/linearsetting"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp">
+
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="40dp"
+                        android:layout_marginLeft="15dp"
+                        android:src="@drawable/user"
+
+                        android:layout_marginRight="13dp"
+
+                        />
+
+                    <com.af.silaa_grp.CustomControl.CustomTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="تنظیمات حساب کاربری"
+
+                        android:textColor="@color/grey_60"
+                        android:textSize="@dimen/menu_text_size" />
+
+                </LinearLayout>
+            </LinearLayout>
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:id="@+id/imgadmin"
+                android:layout_marginBottom="30dp"
+
+                android:layout_alignParentBottom="true"
+                android:src="@drawable/logo300"
+
+                />
+
+        </RelativeLayout>
+
+
+    </LinearLayout>
+
+</FrameLayout>

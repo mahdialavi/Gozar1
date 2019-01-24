@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layoutDirection="ltr"
+    android:orientation="vertical">
+
+    <include layout="@layout/toolbar3" />
+
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/swipe_refresh_layout"
+        android:layout_width="match_parent"
+        android:layout_marginBottom="@dimen/padding_for_bottom_nav_space"
+
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/app_bar_layout"
+        android:background="@color/grey_3"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+
+        <android.support.v4.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:id="@+id/nestedscrollview"
+            android:layout_height="match_parent"
+            android:fillViewport="true">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:id="@+id/linearslider"
+                    android:layout_height="240dp">
+
+                    <com.daimajia.slider.library.SliderLayout
+                        android:id="@+id/slider"
+                        android:layout_width="match_parent"
+                        android:layout_height="240dp"
+                        android:background="#f9f9f9"
+                        android:focusableInTouchMode="true" />
+
+                </RelativeLayout>
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <android.support.v7.widget.RecyclerView
+                        android:id="@+id/rvItems"
+                        android:layout_width="match_parent"
+                        android:descendantFocusability="blocksDescendants"
+                        android:nestedScrollingEnabled="false"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginRight="5dp" />
+
+                    <include
+                        android:id="@+id/lyt_no_item"
+                        layout="@layout/include_no_item"
+                        android:visibility="gone" />
+
+                    <include
+                        android:id="@+id/lyt_failed"
+                        layout="@layout/no_internet"
+                        android:visibility="gone" />
+
+                </RelativeLayout>
+                <LinearLayout
+                    android:id="@+id/linearprogress"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <ProgressBar
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:paddingBottom="10dp"
+                        android:paddingTop="10dp"
+                        />
+
+                </LinearLayout>
+            </LinearLayout>
+        </android.support.v4.widget.NestedScrollView>
+    </android.support.v4.widget.SwipeRefreshLayout>
+
+</LinearLayout>
+
