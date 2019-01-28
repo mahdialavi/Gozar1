@@ -52,10 +52,12 @@ import java.io.File;
 import java.io.IOException;
 import java.sql.Struct;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.Random;
+
 
 import okhttp3.MediaType;
 import okhttp3.MultipartBody;
@@ -104,6 +106,7 @@ public class ActivityInsert extends ActivityEnhanced {
     public static final int RequestPermissionCode = 1;
     SharedPreferences sharedPreferences;
     SharedPreferences.Editor editor;
+    private static final int READ_STORAGE_PERMISSION = 4000;
 
     public static final String sptitle = "SPTITLE";
     public static final String spName = "SPNAME";
@@ -275,7 +278,10 @@ public class ActivityInsert extends ActivityEnhanced {
             public void onClick(View view) {
                 // Click on image button
 
-//                selectImageFrom();
+                selectImageFrom();
+
+
+
 
             }
         });
@@ -291,7 +297,7 @@ public class ActivityInsert extends ActivityEnhanced {
 
                         Log.i("log", String.valueOf(last_insertday)+" last insert");
 
-                        if (today != last_insertday) {
+//                        if (today != last_insertday) {
                             if (userId > 0) {
                                 uploadtoserver(id, catid, userId, 1, citycode);
                             } else {
@@ -299,9 +305,9 @@ public class ActivityInsert extends ActivityEnhanced {
                                 startActivity(intent);
                                 finish();
                             }
-                        } else {
-                            G.showSnackbar(view,getString(R.string.insert_new_ad_txt));
-                        }
+//                        } else {
+//                            G.showSnackbar(view,getString(R.string.insert_new_ad_txt));
+//                        }
 
 
                     } else {
@@ -529,7 +535,18 @@ public class ActivityInsert extends ActivityEnhanced {
             @Override
             public void onClick(View v) {
                 dialog.dismiss();
-                Crop.pickImage(ActivityInsert.this);
+
+                Intent getIntent = new Intent(Intent.ACTION_GET_CONTENT);
+                getIntent.setType("image/*");
+
+                Intent pickIntent = new Intent(Intent.ACTION_PICK, android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+                pickIntent.setType("image/*");
+
+                Intent chooserIntent = Intent.createChooser(getIntent, "تصویر انتخاب کنید");
+                chooserIntent.putExtra(Intent.EXTRA_INITIAL_INTENTS, new Intent[] {pickIntent});
+
+                startActivityForResult(chooserIntent, 12);
+
             }
         });
         dialog.show();
@@ -553,12 +570,9 @@ public class ActivityInsert extends ActivityEnhanced {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-
         if (requestCode == 1 && resultCode == RESULT_OK) {
-
             crop(picUri);
         } else if (resultCode == RESULT_OK && requestCode == UCrop.REQUEST_CROP) {
-
             Uri uri = UCrop.getOutput(data);
             if (uri != null) {
                 try {
@@ -574,11 +588,34 @@ public class ActivityInsert extends ActivityEnhanced {
             }
         } else if (resultCode == UCrop.RESULT_ERROR) {
             final Throwable cropError = UCrop.getError(data);
-        } //crop with library for gallery
-        else if (requestCode == Crop.REQUEST_PICK && resultCode == RESULT_OK) {
-            crop(data.getData());
-
         }
+        else if (requestCode == 12 && resultCode == RESULT_OK) {
+            if (data != null) {
+                // this is the image selected by the user
+                picUri = data.getData();
+                crop(picUri);
+
+
+            }
+        }
+
+
+        //crop with library for gallery
+//        else if (requestCode == Crop.REQUEST_PICK && resultCode == RESULT_OK) {
+//            crop(data.getData());
+//
+//        } else   if (requestCode == ConstantsCustomGallery.REQUEST_CODE && resultCode == Activity.RESULT_OK && data != null) {
+//            //The array list has the image paths of the selected images
+//            ArrayList<Image> images = data.getParcelableArrayListExtra(ConstantsCustomGallery.INTENT_EXTRA_IMAGES);
+//
+//            for (int i = 0; i < images.size(); i++) {
+//                Uri uri = Uri.fromFile(new File(images.get(i).path));
+//
+//                Log.i("log", String.valueOf(uri));
+//            }
+//
+//
+//        }
 
     }
 
