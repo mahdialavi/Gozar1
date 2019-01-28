@@ -276,7 +276,7 @@ public class ActivityInsert extends ActivityEnhanced {
                 // Click on image button
 
 //                selectImageFrom();
-                //test
+
             }
         });
         btnSubmit.setOnClickListener(new View.OnClickListener() {
