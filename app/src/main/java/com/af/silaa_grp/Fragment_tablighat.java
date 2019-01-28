@@ -41,7 +41,7 @@ public class Fragment_tablighat extends Fragment {
     TablighAdapter itemsAdapter;
     private SwipeRefreshLayout swipe_refresh;
     private int post_total = 0;
-    String catname = "";
+    String catname = "بخش تبلیغات";
     public static int citycode = 0;
     public static int page = 1;
     public static SQLiteDatabase database;
@@ -209,10 +209,11 @@ public class Fragment_tablighat extends Fragment {
 
     }
 
-    private void showFailedView(boolean show, String message, View view) {
+    private void showFailedView(boolean show, String message, View parentview) {
 
-        View lyt_failed = view.findViewById(R.id.lyt_failed);
-        ((TextView) view.findViewById(R.id.failed_message)).setText(message);
+        View lyt_failed = parentview.findViewById(R.id.lyt_failed);
+        CustomTextView txt= parentview.findViewById(R.id.failed_message);
+        txt.setText(message);
         if (show) {
             rvItems.setVisibility(View.GONE);
             lyt_failed.setVisibility(View.VISIBLE);
@@ -220,10 +221,10 @@ public class Fragment_tablighat extends Fragment {
             rvItems.setVisibility(View.VISIBLE);
             lyt_failed.setVisibility(View.GONE);
         }
-        ((Button) view.findViewById(R.id.failed_retry)).setOnClickListener(new View.OnClickListener() {
+        parentview.findViewById(R.id.failed_retry).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                requestAction(page, citycode, view);
+                requestAction(page, citycode, parentview);
             }
         });
     }

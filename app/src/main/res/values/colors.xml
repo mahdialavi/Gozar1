@@ -12,6 +12,8 @@
     <color name="grey_90">#263238</color>
     <color name="colorNormal">#ff872b</color>
     <color name="colorAccent">#ff872b</color>
+    <color name="colorwhite">#ffffff</color>
+    <color name="colorblack">#000</color>
 
     <color name="colorToolbar">#87c753</color>
     <color name="colorPrimary">#ff872b</color>

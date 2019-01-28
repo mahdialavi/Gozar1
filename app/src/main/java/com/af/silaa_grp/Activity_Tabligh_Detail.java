@@ -1,7 +1,11 @@
 package com.af.silaa_grp;
 
 import android.content.DialogInterface;
+import android.content.Intent;
+import android.content.SharedPreferences;
+import android.net.Uri;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.v4.view.ViewPager;
 import android.util.Log;
 import android.view.View;
@@ -27,30 +31,38 @@ public class Activity_Tabligh_Detail extends ActivityEnhanced {
     String name, tamas, image,image2,image3, tarikh,address;
     int id = 0;
     String tozihat = "";
-    CustomTextView txttozih, txtname, txtzaman,txtaddress;
+    CustomTextView txttozih, txtname, txtzaman,txtaddress,txtcatname;
     ViewPager viewPager;
     CircleIndicator indicator;
     Timer timer;
     public static ArrayList<String> sliderArr = new ArrayList<>();
     private JobItemsList items;
     ImageView imgfav;
-    LinearLayout linearwait, linearback;
-    CustomButton btncontact;
+    LinearLayout linearwait, linearback,linearaddress,lineartozihat;
+    CustomButton btntamas,btnpayam;
+    SharedPreferences sharedPreferences;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_tabligh_detail);
+        setContentView(R.layout.activity_detail);
+
+        sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
         txttozih = findViewById(R.id.txttozih);
         txtname = findViewById(R.id.txtname);
+        txtcatname= findViewById(R.id.txt_catname);
         viewPager = (ViewPager) findViewById(R.id.viewpager);
         indicator = findViewById(R.id.indicator);
         linearwait = findViewById(R.id.linearwait);
         linearwait.setVisibility(View.VISIBLE);
-        btncontact = findViewById(R.id.btncontact);
         linearback = findViewById(R.id.linearback);
         txtzaman = findViewById(R.id.txtzaman);
         txtaddress= findViewById(R.id.txtaddress);
+        linearaddress= findViewById(R.id.linearaddress);
+        lineartozihat= findViewById(R.id.lineartozihat);
+
+        btntamas = findViewById(R.id.btntamas);
+        btnpayam= findViewById(R.id.btnpayam);
 
         linearback.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -59,15 +71,29 @@ public class Activity_Tabligh_Detail extends ActivityEnhanced {
             }
         });
 
-        findViewById(R.id.btncontact).setOnClickListener(new View.OnClickListener() {
+        findViewById(R.id.btnpayam).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                new DialogContact(Activity_Tabligh_Detail.this, items, imgfav).setListener(new DialogInterface.OnDismissListener() {
-                    @Override
-                    public void onDismiss(DialogInterface dialogInterface) {
-                    }
-                }).show();
+//                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("sms:"+tamas));
+//                startActivity(intent);
 
+                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("sms:"+tamas ));
+                startActivity(intent);
+//                new DialogContact(ActivityDetail.this, items, imgfav).setListener(new DialogInterface.OnDismissListener() {
+//                    @Override
+//                    public void onDismiss(DialogInterface dialogInterface) {
+//                    }
+//                }).show();
+
+            }
+        });
+
+        btntamas.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent call = new Intent(Intent.ACTION_DIAL);
+                call.setData(Uri.parse("tel:" + tamas));
+                startActivity(call);
             }
         });
         findViewById(R.id.linearfav).setOnClickListener(new View.OnClickListener() {
@@ -123,7 +149,19 @@ public class Activity_Tabligh_Detail extends ActivityEnhanced {
                         tozihat = answer.get(0).tozihat;
                         tarikh = answer.get(0).tarikh;
                         address= answer.get(0).address;
+
+
+
+//                        if (buisinessPics == null || buisinessPics.equals("")) {
+//                            ActivityDetail.sliderArr.add(G.IMAGE_URL + image);
+//                        } else {
+//                            for (int b = 0; b < buisinessPics.size(); b++) {
+//                                sliderArr.add(G.IMAGE_URL + buisinessPics.get(b));
+//                            }
+//                        }
                         setDataToTxts();
+                        hideEmptyTxts();
+
                         linearwait.setVisibility(View.GONE);
                     }
                 }
@@ -152,13 +190,23 @@ public class Activity_Tabligh_Detail extends ActivityEnhanced {
             Toast.makeText(G.Context, "inserted", Toast.LENGTH_LONG).show();
         }
     }
+    private void hideEmptyTxts() {
+
+
+        if (address == null || address.isEmpty()) {
+            linearaddress.setVisibility(View.GONE);
+        }
+        if (tozihat== null || tozihat.isEmpty()) {
+            lineartozihat.setVisibility(View.GONE);
+        }
+    }
 
     private void setDataToTxts() {
 
         sliderArr.add(G.IMAGE_URL + image);
         if (image2 != null&&image2.length()>2) {
             sliderArr.add(G.IMAGE_URL + image2);
-            }if (image3!=null&&image3.length()>2) {
+        }if (image3!=null&&image3.length()>2) {
             sliderArr.add(G.IMAGE_URL + image3);
         }
         txtname.setText(name);
@@ -219,15 +267,15 @@ public class Activity_Tabligh_Detail extends ActivityEnhanced {
     @Override
     protected void onStart() {
         super.onStart();
-        Log.i("onstart", "onstart_happend");
-        if (Persons.exists(id)) {
-            imgfav.setImageResource(R.drawable.imgfav2);
-            Toast.makeText(this, "exists", Toast.LENGTH_SHORT).show();
-
-        } else {
-            Toast.makeText(this, "not exists", Toast.LENGTH_SHORT).show();
-
-            imgfav.setImageResource(R.drawable.imgfav);
-        }
+//        Log.i("onstart", "onstart_happend");
+//        if (Persons.exists(id)) {
+//            imgfav.setImageResource(R.drawable.imgfav2);
+//            Toast.makeText(this, "exists", Toast.LENGTH_SHORT).show();
+//
+//        } else {
+//            Toast.makeText(this, "not exists", Toast.LENGTH_SHORT).show();
+//
+//            imgfav.setImageResource(R.drawable.imgfav);
+//        }
     }
 }

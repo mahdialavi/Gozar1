@@ -11,7 +11,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ProgressBar;
+import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import com.af.silaa_grp.CustomControl.CustomTextView;
@@ -53,7 +55,7 @@ public class Categories_Adapter extends RecyclerView.Adapter<RecyclerView.ViewHo
     public class OriginalViewHolder extends RecyclerView.ViewHolder {
 
         ImageView image, imgfav;
-        CardView linearitem;
+        LinearLayout linearitem;
         CustomTextView txtcatname;
 
 
@@ -62,7 +64,7 @@ public class Categories_Adapter extends RecyclerView.Adapter<RecyclerView.ViewHo
             image = itemView.findViewById(R.id.image);
             imgfav = itemView.findViewById(R.id.imgfav);
             txtcatname = itemView.findViewById(R.id.txtcatname);
-            linearitem = itemView.findViewById(R.id.catitemcardview);
+            linearitem = itemView.findViewById(R.id.linearitem);
         }
     }
     @Override

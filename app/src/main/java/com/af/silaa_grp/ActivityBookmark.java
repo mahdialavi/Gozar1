@@ -29,7 +29,7 @@ public class ActivityBookmark extends ActivityEnhanced {
         setContentView(R.layout.activity_bookmark);
 
         txttoolcatename= findViewById(R.id.txttoolcatename);
-        txttoolcatename.setText("نشان شده ها");
+        txttoolcatename.setText("آگهی های ذخیره شده");
         findViewById(R.id.linearback).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -63,7 +63,6 @@ public class ActivityBookmark extends ActivityEnhanced {
         Log.i("onstop", "onstart");
 
         if (Persons.all().size() == 0) {
-            Toast.makeText(G.Context, getString(R.string.no_news_saved), Toast.LENGTH_LONG).show();
             showNoItemView(true);
         } else {
             showNoItemView(false);

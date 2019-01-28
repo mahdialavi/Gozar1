@@ -55,7 +55,7 @@ public class ActivitySearch extends ActivityEnhanced {
         swipe_refresh = findViewById(R.id.swipe_refresh);
         txtsearch = findViewById(R.id.txtsearch);
         txttoolcatename = findViewById(R.id.txttoolcatename);
-        txttoolcatename.setText("جست وجو");
+        txttoolcatename.setText("به دنبال چه میگردید؟");
 
         int CityCode = sharedPreferences.getInt("cat_city", 0);
 
@@ -89,7 +89,7 @@ public class ActivitySearch extends ActivityEnhanced {
         rvItems.setAdapter(itemsAdapter);
 
 
-        requestAction(command,text,citycode ,1,catid);
+//        requestAction(command,text,citycode ,1,catid);
 
         swipe_refresh.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
@@ -127,15 +127,13 @@ public class ActivitySearch extends ActivityEnhanced {
                     showFailedView(false, "");
                     for (int i = 0; i < answer.size(); i++) {
                         post_total = answer.get(i).totalposts;
-                        Log.i("name", String.valueOf(post_total));
                     }
                     displayApiResult(answer);
 
                 }else {
                     swipeProgress(false);
-                    showFailedView(true, getString(R.string.no_item));
+                    showFailedView(true, getString(R.string.no_item_found));
 
-                    Toast.makeText(ActivitySearch.this, "zero", Toast.LENGTH_SHORT).show();
 
                 }
             }

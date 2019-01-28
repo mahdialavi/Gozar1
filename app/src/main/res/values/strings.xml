@@ -1,7 +1,8 @@
 <resources>
     <string name="app_name">Sila</string>
 
-    <string name="no_item">متاسفانه اطلاعاتی ثبت نشده است!</string>
+    <string name="no_item_found">عنوان مورد نظر پیدا نگردید</string>
+    <string name="no_item">آگهی در این بخش وجود ندارد</string>
     <string name="no_internet_text">لطفا ارتباط اینترنت را چک نمایید!</string>
     <string name="tryagain">دوباره تلاش کنید!</string>
     <string name="failed_text">مشکل در ارتباط برنامه با سرور</string>
@@ -45,6 +46,8 @@
     <string name="enter_account_txt">لطفا وارد حساب کاربری شوید!</string>
     <string name="exit_message">مطمئنید میخواهید خارج شوید؟</string>
     <string name="app_fr_name">سیلا</string>
+    <string name="insert_new_ad_txt"> یک آگهی در روز میتوانید ثبت کنید</string>
+    <string name="txt_myad">آگهی های من</string>
 
 
 </resources>

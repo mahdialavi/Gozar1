@@ -59,7 +59,7 @@ public class Activity_register extends ActivityEnhanced {
 
             }
         }
-        txttitle = findViewById(R.id.txttitle);
+        txttitle = findViewById(R.id.txttoolcatname);
         txttitle.setText("ورود و ثبت نام در سیلا");
 
         setting = PreferenceManager.getDefaultSharedPreferences(this);

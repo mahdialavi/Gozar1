@@ -39,7 +39,7 @@ public class Dialog_Category extends Dialog {
     SharedPreferences.Editor editor;
     int selectedCatid = 0;
     String command = "category";
-
+    RelativeLayout linearprogress;
     RecyclerView rvItems;
     Adapter_Dialog_Category itemsAdapter;
 
@@ -56,6 +56,7 @@ public class Dialog_Category extends Dialog {
         setContentView(R.layout.dialog_category);
 
         rvItems = findViewById(R.id.rvCats);
+        linearprogress = findViewById(R.id.linearprogress);
         itemsAdapter = new Adapter_Dialog_Category(G.Context, rvItems, btncategoty, selectedCatid, this);
         rvItems.setLayoutManager(new LinearLayoutManager(context));
         rvItems.setHasFixedSize(true);
@@ -90,41 +91,34 @@ public class Dialog_Category extends Dialog {
     }
 
     private void getCategories(String command) {
+        linearprogress.setVisibility(View.VISIBLE);
         new Post().getProductList(command, 0, 0, 0, new AnswerPosts() {
             @Override
             public void AnswerBase(ArrayList<JobItemsList> answer) {
+                linearprogress.setVisibility(View.GONE);
                 displayApiResult(answer);
             }
-
             @Override
             public void SendError(Throwable t) {
+                linearprogress.setVisibility(View.GONE);
                 onFailRequest();
                 dismiss();
-
             }
         });
     }
-
     private void displayApiResult(final ArrayList<JobItemsList> items) {
         itemsAdapter.insertData(items);
     }
-
     private void onFailRequest() {
         if (OnlineCheck.isConnect(context)) {
             showSnackbar(context.getString(R.string.no_internet_message));
-
         } else {
             showSnackbar(context.getString(R.string.problem_in_recieving_data));
         }
     }
-
     private void showSnackbar(String message) {
         Snackbar snackbar = Snackbar.make(findViewById(android.R.id.content), message, Snackbar.LENGTH_LONG);
         snackbar.show();
-
         snackbar.setActionTextColor(Color.WHITE);
-
     }
-
-
 }

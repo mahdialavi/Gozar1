@@ -19,16 +19,18 @@
         <LinearLayout
             android:orientation="vertical"
             android:layout_width="match_parent"
+
             android:layout_height="match_parent"
-            tools:layout_editor_absoluteY="8dp"
-            tools:layout_editor_absoluteX="8dp">
+            tools:layout_editor_absoluteY="20dp"
+            tools:layout_editor_absoluteX="20dp">
 
 
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
                 android:layout_below="@+id/include"
-                android:background="#eee"
+                android:background="@color/colorwhite"
+
                 android:layoutDirection="rtl"
                 android:orientation="horizontal"
                 android:id="@+id/relativeLayout">
@@ -40,28 +42,32 @@
                     android:layout_alignParentStart="true"
                     android:layout_alignParentTop="true"
                     android:layout_toStartOf="@+id/imgsearch"
-                    android:hint="جستجو کن..."
-                    android:textColorHint="#797979"
-                    android:imeActionLabel="جست‌وجو"
+                    android:hint="جست و جو"
+                    android:textColorHint="@color/colorToolbar"
+                    android:imeActionLabel="جست‌ وجو"
                     android:layout_marginLeft="10dp"
                     android:inputType="text"
                     android:maxLines="1"
                     android:paddingRight="15dp"
-                    android:singleLine="true" />
+                    android:singleLine="true"
+                    android:layout_alignParentLeft="true"
+                    android:layout_toLeftOf="@+id/imgsearch" />
 
                 <ImageView
                     android:id="@+id/imgsearch"
-                    android:layout_width="45dp"
-                    android:layout_height="45dp"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
                     android:clickable="true"
                     android:foreground="?android:attr/selectableItemBackground"
                     android:layout_alignParentEnd="true"
+                    android:imeOptions="actionSearch"
                     android:layout_marginTop="5dp"
                     android:layout_alignParentTop="true"
-                    android:background="#ff7824"
+                    android:background="@color/colorPrimaryDark"
                     android:layout_marginLeft="10dp"
                     android:padding="11dp"
-                    android:src="@drawable/search" />
+                    android:src="@drawable/search"
+                    android:layout_alignParentRight="true" />
 
             </RelativeLayout>
 
@@ -70,7 +76,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_below="@+id/app_bar_layout"
-                android:background="@color/grey_3"
+                android:background="@color/colorwhite"
                 app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
                 <RelativeLayout

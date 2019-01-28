@@ -102,13 +102,13 @@
                     android:layout_width="match_parent"
                     android:layout_marginTop="10dp"
                     android:layout_height="wrap_content">
-                <com.af.silaa_grp.CustomControl.CustomTextView
-                    android:layout_width="wrap_content"
-                    android:text="5 ذقیقه پیش"
-                    android:paddingLeft="10dp"
-                    android:id="@+id/txtzaman"
-                    android:paddingRight="20dp"
-                    android:layout_height="wrap_content" />
+                    <com.af.silaa_grp.CustomControl.CustomTextView
+                        android:layout_width="wrap_content"
+                        android:text="5 ذقیقه پیش"
+                        android:paddingLeft="10dp"
+                        android:id="@+id/txtzaman"
+                        android:paddingRight="20dp"
+                        android:layout_height="wrap_content" />
                 </LinearLayout>
 
                 <LinearLayout

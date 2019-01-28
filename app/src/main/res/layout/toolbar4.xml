@@ -40,7 +40,7 @@
                     android:layout_width="wrap_content"
                     android:textSize="18dp"
                     android:text="درج آگهی"
-                    android:id="@+id/txttitle"
+                    android:id="@+id/txttoolcatname"
                     android:layout_marginTop="15dp"
                     android:textColor="#ffffff"
                     android:layout_height="wrap_content" />

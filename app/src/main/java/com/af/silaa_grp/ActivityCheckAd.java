@@ -167,7 +167,7 @@ public class ActivityCheckAd extends  ActivityEnhanced {
 
         G.show_progress_dialog(this,false,false);
       RequestBody R_catid = RequestBody.create(MediaType.parse("text/plain"), String.valueOf(catid));
-        RequestBody  R_code = RequestBody.create(MediaType.parse("text/plain"), String.valueOf(3));
+        RequestBody  R_code = RequestBody.create(MediaType.parse("text/plain"), String.valueOf(code));
 
     Api getResponse = ServiceGenerator.getClient().create(Api.class);
     Call call = getResponse.uploadfile(null, R_catid, null, R_code,null,null, null, null,null, null, null);
@@ -178,7 +178,7 @@ public class ActivityCheckAd extends  ActivityEnhanced {
             try {
                 ItemsListUpload answer = response.body();
                 if (answer != null) {
-                    if (answer.response.equals("updated_ok")) {
+                    if (answer.response.equals("item_deleted")) {
                         onBackPressed();
                     }else {
                         Toast.makeText(ActivityCheckAd.this, "مشکل در حذف آگهی", Toast.LENGTH_LONG).show();

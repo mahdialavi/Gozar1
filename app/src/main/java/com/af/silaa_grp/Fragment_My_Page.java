@@ -22,7 +22,7 @@ public class Fragment_My_Page extends Fragment {
     SharedPreferences sharedPreferences;
     SharedPreferences.Editor editor;
 
-    CustomTextView txtmatn, txtcity;
+    CustomTextView txtmatn, txtcity,txttoolcatname;
     Button btnexit;
     static int userId = 0;
     public static int selectedCatid = 0;
@@ -47,6 +47,8 @@ public class Fragment_My_Page extends Fragment {
         sharedPreferences = PreferenceManager.getDefaultSharedPreferences(G.Context);
         editor = sharedPreferences.edit();
         btnexit = view.findViewById(R.id.btnexit);
+        txttoolcatname = view.findViewById(R.id.txttoolcatname);
+        txttoolcatname.setText("صفحه من");
         txtmatn = view.findViewById(R.id.txtmatn);
         txtcity = view.findViewById(R.id.txtcity);
         view.findViewById(R.id.linearback).setVisibility(View.GONE);

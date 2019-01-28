@@ -4,17 +4,25 @@ import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.animation.TranslateAnimation;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
+import android.widget.Toast;
+
 import co.ronash.pushe.Pushe;
 
 public class MainActivity extends ActivityEnhanced {
     public BottomNavigationView navigation;
     int fragmentid = 0;
+    private boolean exit = false;
+    RelativeLayout linearview;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,6 +31,8 @@ public class MainActivity extends ActivityEnhanced {
         Pushe.initialize(this, true);
 
         navigation = (BottomNavigationView) findViewById(R.id.bottomnavigation2);
+        linearview= findViewById(R.id.linear_mainactivity_view);
+
 
 
         //check if we get 1 from categoryadapter and go to home fragment
@@ -35,9 +45,11 @@ public class MainActivity extends ActivityEnhanced {
 
         BottomNavigationViewHelper.disableShiftMode(navigation);
         final Menu menu = navigation.getMenu();
+
         //if we come from fragment category id==1 and item 0 is checked
         if (fragmentid == 0) {
             MenuItem menuItem = menu.getItem(2);
+
             menuItem.setChecked(true);
         }else {
             MenuItem menuItem = menu.getItem(0);
@@ -46,6 +58,7 @@ public class MainActivity extends ActivityEnhanced {
         navigation.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+
                 Fragment selectedfragment = null;
                 switch (item.getItemId()) {
 
@@ -59,6 +72,7 @@ public class MainActivity extends ActivityEnhanced {
                     case R.id.menuCategory:
                         item.setChecked(true);
                         selectedfragment = Fragment_Categories.newInstance();
+
                         //empty mainactivity array before setting new data
                         Home_Adapter.itemsArraylist.clear();
                         Categories_Adapter.itemsArraylist.clear();
@@ -84,7 +98,6 @@ public class MainActivity extends ActivityEnhanced {
 
                 FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
                 transaction.replace(R.id.frame_layout, selectedfragment);
-                transaction.addToBackStack(null);
                 transaction.commit();
                 return false;
             }
@@ -104,6 +117,7 @@ public class MainActivity extends ActivityEnhanced {
             transaction.commit();
         }
     }
+
 
 //    public void setNavigationVisibility(int visible) {
 //        if (visible == 0) {
@@ -133,9 +147,19 @@ public class MainActivity extends ActivityEnhanced {
     }
     @Override
     public void onBackPressed() {
-        super.onBackPressed();
-        finish();
-        System.exit(0);
+        if (exit) {
+            System.exit(0);
+            finish();
+        } else {
+            exit = true;
+            G.showSnackbar(linearview,"برای خروج دوباره دکمه بازگشت را بزنید");
+           G.HANDLER.postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    exit = false;
+                }
+            }, 2000);
+        }
     }
 
     @Override
@@ -157,6 +181,9 @@ public class MainActivity extends ActivityEnhanced {
 
 
     }
+
+
+
 
 
 }

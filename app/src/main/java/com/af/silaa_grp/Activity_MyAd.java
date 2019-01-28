@@ -56,14 +56,14 @@ public class Activity_MyAd extends ActivityEnhanced {
             }
         });
 
-        txtcatname = findViewById(R.id.txttitle);
+        txtcatname = findViewById(R.id.txttoolcatname);
         rvItems = findViewById(R.id.rvItems);
         myAdAdaptor = new MyAdAdaptor(Activity_MyAd.this, rvItems);
         manager = new LinearLayoutManager(this);
         rvItems.setLayoutManager(manager);
         rvItems.setHasFixedSize(true);
         rvItems.setAdapter(myAdAdaptor);
-        txtcatname.setText("اعلان های من");
+        txtcatname.setText(R.string.txt_myad);
         swipe_refresh.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {

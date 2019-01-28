@@ -40,7 +40,7 @@ public class ActivityDetail extends ActivityEnhanced {
     public static ArrayList<String> sliderArr = new ArrayList<>();
     private JobItemsList items;
     ImageView imgfav;
-    LinearLayout linearwait, linearback,linearaddress;
+    LinearLayout linearwait, linearback,linearaddress,lineartozihat,linearshare;
     CustomButton btntamas,btnpayam;
     SharedPreferences sharedPreferences;
 
@@ -61,6 +61,19 @@ public class ActivityDetail extends ActivityEnhanced {
         txtzaman = findViewById(R.id.txtzaman);
         txtaddress= findViewById(R.id.txtaddress);
         linearaddress= findViewById(R.id.linearaddress);
+        lineartozihat= findViewById(R.id.lineartozihat);
+         findViewById(R.id.linearshare).setOnClickListener(new View.OnClickListener() {
+             @Override
+             public void onClick(View view) {
+
+                         Intent intent = new Intent(Intent.ACTION_SEND);
+                         intent.setType("text/plain");
+                         intent.putExtra(Intent.EXTRA_TEXT,"اپلیکیشن سیلا (:       " +name+"                                      "+tozihat+ "            " + "تماس: " + tamas);
+//                intent.putExtra(Intent.EXTRA_SUBJECT,txtitemname.getText().toString());
+                         startActivity(Intent.createChooser(intent, "همرسانی"));
+                     }
+                 });
+
 
         btntamas = findViewById(R.id.btntamas);
         btnpayam= findViewById(R.id.btnpayam);
@@ -198,7 +211,9 @@ public class ActivityDetail extends ActivityEnhanced {
 
         if (address == null || address.isEmpty()) {
             linearaddress.setVisibility(View.GONE);
-
+        }
+        if (tozihat== null || tozihat.isEmpty()) {
+            lineartozihat.setVisibility(View.GONE);
         }
     }
 

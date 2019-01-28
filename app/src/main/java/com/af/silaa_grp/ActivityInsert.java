@@ -50,8 +50,11 @@ import com.yalantis.ucrop.UCropActivity;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
+import java.sql.Struct;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
+import java.util.GregorianCalendar;
 import java.util.Random;
 
 import okhttp3.MediaType;
@@ -115,10 +118,12 @@ public class ActivityInsert extends ActivityEnhanced {
     public static final String spImage3 = "spImage3";
 
     Bundle bundle = null;
-    CustomTextView btnSubmit;
+    CustomTextView btnSubmit,txttoolname;
     public static int selectedCatid = 0;
 
     RelativeLayout linearimg1, linearimg2, linearimg3, linearimgselect;
+    GregorianCalendar gc;
+    int today = 0;
 
 
     @Override
@@ -131,7 +136,14 @@ public class ActivityInsert extends ActivityEnhanced {
         editor = sharedPreferences.edit();
         bundle = getIntent().getExtras();
 
+        //getting day of month
+        gc = new GregorianCalendar();
+        today = gc.get(Calendar.DAY_OF_MONTH);
+
+
         edttozihat = findViewById(R.id.edttozih);
+        txttoolname= findViewById(R.id.txttoolcatname);
+        txttoolname.setText("آگهی تان را ثبت کنید");
         edttitle = findViewById(R.id.edttitle);
         btncategory = findViewById(R.id.btncategory);
         edtmobile = findViewById(R.id.edtmobile);
@@ -189,16 +201,16 @@ public class ActivityInsert extends ActivityEnhanced {
             @Override
             public void onClick(View view) {
                 if (OnlineCheck.isConnect(ActivityInsert.this)) {
-                   Dialog_Category dialog_category= new Dialog_Category(ActivityInsert.this, selectedCatid, btncategory);
-                   dialog_category.setListener(new DialogInterface.OnDismissListener() {
+                    Dialog_Category dialog_category = new Dialog_Category(ActivityInsert.this, selectedCatid, btncategory);
+                    dialog_category.setListener(new DialogInterface.OnDismissListener() {
                         @Override
                         public void onDismiss(DialogInterface dialogInterface) {
 
                         }
                     }).show();
 
-                   dialog_category.setCanceledOnTouchOutside(false);
-                   dialog_category.setCancelable(false);
+                    dialog_category.setCanceledOnTouchOutside(false);
+                    dialog_category.setCancelable(false);
 
                 } else {
                     G.showSnackbar(view, getString(R.string.no_internet_message));
@@ -261,7 +273,10 @@ public class ActivityInsert extends ActivityEnhanced {
         imgselect.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                selectImageFrom();
+                // Click on image button
+
+//                selectImageFrom();
+                //test
             }
         });
         btnSubmit.setOnClickListener(new View.OnClickListener() {
@@ -272,13 +287,23 @@ public class ActivityInsert extends ActivityEnhanced {
                     if (OnlineCheck.isConnect(G.Context)) {
                         int userId = sharedPreferences.getInt("userId", 0);
                         //                    insert
-                        if (userId > 0) {
-                            uploadtoserver(id, catid, userId, 1, citycode);
+                        int last_insertday = sharedPreferences.getInt("inserted_day", 0);
+
+                        Log.i("log", String.valueOf(last_insertday)+" last insert");
+
+                        if (today != last_insertday) {
+                            if (userId > 0) {
+                                uploadtoserver(id, catid, userId, 1, citycode);
+                            } else {
+                                Intent intent = new Intent(G.Context, Activity_register.class);
+                                startActivity(intent);
+                                finish();
+                            }
                         } else {
-                            Intent intent = new Intent(G.Context, Activity_register.class);
-                            startActivity(intent);
-                            finish();
+                            G.showSnackbar(view,getString(R.string.insert_new_ad_txt));
                         }
+
+
                     } else {
                         G.showSnackbar(view, getString(R.string.no_internet_message));
                     }
@@ -393,18 +418,18 @@ public class ActivityInsert extends ActivityEnhanced {
             if (title.length() < 5) {
                 G.showSnackbar(findViewById(R.id.linearviewinsert), getString(R.string.title_min_letter_error));
                 valid = false;
-            }else {
+            } else {
                 if (mobile.length() < 11 || mobile.length() > 11) {
                     G.showSnackbar(findViewById(R.id.linearviewinsert), getString(R.string.mobile_corect_num_error));
                     valid = false;
-                }else {
-                   if (tozih.length() < 20) {
+                } else {
+                    if (tozih.length() < 20) {
                         G.showSnackbar(findViewById(R.id.linearviewinsert), getString(R.string.tozih_min_letter_error));
                         valid = false;
                     }
                 }
             }
-            }
+        }
         return valid;
     }
 
@@ -660,6 +685,7 @@ public class ActivityInsert extends ActivityEnhanced {
     private void uploadtoserver(int id, final int catid, int userid, int code, int citycode) {
         G.show_progress_dialog(ActivityInsert.this, false, false);
 
+
 //        fileToUpload1 = MultipartBody.Part.createFormData("file1", file1.getName(), requestBody1);
         if (!imglogo.equals("")) {
             file1 = new File(imglogo);
@@ -720,16 +746,22 @@ public class ActivityInsert extends ActivityEnhanced {
                             alertDialog.show();
                             text.setText("آگهی شما ثبت گردید!");
                             confirm.setText("تایید");
+
+
+                            //save current day of month for insert
+                            editor.putInt("inserted_day", today);
+                            editor.apply();
+
+
                             alertDialog.setCancelable(false);
                             alertDialog.setCanceledOnTouchOutside(false);
-
 
 
                             alertDialog.setOnKeyListener(new Dialog.OnKeyListener() {
 
                                 @Override
                                 public boolean onKey(DialogInterface dialogInterface, int keycode, KeyEvent keyEvent) {
-                                    if (keycode== KeyEvent.KEYCODE_BACK) {
+                                    if (keycode == KeyEvent.KEYCODE_BACK) {
 
                                     }
 
@@ -737,7 +769,6 @@ public class ActivityInsert extends ActivityEnhanced {
                                 }
 
                             });
-
 
 
                             dialogView.findViewById(R.id.btn_positive).setOnClickListener(new View.OnClickListener() {
@@ -907,7 +938,7 @@ public class ActivityInsert extends ActivityEnhanced {
     @Override
     public void onBackPressed() {
         super.onBackPressed();
-            G.startActivity(MainActivity.class, true);
+        G.startActivity(MainActivity.class, true);
 
     }
 
