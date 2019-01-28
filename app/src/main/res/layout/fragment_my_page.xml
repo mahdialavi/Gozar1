@@ -2,7 +2,7 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-
+    android:background="#fff"
     android:layout_height="match_parent"
     tools:context=".HomeFragment">
 
@@ -17,7 +17,7 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="100dp"
+            android:layout_height="80dp"
             android:padding="10dp">
             <com.af.silaa_grp.CustomControl.CustomTextView
                 android:id="@+id/txtmatn"
@@ -52,7 +52,8 @@
                 android:padding="10dp">
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="40dp"
+                    android:id="@+id/linearcity"
+                    android:layout_height="35dp"
                     android:layout_marginTop="10dp">
 
                     <ImageView
@@ -67,24 +68,21 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
                         android:text="انتخاب شهر: "
-                        android:textColor="@color/grey_60"
+                        android:textColor="@color/grey_80"
                         android:textSize="@dimen/menu_text_size" />
 
-                    /<com.af.silaa_grp.CustomControl.CustomTextView
-                    android:id="@+id/txtcity"
+                    <com.af.silaa_grp.CustomControl.CustomTextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
                     android:layout_marginRight="10dp"
+                        android:id="@+id/txtcity"
                     android:text="قم"
                     android:textColor="#d40000"
                     android:textSize="18dp" />
 
                 </LinearLayout>
-                <ImageView
-                    android:layout_width="match_parent"
-                    android:background="@color/grey_20"
-                    android:layout_height="1dp" />
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="45dp"
@@ -105,7 +103,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
                         android:text="آگهی های من"
-                        android:textColor="@color/grey_60"
+                        android:textColor="@color/grey_80"
                         android:textSize="@dimen/menu_text_size" />
 
                 </LinearLayout>
@@ -130,11 +128,10 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
-                        android:text="نشان شده ها"
+                        android:text="پسندیده ها"
 
-                        android:textColor="@color/grey_60"
+                        android:textColor="@color/grey_80"
                         android:textSize="@dimen/menu_text_size" />
-
                 </LinearLayout>
 
                 <LinearLayout
@@ -156,19 +153,67 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
-                        android:text="تنظیمات حساب کاربری"
+                        android:text="تنظیمات  "
+                        android:textColor="@color/grey_80"
+                        android:textSize="@dimen/menu_text_size" />
 
-                        android:textColor="@color/grey_60"
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/linearertebat"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp">
+
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="40dp"
+                        android:layout_marginLeft="15dp"
+                        android:src="@drawable/user"
+                        android:layout_marginRight="13dp"
+
+                        />
+
+                    <com.af.silaa_grp.CustomControl.CustomTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="پشتیبانی"
+
+                        android:textColor="@color/grey_80"
+                        android:textSize="@dimen/menu_text_size" />
+
+                </LinearLayout>
+                <LinearLayout
+                    android:id="@+id/linearersanapp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp">
+
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="40dp"
+                        android:layout_marginLeft="15dp"
+                        android:src="@drawable/user"
+                        android:layout_marginRight="13dp"
+
+                        />
+
+                    <com.af.silaa_grp.CustomControl.CustomTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="ارسال نرم افزار"
+
+                        android:textColor="@color/grey_80"
                         android:textSize="@dimen/menu_text_size" />
 
                 </LinearLayout>
             </LinearLayout>
             <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="100dp"
+                android:layout_width="100dp"
+                android:layout_height="70dp"
                 android:id="@+id/imgadmin"
                 android:layout_marginBottom="30dp"
-
+                android:layout_centerHorizontal="true"
                 android:layout_alignParentBottom="true"
                 android:src="@drawable/logo300"
 

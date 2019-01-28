@@ -96,7 +96,6 @@ public class ActivityInsert extends ActivityEnhanced {
     private String imageFilePath = "";
     File file1 = null, file2 = null, file3 = null;
 
-
 //    Dialog show_P_Dialog;
 
     public static int currentAndroidDeviceVersion = Build.VERSION.SDK_INT;
@@ -156,8 +155,13 @@ public class ActivityInsert extends ActivityEnhanced {
         imgselect2 = findViewById(R.id.imgselect2);
         imgselect3 = findViewById(R.id.imgselect3);
         img_delete_logo = findViewById(R.id.del_img_logo);
+        img_delete_logo.setVisibility(View.GONE);
         img_delete_logo2 = findViewById(R.id.del_img_logo2);
+        img_delete_logo2.setVisibility(View.GONE);
+
         img_delete_logo3 = findViewById(R.id.del_img_logo3);
+        img_delete_logo3.setVisibility(View.GONE);
+
         linearimg1 = findViewById(R.id.linearimg1);
         linearimg2 = findViewById(R.id.linearimg2);
         linearimg3 = findViewById(R.id.linearimg3);
@@ -225,7 +229,7 @@ public class ActivityInsert extends ActivityEnhanced {
         img_delete_logo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                linearimg1.setVisibility(View.GONE);
+                img_delete_logo.setVisibility(View.GONE);
                 editor.remove(spImage);
                 editor.apply();
                 bitmap = null;
@@ -233,36 +237,37 @@ public class ActivityInsert extends ActivityEnhanced {
                 file1 = null;
                 requestBody1 = null;
                 fileToUpload1 = null;
-                visibilityImgSelect();
+
+
+                imgselect1.setImageResource(R.drawable.image_empty);
             }
         });
         img_delete_logo2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                linearimg2.setVisibility(View.GONE);
+                img_delete_logo2.setVisibility(View.GONE);
                 editor.remove(spImage2);
                 editor.apply();
                 imglogo2 = "";
                 file2 = null;
                 requestBody2 = null;
 //                fileToUpload2 = null;
-                visibilityImgSelect();
+                imgselect2.setImageResource(R.drawable.image_empty);
+
 
             }
         });
         img_delete_logo3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                linearimg3.setVisibility(View.GONE);
+                img_delete_logo3.setVisibility(View.GONE);
                 editor.remove(spImage3);
                 editor.apply();
-                visibilityImgSelect();
                 imglogo3 = "";
-
                 file3 = null;
                 requestBody3 = null;
 //                fileToUpload3 = null;
-
+                imgselect3.setImageResource(R.drawable.image_empty);
 
             }
         });
@@ -273,18 +278,14 @@ public class ActivityInsert extends ActivityEnhanced {
             }
         });
 
-        imgselect.setOnClickListener(new View.OnClickListener() {
+        findViewById(R.id.btnselectimage).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                // Click on image button
-
                 selectImageFrom();
-
-
-
 
             }
         });
+
         btnSubmit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -338,7 +339,7 @@ public class ActivityInsert extends ActivityEnhanced {
             Bitmap bitmap = BitmapFactory.decodeFile(photo);
             Glide.with(this).load(bitmap)
                     .into(imgselect1);
-            linearimg1.setVisibility(View.VISIBLE);
+            img_delete_logo.setVisibility(View.VISIBLE);
 
         }
         if (sharedPreferences.contains(spImage2)) {
@@ -346,14 +347,14 @@ public class ActivityInsert extends ActivityEnhanced {
             Bitmap bitmap = BitmapFactory.decodeFile(photo);
             Glide.with(this).load(bitmap)
                     .into(imgselect2);
-            linearimg2.setVisibility(View.VISIBLE);
+            img_delete_logo2.setVisibility(View.VISIBLE);
         }
         if (sharedPreferences.contains(spImage3)) {
             String photo = sharedPreferences.getString(spImage3, "");
             Bitmap bitmap = BitmapFactory.decodeFile(photo);
             Glide.with(this).load(bitmap)
                     .into(imgselect3);
-            linearimg3.setVisibility(View.VISIBLE);
+            img_delete_logo3.setVisibility(View.VISIBLE);
         }
         checksixthimg();
         if (sharedPreferences.contains(spmobile)) {
@@ -621,37 +622,35 @@ public class ActivityInsert extends ActivityEnhanced {
 
     private void setImagebitmap(String comp_img_path) {
 
-        if (linearimg1.getVisibility() == View.GONE) {
+        if (img_delete_logo.getVisibility() == View.GONE) {
 
-            linearimg1.setVisibility(View.VISIBLE);
+            img_delete_logo.setVisibility(View.VISIBLE);
             Glide.with(this).load(bitmap)
                     .into(imgselect1);
-            img_delete_logo.setVisibility(View.VISIBLE);
             editor.putString(spImage, comp_img_path);
             editor.commit();
-            checksixthimg();
-        } else if (linearimg2.getVisibility() == View.GONE) {
+//            checksixthimg();
+        } else if (img_delete_logo2.getVisibility() == View.GONE) {
 
 
-            linearimg2.setVisibility(View.VISIBLE);
+            img_delete_logo2.setVisibility(View.VISIBLE);
             Glide.with(this).load(bitmap)
                     .into(imgselect2);
-            img_delete_logo2.setVisibility(View.VISIBLE);
             editor.putString(spImage2, comp_img_path);
             editor.commit();
-            checksixthimg();
+//            checksixthimg();
 
 
-        } else if (linearimg3.getVisibility() == View.GONE) {
-            linearimg3.setVisibility(View.VISIBLE);
+        } else if (img_delete_logo3.getVisibility() == View.GONE) {
+            img_delete_logo3.setVisibility(View.VISIBLE);
             Glide.with(this).load(bitmap)
                     .into(imgselect3);
-            img_delete_logo3.setVisibility(View.VISIBLE);
             editor.putString(spImage3, comp_img_path);
             editor.commit();
-            checksixthimg();
+//            checksixthimg();
+        }else {
 
-
+            G.showSnackbar(findViewById(R.id.linearviewinsert), getString(R.string.txt_max_image_select));
         }
 
     }

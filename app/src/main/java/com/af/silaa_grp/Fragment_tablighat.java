@@ -202,7 +202,7 @@ public class Fragment_tablighat extends Fragment {
         itemsAdapter.setLoaded();
         swipeProgress(false);
         if (OnlineCheck.isConnect(getActivity())) {
-            showFailedView(true, "اینترنت قطه", view);
+            showFailedView(true, "اینترنت را چک کنید", view);
         } else {
             showFailedView(true, getString(R.string.no_internet_text), view);
         }

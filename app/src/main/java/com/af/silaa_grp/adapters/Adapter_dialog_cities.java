@@ -33,7 +33,7 @@ public class Adapter_dialog_cities extends RecyclerView.Adapter<RecyclerView.Vie
     private final int VIEW_PROG = 0;
     private Context context;
     private boolean loading;
-    CustomTextView txtcity = null;
+    CustomTextView txtcity ;
     int selectedCat = 0;
     SharedPreferences sharedPreferences;
     SharedPreferences.Editor editor;
@@ -93,7 +93,10 @@ public class Adapter_dialog_cities extends RecyclerView.Adapter<RecyclerView.Vie
 
                     editor.putInt("firstlaunch", 0);
                     editor.apply();
-                    txtcity.setText(heros.name);
+
+                    if (txtcity != null) {
+                        txtcity.setText(heros.name);
+                    }
 
                     dialog_city.dismiss();
 

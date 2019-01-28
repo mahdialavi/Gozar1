@@ -48,6 +48,7 @@
     <string name="app_fr_name">سیلا</string>
     <string name="insert_new_ad_txt"> یک آگهی در روز میتوانید ثبت کنید</string>
     <string name="txt_myad">آگهی های من</string>
+    <string name="txt_max_image_select">حداکثر تعداد تصاویر سه عدد می باشد</string>
 
 
 </resources>

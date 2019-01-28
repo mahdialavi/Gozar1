@@ -42,7 +42,7 @@ public class ActivityConfirmCode extends ActivityEnhanced {
 
         G.showSnackbar(findViewById(R.id.linearconfirm_view), getString(R.string.code_sending_to_you_txt));
 
-        CustomTextView txttitle = findViewById(R.id.txttitle);
+        CustomTextView txttitle = findViewById(R.id.txttoolcatname);
         ImageView imgback = findViewById(R.id.imgback);
         imgback.setImageResource(R.drawable.tick);
         imgback.setOnClickListener(new View.OnClickListener() {

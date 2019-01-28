@@ -94,7 +94,7 @@
                                     android:layout_marginLeft="3dp"
                                     android:layout_marginTop="5dp"
                                     android:padding="3dp"
-                                    android:src="@drawable/ic_action_navigation_close_dark" />
+                                    android:src="@drawable/close" />
 
                                 <com.af.silaa_grp.CustomControl.CustomTextView
                                     android:layout_width="match_parent"
@@ -126,7 +126,7 @@
                                     android:layout_marginLeft="3dp"
                                     android:layout_marginTop="5dp"
                                     android:padding="3dp"
-                                    android:src="@drawable/ic_action_navigation_close_dark"
+                                    android:src="@drawable/close"
 
                                     />
                             </RelativeLayout>
@@ -152,7 +152,7 @@
                                     android:layout_marginLeft="3dp"
                                     android:layout_marginTop="5dp"
                                     android:padding="3dp"
-                                    android:src="@drawable/ic_action_navigation_close_dark" />
+                                    android:src="@drawable/close" />
                             </RelativeLayout>
 
 
