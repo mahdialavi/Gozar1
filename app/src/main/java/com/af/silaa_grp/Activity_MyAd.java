@@ -237,6 +237,7 @@ public class Activity_MyAd extends ActivityEnhanced {
     @Override
     protected void onStart() {
         super.onStart();
+        MyAdAdaptor.itemsArraylist.clear();
         requestAction(1, userId);
         Log.i("onstop", "onstart my ad");
 

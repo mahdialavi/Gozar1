@@ -18,7 +18,7 @@
         android:textColor="@color/grey_80"
         android:gravity="center"
         android:textSize="19dp"
-        android:text="کد چهار رقمی ارسال شده را وارد کنید."
+        android:text="کد پنج رقمی ارسال شده را وارد کنید."
         android:layout_marginTop="50dp"/>
     <android.support.design.widget.TextInputLayout
         android:layout_width="match_parent"
@@ -57,8 +57,8 @@
         android:text="شماره اشتباه است؟"
         android:id="@+id/txtwrongnumber"
         android:layout_marginBottom="10dp"
-        android:layout_marginRight="5dp"
-        android:textSize="17dp"
+        android:layout_marginRight="10dp"
+        android:textSize="15dp"
         android:textColor="#224500"
         android:layout_alignParentRight="true"
         android:layout_alignParentBottom="true"

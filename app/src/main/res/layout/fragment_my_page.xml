@@ -59,9 +59,9 @@
                     <ImageView
                         android:layout_width="30dp"
                         android:layout_height="40dp"
-                        android:layout_marginLeft="15dp"
-                        android:src="@drawable/user"
-                        android:layout_marginRight="13dp" />
+                        android:layout_marginLeft="10dp"
+                        android:src="@drawable/city"
+                        android:layout_marginRight="9dp" />
 
                     <com.af.silaa_grp.CustomControl.CustomTextView
                         android:layout_width="wrap_content"
@@ -85,7 +85,7 @@
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="45dp"
+                    android:layout_height="40dp"
 
                     android:layout_marginTop="10dp">
 
@@ -93,7 +93,7 @@
                         android:layout_width="20dp"
                         android:layout_height="40dp"
                         android:layout_marginLeft="15dp"
-                        android:src="@drawable/user"
+                        android:src="@drawable/agahi"
 
                         android:layout_marginRight="13dp" />
 
@@ -111,13 +111,13 @@
                 <LinearLayout
                     android:id="@+id/linearbookmark"
                     android:layout_width="match_parent"
-                    android:layout_height="45dp">
+                    android:layout_height="40dp">
 
                     <ImageView
                         android:layout_width="20dp"
                         android:layout_height="40dp"
 
-                        android:src="@drawable/user"
+                        android:src="@drawable/favoite"
 
                         android:layout_marginLeft="15dp"
                         android:layout_marginRight="13dp"
@@ -143,7 +143,7 @@
                         android:layout_width="20dp"
                         android:layout_height="40dp"
                         android:layout_marginLeft="15dp"
-                        android:src="@drawable/user"
+                        android:src="@drawable/setting"
 
                         android:layout_marginRight="13dp"
 
@@ -160,7 +160,7 @@
                 </LinearLayout>
 
                 <LinearLayout
-                    android:id="@+id/linearertebat"
+                    android:id="@+id/linearposhtibani"
                     android:layout_width="match_parent"
                     android:layout_height="40dp">
 
@@ -168,7 +168,7 @@
                         android:layout_width="20dp"
                         android:layout_height="40dp"
                         android:layout_marginLeft="15dp"
-                        android:src="@drawable/user"
+                        android:src="@drawable/support"
                         android:layout_marginRight="13dp"
 
                         />
@@ -189,11 +189,11 @@
                     android:layout_height="40dp">
 
                     <ImageView
-                        android:layout_width="20dp"
+                        android:layout_width="30dp"
                         android:layout_height="40dp"
-                        android:layout_marginLeft="15dp"
-                        android:src="@drawable/user"
-                        android:layout_marginRight="13dp"
+                        android:layout_marginLeft="9dp"
+                        android:src="@drawable/share2"
+                        android:layout_marginRight="9dp"
 
                         />
 

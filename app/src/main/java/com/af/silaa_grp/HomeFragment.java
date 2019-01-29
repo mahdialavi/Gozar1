@@ -301,7 +301,6 @@ public class HomeFragment extends Fragment {
     // unpublish an advert
     public void deleteItem(int catid, int code) {
 
-        Toast.makeText(getActivity(), catid+code+ "caled", Toast.LENGTH_SHORT).show();
         G.show_progress_dialog(getActivity(), false, false);
         RequestBody R_catid = RequestBody.create(MediaType.parse("text/plain"), String.valueOf(catid));
         RequestBody R_code = RequestBody.create(MediaType.parse("text/plain"), String.valueOf(code));
@@ -326,7 +325,8 @@ public class HomeFragment extends Fragment {
             @Override
             public void onFailure(@NonNull Call<ItemsListUpload> call, @NonNull Throwable t) {
                 G.dismiss_P_Dialog();
-                Toast.makeText(G.Context, "مشکل در ارتباط با سرور ", Toast.LENGTH_SHORT).show();
+                G.showSnackbar(linear_firsfragment_view,getString(R.string.txt_server_con_problem));
+
             }
         });}
 //    @Override

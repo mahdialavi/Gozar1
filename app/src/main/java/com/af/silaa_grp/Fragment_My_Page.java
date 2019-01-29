@@ -79,13 +79,20 @@ public class Fragment_My_Page extends Fragment {
                 startActivity(Intent.createChooser(intent, "ارسال نرم افزار"));
             }
         });
-        view.findViewById(R.id.imgback).setOnClickListener(new View.OnClickListener() {
+
+        view.findViewById(R.id.linearposhtibani).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//                onBackPressed();
+                Dialog_Poshtibani dialog_poshtibani = new Dialog_Poshtibani(getActivity());
+                dialog_poshtibani.setListener(new DialogInterface.OnDismissListener() {
+                    @Override
+                    public void onDismiss(DialogInterface dialogInterface) {
+                    }
+                }).show();
+                dialog_poshtibani.setCancelable(false);
+                dialog_poshtibani.setCanceledOnTouchOutside(false);
             }
         });
-
         view.findViewById(R.id.imgadmin).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

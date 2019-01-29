@@ -49,6 +49,9 @@
     <string name="insert_new_ad_txt"> یک آگهی در روز میتوانید ثبت کنید</string>
     <string name="txt_myad">آگهی های من</string>
     <string name="txt_max_image_select">حداکثر تعداد تصاویر سه عدد می باشد</string>
+    <string name="txt_support">از کانال های ارتباطی زیر میتوانید سوالات ، پیشنهادات و درخواست برای تبلیغ را برای ما ارسال کنید.</string>
+    <string name="telegram_kanal">@silaair</string>
+    <string name="txt_server_con_problem">مشکل در ارتباط با سرور</string>
 
 
 </resources>
