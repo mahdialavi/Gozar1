@@ -6,6 +6,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.os.Handler;
 import android.preference.PreferenceManager;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
 import android.support.v4.widget.NestedScrollView;
 import android.support.v4.widget.SwipeRefreshLayout;
@@ -89,6 +90,16 @@ public class Fragment_tablighat extends Fragment {
         nestedscrollview = view.findViewById(R.id.nestedscrollview);
         linearprogress = view.findViewById(R.id.linearprogress);
         linearprogress.setVisibility(View.GONE);
+
+        FloatingActionButton fab = view.findViewById(R.id.fab);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // Click action
+                Intent intent = new Intent(getActivity(), ActivityInsert.class);
+                startActivity(intent);
+            }
+        });
 
         view.findViewById(R.id.imgsearch).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -253,7 +264,7 @@ public class Fragment_tablighat extends Fragment {
 
                     int position = sliderShow.getCurrentPosition();
                     int currentid = lists.get(position).id;
-                    Intent intent = new Intent(getActivity(), Activity_Tabligh_Detail.class);
+                    Intent intent = new Intent(getActivity(), ActivityDetail.class);
                     intent.putExtra("id", currentid);
                     startActivity(intent);
                 }

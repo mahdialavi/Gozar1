@@ -77,4 +77,6 @@ public class JobItemsList {
     public String ads_name;
 
 
+
+
 }

@@ -73,6 +73,23 @@ public interface Api {
 //
     );
 
+    @Multipart
+    @POST("tabligh.php")
+    Call<ItemsListUpload> ad_tabligh(
+            @Part("userid") RequestBody userid,
+            @Part("catid") RequestBody catid,
+            @Part("citycode") RequestBody citycode,
+            @Part("code") RequestBody code,
+            @Part("title") RequestBody title,
+            @Part("mobile") RequestBody mobile,
+            @Part("tozih") RequestBody tozih,
+            @Part("address") RequestBody address,
+            @Part MultipartBody.Part file1,
+            @Part MultipartBody.Part file2,
+            @Part MultipartBody.Part file3
+//
+    );
+
     @FormUrlEncoded
     @POST("registeruser.php")
     Call<registerUserModel> registerUser(

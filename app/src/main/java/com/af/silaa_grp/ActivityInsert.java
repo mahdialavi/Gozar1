@@ -120,7 +120,7 @@ public class ActivityInsert extends ActivityEnhanced {
     public static final String spImage3 = "spImage3";
 
     Bundle bundle = null;
-    CustomTextView btnSubmit,txttoolname;
+    CustomTextView btnSubmit, txttoolname;
     public static int selectedCatid = 0;
 
     RelativeLayout linearimg1, linearimg2, linearimg3, linearimgselect;
@@ -144,7 +144,7 @@ public class ActivityInsert extends ActivityEnhanced {
 
 
         edttozihat = findViewById(R.id.edttozih);
-        txttoolname= findViewById(R.id.txttoolcatname);
+        txttoolname = findViewById(R.id.txttoolcatname);
         txttoolname.setText("آگهی تان را ثبت کنید");
         edttitle = findViewById(R.id.edttitle);
         btncategory = findViewById(R.id.btncategory);
@@ -296,16 +296,16 @@ public class ActivityInsert extends ActivityEnhanced {
                         //                    insert
                         int last_insertday = sharedPreferences.getInt("inserted_day", 0);
 
-                        Log.i("log", String.valueOf(last_insertday)+" last insert");
+                        Log.i("log", String.valueOf(last_insertday) + " last insert");
 
 //                        if (today != last_insertday) {
-                            if (userId > 0) {
-                                uploadtoserver(id, catid, userId, 1, citycode);
-                            } else {
-                                Intent intent = new Intent(G.Context, Activity_register.class);
-                                startActivity(intent);
-                                finish();
-                            }
+                        if (userId > 0) {
+                            uploadtoserver(id, catid, userId, 1, citycode);
+                        } else {
+                            Intent intent = new Intent(G.Context, Activity_register.class);
+                            startActivity(intent);
+                            finish();
+                        }
 //                        } else {
 //                            G.showSnackbar(view,getString(R.string.insert_new_ad_txt));
 //                        }
@@ -544,7 +544,7 @@ public class ActivityInsert extends ActivityEnhanced {
                 pickIntent.setType("image/*");
 
                 Intent chooserIntent = Intent.createChooser(getIntent, "تصویر انتخاب کنید");
-                chooserIntent.putExtra(Intent.EXTRA_INITIAL_INTENTS, new Intent[] {pickIntent});
+                chooserIntent.putExtra(Intent.EXTRA_INITIAL_INTENTS, new Intent[]{pickIntent});
 
                 startActivityForResult(chooserIntent, 12);
 
@@ -589,8 +589,7 @@ public class ActivityInsert extends ActivityEnhanced {
             }
         } else if (resultCode == UCrop.RESULT_ERROR) {
             final Throwable cropError = UCrop.getError(data);
-        }
-        else if (requestCode == 12 && resultCode == RESULT_OK) {
+        } else if (requestCode == 12 && resultCode == RESULT_OK) {
             if (data != null) {
                 // this is the image selected by the user
                 picUri = data.getData();
@@ -648,7 +647,7 @@ public class ActivityInsert extends ActivityEnhanced {
             editor.putString(spImage3, comp_img_path);
             editor.commit();
 //            checksixthimg();
-        }else {
+        } else {
 
             G.showSnackbar(findViewById(R.id.linearviewinsert), getString(R.string.txt_max_image_select));
         }
@@ -816,6 +815,10 @@ public class ActivityInsert extends ActivityEnhanced {
                                     intent.putExtra("catid", catid);
                                     intent.putExtra("catname", sharedPreferences.getString(spcatname, ""));
                                     startActivity(intent);
+                                    finish();
+
+
+
                                 }
                             });
 
@@ -974,8 +977,7 @@ public class ActivityInsert extends ActivityEnhanced {
     @Override
     public void onBackPressed() {
         super.onBackPressed();
-        G.startActivity(MainActivity.class, true);
-
+        finish();
     }
 
 }

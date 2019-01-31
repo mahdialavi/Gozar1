@@ -5,12 +5,10 @@ import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.CardView;
-import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
@@ -21,7 +19,6 @@ import com.af.silaa_grp.Dialog_Category;
 import com.af.silaa_grp.G;
 import com.af.silaa_grp.JobItemsList;
 import com.af.silaa_grp.R;
-import com.af.silaa_grp.Retrofit.Constants;
 
 
 import java.util.ArrayList;
@@ -38,11 +35,15 @@ public class Adapter_Dialog_Category extends RecyclerView.Adapter<RecyclerView.V
     Dialog_Category dialog_category;
     public static ArrayList<JobItemsList> itemsArraylist = new ArrayList<>();
 
+
+
     public Adapter_Dialog_Category(Context context, RecyclerView view, CustomButton btncategory, int selectedcat, Dialog_Category dialog) {
         this.context = context;
         this.btncategory=btncategory;
         this.dialog_category=dialog;
         this.selectedCat=selectedcat;
+
+
     }
 
     @NonNull
@@ -108,6 +109,7 @@ public class Adapter_Dialog_Category extends RecyclerView.Adapter<RecyclerView.V
     }
 
     public void resetListData() {
+
         itemsArraylist = new ArrayList<>();
         notifyDataSetChanged();
     }
@@ -130,8 +132,10 @@ public class Adapter_Dialog_Category extends RecyclerView.Adapter<RecyclerView.V
 
     public void insertData(ArrayList<JobItemsList> items) {
         setLoaded();
+
         itemsArraylist.addAll(items);
         notifyDataSetChanged();
+
     }
     public void setLoaded() {
         loading = false;

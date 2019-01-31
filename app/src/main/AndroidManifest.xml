@@ -34,15 +34,16 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <!--<provider-->
-            <!--android:name="android.support.v4.content.FileProvider"-->
-            <!--android:authorities="com.af.silaa_grp.provider"-->
-            <!--android:exported="false"-->
-            <!--android:grantUriPermissions="true">-->
-            <!--<meta-data-->
-                <!--android:name="android.support.FILE_PROVIDER_PATHS"-->
-                <!--android:resource="@xml/provider_paths" />-->
-        <!--</provider>-->
+
+        <!-- <provider -->
+        <!-- android:name="android.support.v4.content.FileProvider" -->
+        <!-- android:authorities="com.af.silaa_grp.provider" -->
+        <!-- android:exported="false" -->
+        <!-- android:grantUriPermissions="true"> -->
+        <!-- <meta-data -->
+        <!-- android:name="android.support.FILE_PROVIDER_PATHS" -->
+        <!-- android:resource="@xml/provider_paths" /> -->
+        <!-- </provider> -->
 
         <activity android:name=".ActivityCategory" />
         <activity android:name=".ActivitySearch" />
@@ -62,7 +63,6 @@
         <activity android:name=".Activity_my_silla" />
         <activity android:name=".Activity_manager" />
         <activity android:name=".ActivityCheck_manager" />
-
         <activity android:name=".Activity_Tabligh_Detail" />
         <activity
             android:name="com.yalantis.ucrop.UCropActivity"
@@ -107,6 +107,7 @@
             android:name="co.ronash.pushe.cr"
             android:value="Tm9uZQ==" />
 
+        <activity android:name=".Activity_Tabligh_Sabt"></activity>
     </application>
 
 </manifest>

@@ -159,7 +159,6 @@ public class ActivityCheck_manager extends ActivityEnhanced {
                 try {
                     ItemsListUpload answer = response.body();
                     if (answer != null) {
-
                         if (answer.response.equals("item_deleted")) {
                             onBackPressed();
                             Toast.makeText(ActivityCheck_manager.this, "آگهی حذف گردید", Toast.LENGTH_SHORT).show();

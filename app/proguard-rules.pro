@@ -19,3 +19,18 @@
 # If you keep the line number information, uncomment this to
 # hide the original source file name.
 #-renamesourcefileattribute SourceFile
+
+-dontwarn android.databinding.**
+-keep class android.databinding.** { *; }
+-dontwarn com.squareup.okhttp.**
+ -dontwarn okhttp3.internal.platform.*
+ # Okio
+ -keep class sun.misc.Unsafe { *; }
+ -dontwarn java.nio.file.*
+ -dontwarn org.codehaus.mojo.animal_sniffer.IgnoreJRERequirement
+ -dontwarn okio.**
+ -dontwarn okio.**
+ -dontwarn retrofit2.Platform$Java8
+ -keep class android.support.design.internal.BottomNavigationItemView{ *; }
+ -keep class android.support.design.internal.BottomNavigationMenuView{ *; }
+ -ignorewarnings

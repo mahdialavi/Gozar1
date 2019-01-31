@@ -23,7 +23,6 @@ public class MainActivity extends ActivityEnhanced {
     private boolean exit = false;
     RelativeLayout linearview;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,28 +32,16 @@ public class MainActivity extends ActivityEnhanced {
         navigation = (BottomNavigationView) findViewById(R.id.bottomnavigation2);
         linearview= findViewById(R.id.linear_mainactivity_view);
 
-
-
         //check if we get 1 from categoryadapter and go to home fragment
         Bundle bundle = getIntent().getExtras();
         if (bundle != null) {
                 fragmentid = bundle.getInt("fragmentid");
             Log.i("log", fragmentid + "");
         }
-
-
         BottomNavigationViewHelper.disableShiftMode(navigation);
         final Menu menu = navigation.getMenu();
 
-        //if we come from fragment category id==1 and item 0 is checked
-        if (fragmentid == 0) {
-            MenuItem menuItem = menu.getItem(2);
 
-            menuItem.setChecked(true);
-        }else {
-            MenuItem menuItem = menu.getItem(0);
-            menuItem.setChecked(true);
-        }
         navigation.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
@@ -81,7 +68,7 @@ public class MainActivity extends ActivityEnhanced {
 
                     case R.id.menuinsert:
                         item.setChecked(true);
-                        G.startActivity(ActivityInsert.class, true);
+                        G.startActivity(ActivityInsert.class);
                         Home_Adapter.itemsArraylist.clear();
                         return false;
                     case R.id.menutablighat:
@@ -104,18 +91,45 @@ public class MainActivity extends ActivityEnhanced {
         });
 
 
+        // if we come from different fragment we decide to open selected fragment
         if (fragmentid == 1) {
+
+            // came frome categories adapter
             FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
             transaction.replace(R.id.frame_layout, HomeFragment.newInstance());
             transaction.addToBackStack(null);
             transaction.commit();
+
+            MenuItem menuItem = menu.getItem(0);
+            menuItem.setChecked(true);
+
+        } else if (fragmentid == 3) {
+
+            FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+            transaction.replace(R.id.frame_layout, Fragment_tablighat.newInstance());
+            transaction.addToBackStack(null);
+            transaction.commit();
+
+            MenuItem menuItem = menu.getItem(3);
+            menuItem.setChecked(true);
         } else {
+
+            // fragment id is 0 and we want to open fragment category first
             FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
             transaction.replace(R.id.frame_layout, Fragment_Categories.newInstance());
             transaction.addToBackStack(null);
-
             transaction.commit();
+
+            //if we come from fragment category id==1 and item 0 is checked
+            // if we come frome fragment tablithat fragment id is 3
+
+                MenuItem menuItem = menu.getItem(2);
+                menuItem.setChecked(true);
+
+
         }
+
+        Log.i("id", String.valueOf(fragmentid));
     }
 
 

@@ -81,7 +81,7 @@ public class TablighAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
             vItem.cardView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    Intent intent = new Intent(context, Activity_Tabligh_Detail.class);
+                    Intent intent = new Intent(context, ActivityDetail.class);
                     intent.putExtra("id", heros.id);
                     intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                     context.startActivity(intent);

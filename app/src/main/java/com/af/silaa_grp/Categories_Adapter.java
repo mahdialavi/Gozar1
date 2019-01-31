@@ -1,8 +1,13 @@
 package com.af.silaa_grp;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.support.annotation.NonNull;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -80,16 +85,30 @@ public class Categories_Adapter extends RecyclerView.Adapter<RecyclerView.ViewHo
             vItem.linearitem.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    Intent intent = new Intent(context, MainActivity.class);
-                    intent.putExtra("catid", alldata.id);
-                    intent.putExtra("catname",alldata.name);
-                    intent.putExtra("fragmentid",1);
 
-                    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                    AppCompatActivity activity = (AppCompatActivity) view.getContext();
+                    if (alldata.id == 2) {
+                        // if we want to open fragment tablish when we click on tabligh item
+                        Intent intent = new Intent(context, MainActivity.class);
+                        intent.putExtra("fragmentid",3);
+                        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                        context.startActivity(intent);
 
-                    context.startActivity(intent);
-                    HomeFragment.code=1;
+                        activity.finish();
 
+
+                    }else {
+                        Intent intent = new Intent(context, MainActivity.class);
+                        intent.putExtra("catid", alldata.id);
+                        intent.putExtra("catname",alldata.name);
+                        intent.putExtra("fragmentid",1);
+                        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                        context.startActivity(intent);
+                        HomeFragment.code=1;
+                        activity.finish();
+
+
+                    }
 
                 }
 

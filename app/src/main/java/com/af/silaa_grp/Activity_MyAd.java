@@ -192,8 +192,8 @@ public class Activity_MyAd extends ActivityEnhanced {
     public void onBackPressed() {
         super.onBackPressed();
         clearItemadaptorArr();
-            G.startActivity(MainActivity.class,true);
-
+//            G.startActivity(MainActivity.class,true);
+            finish();
 
 //        if (activitydestination.equals("ActivityCheckAd")) {
 //            G.startActivity(MainActivity.class,true);
