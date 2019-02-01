@@ -124,25 +124,6 @@
                             </RelativeLayout>
 
 
-
-
-
-
-                            <RelativeLayout
-                                android:id="@+id/linearimgselect"
-                                android:layout_width="100dp"
-                                android:visibility="gone"
-                                android:layout_height="100dp"
-                                >
-
-                                <ImageView
-                                    android:id="@+id/imgselect"
-                                    android:layout_width="100dp"
-                                    android:layout_height="100dp"
-                                    android:background="@drawable/border"
-                                    android:src="@drawable/image_empty" />
-                            </RelativeLayout>
-
                             <RelativeLayout
                                 android:id="@+id/linearimg1"
                                 android:layout_width="100dp"
@@ -214,6 +195,7 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:id="@+id/linearparentview"
                     android:layout_marginBottom="60dp"
                     android:descendantFocusability="afterDescendants"
                     android:focusableInTouchMode="true"
@@ -230,7 +212,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginEnd="10dp"
                             android:layout_marginTop="10dp"
-                            android:text="عنوان آگهی(حداقل 10 حرف)"
+                            android:text="عنوان آگهی(حداقل 5 حرف)"
                             android:textColor="@color/grey_60"
                             android:textSize="16dp"
                             android:layout_marginRight="10dp" />
@@ -266,20 +248,21 @@
                             android:textColor="@color/grey_60"
                             android:textSize="18dp" />
 
-                        <android.support.design.widget.TextInputLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content">
 
-                            <android.support.design.widget.TextInputEditText
-                                android:id="@+id/edtmobile"
+
+                            <com.af.silaa_grp.CustomControl.CustomTextView
+                                android:id="@+id/txtmobile"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:maxLines="1"
                                 android:textColor="@color/grey_80"
                                 android:textDirection="rtl"
                                 android:textSize="17dp" />
+                            <ImageView
+                                android:layout_width="match_parent"
+                                android:background="@color/grey_40"
+                                android:layout_height="1dp" />
 
-                        </android.support.design.widget.TextInputLayout>
                     </LinearLayout>
 
                     <LinearLayout

@@ -98,7 +98,6 @@ public class Activity_manager extends ActivityEnhanced {
         new Post().management(command, page, citycode, catid, new AnswerPosts() {
             @Override
             public void AnswerBase(ArrayList<JobItemsList> answer) {
-                Toast.makeText(Activity_manager.this, answer.size()+answer.get(0).name, Toast.LENGTH_SHORT).show();
                 try {
                     if (answer.get(0).name != null) {
                         for (int i = 0; i < answer.size(); i++) {

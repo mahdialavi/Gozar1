@@ -71,10 +71,7 @@ public class ActivityConfirmCode extends ActivityEnhanced {
         }
         {
             ProgressDialog pd = new ProgressDialog(ActivityConfirmCode.this);
-
-
-        }
-
+            }
         findViewById(R.id.txtwrongnumber).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

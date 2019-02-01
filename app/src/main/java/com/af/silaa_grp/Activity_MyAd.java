@@ -72,6 +72,8 @@ public class Activity_MyAd extends ActivityEnhanced {
                 requestAction(1, userId);
             }
         });
+        requestAction(1, userId);
+
 
 
         myAdAdaptor.setOnLoadMoreListener(new MyAdAdaptor.OnLoadMoreListener() {
@@ -192,9 +194,8 @@ public class Activity_MyAd extends ActivityEnhanced {
     public void onBackPressed() {
         super.onBackPressed();
         clearItemadaptorArr();
-//            G.startActivity(MainActivity.class,true);
-            finish();
 
+//            G.startActivity(MainActivity.class,true);
 //        if (activitydestination.equals("ActivityCheckAd")) {
 //            G.startActivity(MainActivity.class,true);
 //    }
@@ -209,8 +210,6 @@ public class Activity_MyAd extends ActivityEnhanced {
         super.onRestart();
         Log.i("onstop", "onrestart heppend");
 //        requestAction(1,userId);
-
-
     }
 
     @Override
@@ -218,30 +217,23 @@ public class Activity_MyAd extends ActivityEnhanced {
         super.onStop();
         Log.i("onstop", "onstop heppend my ad");
     }
-
     @Override
     protected void onPause() {
         super.onPause();
 //        itemsArray.clear();
-        clearItemadaptorArr();
+//        clearItemadaptorArr();
         Log.i("onstop", "onpause heppend my ad");
     }
-
     @Override
     public void onDestroy() {
         super.onDestroy();
         swipeProgress(false);
-
     }
-
     @Override
     protected void onStart() {
         super.onStart();
         MyAdAdaptor.itemsArraylist.clear();
-        requestAction(1, userId);
         Log.i("onstop", "onstart my ad");
-
-
 
 
     }

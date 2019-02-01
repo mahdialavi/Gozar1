@@ -31,6 +31,7 @@ import android.util.Log;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -80,7 +81,7 @@ public class ActivityInsert extends ActivityEnhanced {
 
     ImageView imgselect1, imgselect2, imgselect3, imgselect, img_delete_logo, img_delete_logo2, img_delete_logo3;
     CustomButton btncategory, btncam, btngal;
-    TextInputEditText edtmobile, edtaddress, edttozihat, edttitle, edtcat;
+    TextInputEditText  edtaddress, edttozihat, edttitle, edtcat;
     Bitmap bitmap = null;
     public static final int MY_PERMISSIONS_REQUEST_CAMERA = 123;
     LinearLayout linearcam, catwraper, lineargal;
@@ -120,7 +121,7 @@ public class ActivityInsert extends ActivityEnhanced {
     public static final String spImage3 = "spImage3";
 
     Bundle bundle = null;
-    CustomTextView btnSubmit, txttoolname;
+    CustomTextView btnSubmit, txttoolname, txtmobile;
     public static int selectedCatid = 0;
 
     RelativeLayout linearimg1, linearimg2, linearimg3, linearimgselect;
@@ -148,10 +149,10 @@ public class ActivityInsert extends ActivityEnhanced {
         txttoolname.setText("آگهی تان را ثبت کنید");
         edttitle = findViewById(R.id.edttitle);
         btncategory = findViewById(R.id.btncategory);
-        edtmobile = findViewById(R.id.edtmobile);
+        txtmobile = findViewById(R.id.txtmobile);
+
         edtaddress = findViewById(R.id.edtaddress);
         imgselect1 = findViewById(R.id.imgselect1);
-        imgselect = findViewById(R.id.imgselect);
         imgselect2 = findViewById(R.id.imgselect2);
         imgselect3 = findViewById(R.id.imgselect3);
         img_delete_logo = findViewById(R.id.del_img_logo);
@@ -195,15 +196,10 @@ public class ActivityInsert extends ActivityEnhanced {
             } else {
 //                Toast.makeText(this, "null 666", Toast.LENGTH_SHORT).show();
             }
-
         }
-
-
         setSharedPdata();
         txtChangeLinstener();
         btnSubmit.setText("ثبت آگهی");
-
-
         btncategory.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -212,17 +208,14 @@ public class ActivityInsert extends ActivityEnhanced {
                     dialog_category.setListener(new DialogInterface.OnDismissListener() {
                         @Override
                         public void onDismiss(DialogInterface dialogInterface) {
-
                         }
                     }).show();
 
                     dialog_category.setCanceledOnTouchOutside(false);
                     dialog_category.setCancelable(false);
-
                 } else {
                     G.showSnackbar(view, getString(R.string.no_internet_message));
                 }
-
             }
         });
 
@@ -237,8 +230,6 @@ public class ActivityInsert extends ActivityEnhanced {
                 file1 = null;
                 requestBody1 = null;
                 fileToUpload1 = null;
-
-
                 imgselect1.setImageResource(R.drawable.image_empty);
             }
         });
@@ -253,8 +244,6 @@ public class ActivityInsert extends ActivityEnhanced {
                 requestBody2 = null;
 //                fileToUpload2 = null;
                 imgselect2.setImageResource(R.drawable.image_empty);
-
-
             }
         });
         img_delete_logo3.setOnClickListener(new View.OnClickListener() {
@@ -268,7 +257,6 @@ public class ActivityInsert extends ActivityEnhanced {
                 requestBody3 = null;
 //                fileToUpload3 = null;
                 imgselect3.setImageResource(R.drawable.image_empty);
-
             }
         });
         findViewById(R.id.imgback).setOnClickListener(new View.OnClickListener() {
@@ -323,7 +311,6 @@ public class ActivityInsert extends ActivityEnhanced {
 
         edttitle.addTextChangedListener(textWatcher);
         edtaddress.addTextChangedListener(textWatcher);
-        edtmobile.addTextChangedListener(textWatcher);
         edttozihat.addTextChangedListener(textWatcher);
 //        edtcat.addTextChangedListener(textWatcher);
 
@@ -356,9 +343,8 @@ public class ActivityInsert extends ActivityEnhanced {
                     .into(imgselect3);
             img_delete_logo3.setVisibility(View.VISIBLE);
         }
-        checksixthimg();
         if (sharedPreferences.contains(spmobile)) {
-            edtmobile.setText(sharedPreferences.getString(spmobile, ""));
+            txtmobile.setText(sharedPreferences.getString(spmobile, ""));
         }
         if (sharedPreferences.contains(spTozihat)) {
             edttozihat.setText(sharedPreferences.getString(spTozihat, ""));
@@ -381,23 +367,33 @@ public class ActivityInsert extends ActivityEnhanced {
         }
     }
 
-    private void clearInputs() {
-        edttitle.setText("");
+    private void clearInputs(ViewGroup group) {
 
-        edtaddress.setText("");
-        edtmobile.setText("");
+        //set all edttext to "";
+        for (int i = 0, count = group.getChildCount(); i < count; ++i) {
+                View view = group.getChildAt(i);
+                if (view instanceof TextInputEditText) {
+                    ((TextInputEditText) view).setText("");
+                }
+                if (view instanceof ViewGroup && (((ViewGroup) view).getChildCount() > 0))
+                    clearInputs((ViewGroup) view);
+            }
+
         imgselect1.setImageResource(R.drawable.image_empty);
+        imgselect2.setImageResource(R.drawable.image_empty);
+        imgselect3.setImageResource(R.drawable.image_empty);
         img_delete_logo.setVisibility(View.GONE);
+
         btncategory.setText("دسته بندی");
         catid = 0;
-
 
         editor.remove(sptitle);
         editor.remove(spcatid);
         editor.remove(spcatname);
         editor.remove(spAddress);
         editor.remove(spImage);
-        editor.remove(spmobile);
+        editor.remove(spImage2);
+        editor.remove(spImage3);
         editor.apply();
     }
 
@@ -405,7 +401,7 @@ public class ActivityInsert extends ActivityEnhanced {
         title = edttitle.getText().toString();
         address = edtaddress.getText().toString();
         userId = sharedPreferences.getInt("userId", 0);
-        mobile = edtmobile.getText().toString();
+        mobile = txtmobile.getText().toString();
         tozih = edttozihat.getText().toString();
         catname = sharedPreferences.getString(spcatname, "");
         catid = sharedPreferences.getInt(spcatid, 0);
@@ -594,8 +590,6 @@ public class ActivityInsert extends ActivityEnhanced {
                 // this is the image selected by the user
                 picUri = data.getData();
                 crop(picUri);
-
-
             }
         }
 
@@ -652,13 +646,6 @@ public class ActivityInsert extends ActivityEnhanced {
             G.showSnackbar(findViewById(R.id.linearviewinsert), getString(R.string.txt_max_image_select));
         }
 
-    }
-
-    private void checksixthimg() {
-        if (linearimg1.getVisibility() == View.VISIBLE && linearimg2.getVisibility() == View.VISIBLE && linearimg3.getVisibility() == View.VISIBLE) {
-
-            linearimgselect.setVisibility(View.GONE);
-        }
     }
 
     @SuppressLint("NewApi")
@@ -810,14 +797,14 @@ public class ActivityInsert extends ActivityEnhanced {
                                 @Override
                                 public void onClick(View view) {
                                     alertDialog.dismiss();
-                                    intent = new Intent(G.Context, ActivityCheckAd.class);
-                                    intent.putExtra("lastid", lastId);
-                                    intent.putExtra("catid", catid);
-                                    intent.putExtra("catname", sharedPreferences.getString(spcatname, ""));
+                                    intent = new Intent(G.Context, Activity_MyAd.class);
+//                                    intent.putExtra("lastid", lastId);
+//                                    intent.putExtra("catid", catid);
+//                                    intent.putExtra("catname", sharedPreferences.getString(spcatname, ""));
                                     startActivity(intent);
                                     finish();
 
-
+                                    clearInputs((ViewGroup) findViewById(R.id.linearparentview));
 
                                 }
                             });
@@ -880,10 +867,6 @@ public class ActivityInsert extends ActivityEnhanced {
                 } else if (edtaddress.getText().hashCode() == editable.hashCode()) {
                     String value = editable.toString();
                     editor.putString(spAddress, value);
-                    editor.commit();
-                } else if (edtmobile.getText().hashCode() == editable.hashCode()) {
-                    String value = editable.toString();
-                    editor.putString(spmobile, value);
                     editor.commit();
                 } else if (edttozihat.getText().hashCode() == editable.hashCode()) {
                     String value = editable.toString();

@@ -25,6 +25,7 @@
     <color name="titlecolor">#515151</color>
     <color name="textcolor">#232323</color>
     <color name="color_update_btn">#b31e19</color>
+    <color name="color_red">#e60000</color>
 
 
 </resources>

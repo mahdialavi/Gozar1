@@ -28,6 +28,7 @@ import android.support.v4.content.FileProvider;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -35,6 +36,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.af.silaa_grp.CustomControl.CustomTextView;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.DataSource;
 import com.bumptech.glide.load.engine.GlideException;
@@ -46,7 +48,6 @@ import com.af.silaa_grp.Retrofit.Api;
 import com.af.silaa_grp.Retrofit.ItemsListUpload;
 import com.af.silaa_grp.Retrofit.Post;
 import com.af.silaa_grp.Retrofit.ServiceGenerator;
-import com.soundcloud.android.crop.Crop;
 import com.squareup.picasso.Picasso;
 import com.yalantis.ucrop.UCrop;
 import com.yalantis.ucrop.UCropActivity;
@@ -66,7 +67,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class ActivityEdit extends ActivityEnhanced{
+public class ActivityEdit extends ActivityEnhanced {
 
     private static ActivityInsert.CropConfig config = new ActivityInsert.CropConfig();
 
@@ -82,33 +83,30 @@ public class ActivityEdit extends ActivityEnhanced{
 
     private static Uri uri_1;
 
-    ImageView imgselect1,imgselect2,imgselect3, img_delete_logo, img_delete_logo2, img_delete_logo3,imgselect;
-    CustomButton btncategory,btncam, btngal;
-    TextInputEditText edtmobile, edtaddress, edttozihat, edttitle,edtcat;
+    ImageView imgselect1, imgselect2, imgselect3, img_delete_logo, img_delete_logo2, img_delete_logo3, imgselect;
+    CustomButton btncategory, btncam, btngal;
+    TextInputEditText edtaddress, edttozihat, edttitle, edtcat;
     Bitmap bitmap = null;
     public static final int MY_PERMISSIONS_REQUEST_CAMERA = 123;
-    LinearLayout linearcam, catwraper,lineargal,linearhide;
-    int citycode=1;
+    LinearLayout linearcam, catwraper, lineargal, linearhide, linseareditview;
+    int citycode = 1;
 
     RelativeLayout linearimg1, linearimg2, linearimg3, linearimg4, linearimg5, linearimgselect;
     File file1 = null, file2 = null, file3 = null, file4 = null, file5 = null;
-//    Dialog show_P_Dialog;
-String mediaPath = "", mediaPath1 = "", path = "";
-
+    //    Dialog show_P_Dialog;
+    String mediaPath = "", mediaPath1 = "", path = "";
 
     File file;
     Intent CamIntent, GalIntent, CropIntent, intent;
-    public static final int RequestPermissionCode = 1;
     SharedPreferences sharedPreferences;
     SharedPreferences.Editor editor;
     MultipartBody.Part fileToUpload1 = null, fileToUpload2 = null, fileToUpload3 = null;
 
     Bundle bundle = null;
     Button btnSubmit;
-    int id=0;
-    public static int selectedCatid=0;
-
-
+    int id = 0;
+    public static int selectedCatid = 0;
+    CustomTextView  txtmobile;
     RequestBody requestBody1 = null, requestBody2 = null, requestBody3 = null;
     RequestBody R_title = null, R_city_code = null, R_userid = null, R_mobile = null, R_code = null, R_address = null, R_catid = null, R_tozih = null;
 
@@ -126,28 +124,28 @@ String mediaPath = "", mediaPath1 = "", path = "";
         edttozihat = findViewById(R.id.edttozih);
         edttitle = findViewById(R.id.edttitle);
         btncategory = findViewById(R.id.btncategory);
-        edtmobile = findViewById(R.id.edtmobile);
+        txtmobile = findViewById(R.id.edtmobile);
         edtaddress = findViewById(R.id.edtaddress);
         imgselect1 = findViewById(R.id.imgselect1);
-        imgselect = findViewById(R.id.imgselect);
         imgselect2 = findViewById(R.id.imgselect2);
-        imgselect3= findViewById(R.id.imgselect3);
+        imgselect3 = findViewById(R.id.imgselect3);
         img_delete_logo = findViewById(R.id.del_img_logo);
         btnSubmit = findViewById(R.id.btnsubmit);
+        linseareditview = findViewById(R.id.linear_activity_edit_view);
 
         img_delete_logo = findViewById(R.id.del_img_logo);
         img_delete_logo2 = findViewById(R.id.del_img_logo2);
         img_delete_logo3 = findViewById(R.id.del_img_logo3);
-        linearimg1= findViewById(R.id.linearimg1);
-        linearimg2= findViewById(R.id.linearimg2);
-        linearimg3= findViewById(R.id.linearimg3);
+        linearimg1 = findViewById(R.id.linearimg1);
+        linearimg2 = findViewById(R.id.linearimg2);
+        linearimg3 = findViewById(R.id.linearimg3);
         linearimgselect = findViewById(R.id.linearimgselect);
-        linearhide= findViewById(R.id.linearhide);
+        linearhide = findViewById(R.id.linearhide);
         linearhide.setVisibility(View.VISIBLE);
 
         int CityCode = sharedPreferences.getInt("cat_city", 0);
         if (CityCode != 0) {
-            citycode=CityCode;
+            citycode = CityCode;
         }
 
 //                findViewById(R.id.lineardelete).setOnClickListener(new View.OnClickListener() {
@@ -178,7 +176,7 @@ String mediaPath = "", mediaPath1 = "", path = "";
         btncategory.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                new Dialog_Category(ActivityEdit.this,selectedCatid,btncategory).setListener(new DialogInterface.OnDismissListener() {
+                new Dialog_Category(ActivityEdit.this, selectedCatid, btncategory).setListener(new DialogInterface.OnDismissListener() {
                     @Override
                     public void onDismiss(DialogInterface dialogInterface) {
 
@@ -191,61 +189,50 @@ String mediaPath = "", mediaPath1 = "", path = "";
         img_delete_logo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                linearimg1.setVisibility(View.GONE);
+                img_delete_logo.setVisibility(View.GONE);
                 bitmap = null;
                 imglogo = "";
                 file1 = null;
                 requestBody1 = null;
                 fileToUpload1 = null;
-                visibilityImgSelect();
+                imgselect1.setImageResource(R.drawable.image_empty);
             }
         });
         img_delete_logo2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                linearimg2.setVisibility(View.GONE);
+                img_delete_logo2.setVisibility(View.GONE);
                 imglogo2 = "";
                 file2 = null;
                 requestBody2 = null;
                 fileToUpload2 = null;
-                visibilityImgSelect();
-
+                imgselect2.setImageResource(R.drawable.image_empty);
             }
         });
         img_delete_logo3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                linearimg3.setVisibility(View.GONE);
-                visibilityImgSelect();
+                img_delete_logo3.setVisibility(View.GONE);
                 imglogo3 = "";
-
                 file3 = null;
                 requestBody3 = null;
                 fileToUpload3 = null;
-
-
+                imgselect3.setImageResource(R.drawable.image_empty);
             }
         });
-
-        imgselect.setOnClickListener(new View.OnClickListener() {
+        findViewById(R.id.btnselectimage).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 selectImageFrom();
+
             }
         });
-
 
 
         findViewById(R.id.imgback).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 onBackPressed();
-            }
-        });
-        imgselect.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                selectImageFrom();
             }
         });
         btnSubmit.setOnClickListener(new View.OnClickListener() {
@@ -257,7 +244,6 @@ String mediaPath = "", mediaPath1 = "", path = "";
                         Log.i("test", "btnclicked");
 //                    insert
 //                        if (userId > 0) {
-
                         uploadtoserver(id, catid, userId, 0, citycode);
 //                        }
 //                        else {
@@ -266,9 +252,10 @@ String mediaPath = "", mediaPath1 = "", path = "";
 //                            startActivity(intent);
 //                            finish();
 //                        }
+                    } else {
+                        G.showSnackbar(view, getString(R.string.no_internet_message));
+
                     }
-                } else {
-                    Toast.makeText(G.Context, "دستگاه به اینترنت متصل نیست", Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -279,20 +266,21 @@ String mediaPath = "", mediaPath1 = "", path = "";
             linearimgselect.setVisibility(View.VISIBLE);
         }
     }
+
     private void requestitem(final int id) {
         new Post().getOneItem(id, new AnswerPosts() {
             @Override
             public void AnswerBase(ArrayList<JobItemsList> answer) {
-                if (answer!=null) {
+                if (answer != null) {
                     for (int i = 0; i < answer.size(); i++) {
-                        imglogo= answer.get(0).image;
-                        imglogo2= answer.get(0).image2;
-                        imglogo3= answer.get(0).image3;
+                        imglogo = answer.get(0).image;
+                        imglogo2 = answer.get(0).image2;
+                        imglogo3 = answer.get(0).image3;
 
-                        title=answer.get(0).name;
-                        mobile=answer.get(0).tamas;
-                        tozihat=answer.get(0).tozihat;
-                        address=answer.get(0).address;
+                        title = answer.get(0).name;
+                        mobile = answer.get(0).tamas;
+                        tozihat = answer.get(0).tozihat;
+                        address = answer.get(0).address;
 
                         setDataToTxts();
                         showOrHideImageViews();
@@ -383,40 +371,34 @@ String mediaPath = "", mediaPath1 = "", path = "";
 
         }
     };
+
     private void showOrHideImageViews() {
+
         if (!imglogo.equals("")) {
-            linearimg1.setVisibility(View.VISIBLE);
-            Picasso.with(this).load(G.IMAGE_URL + imglogo).placeholder(R.drawable.image_empty).into(target1);
             img_delete_logo.setVisibility(View.VISIBLE);
-
-
+            Picasso.with(this).load(G.IMAGE_URL + imglogo).placeholder(R.drawable.image_empty).into(target1);
         } else {
-            linearimg1.setVisibility(View.GONE);
             imgselect1.setImageResource(R.drawable.image_empty);
             img_delete_logo.setVisibility(View.GONE);
         }
 
-            if (imglogo2!=null&& !imglogo2.equals("")) {
-                linearimg2.setVisibility(View.VISIBLE);
-                Picasso.with(this).load(G.IMAGE_URL + imglogo2).placeholder(R.drawable.image_empty).into(target2);
-
-                img_delete_logo3.setVisibility(View.VISIBLE);
-            } else {
-                imgselect2.setImageResource(R.drawable.image_empty);
-                img_delete_logo2.setVisibility(View.GONE);
-            }
+        if (imglogo2 != null && !imglogo2.equals("")) {
+            Picasso.with(this).load(G.IMAGE_URL + imglogo2).placeholder(R.drawable.image_empty).into(target2);
+            img_delete_logo3.setVisibility(View.VISIBLE);
+        } else {
+            imgselect2.setImageResource(R.drawable.image_empty);
+            img_delete_logo2.setVisibility(View.GONE);
+        }
 
 
-            if (!imglogo3.equals("")) {
+        if (!imglogo3.equals("")) {
+            Picasso.with(this).load(G.IMAGE_URL + imglogo3).placeholder(R.drawable.image_empty).into(target3);
 
-                linearimg3.setVisibility(View.VISIBLE);
-                Picasso.with(this).load(G.IMAGE_URL + imglogo3).placeholder(R.drawable.image_empty).into(target3);
-
-                img_delete_logo3.setVisibility(View.VISIBLE);
-            } else {
-                imgselect3.setImageResource(R.drawable.image_empty);
-                img_delete_logo3.setVisibility(View.GONE);
-            }
+            img_delete_logo3.setVisibility(View.VISIBLE);
+        } else {
+            imgselect3.setImageResource(R.drawable.image_empty);
+            img_delete_logo3.setVisibility(View.GONE);
+        }
 
     }
 
@@ -444,30 +426,30 @@ String mediaPath = "", mediaPath1 = "", path = "";
         findViewById(R.id.failed_retry).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                showFailedView(false,"");
+                showFailedView(false, "");
                 linearhide.setVisibility(View.VISIBLE);
                 requestitem(id);
             }
         });
     }
+
     private void setDataToTxts() {
         edttitle.setText(title);
-        edtmobile.setText(mobile);
+        txtmobile.setText(mobile);
         edttozihat.setText(tozihat);
         edtaddress.setText(address);
-        }
+    }
 
 
     private void clearInputs() {
         edttitle.setText("");
 
         edtaddress.setText("");
-        edtmobile.setText("");
+        txtmobile.setText("");
         imgselect1.setImageResource(R.drawable.image_empty);
         img_delete_logo.setVisibility(View.GONE);
         btncategory.setText("دسته بندی");
         catid = 0;
-
 
 
     }
@@ -475,12 +457,11 @@ String mediaPath = "", mediaPath1 = "", path = "";
     private void getAllEdts() {
         title = edttitle.getText().toString();
         userId = sharedPreferences.getInt("userId", 0);
-        mobile= edtmobile.getText().toString();
+        mobile = txtmobile.getText().toString();
         tozihat = edttozihat.getText().toString();
 
         address = edtaddress.getText().toString();
         userId = sharedPreferences.getInt("userId", 0);
-
 
 
     }
@@ -488,43 +469,22 @@ String mediaPath = "", mediaPath1 = "", path = "";
     private boolean validate() {
         Boolean valid = true;
 
-        if (title.length() < 10) {
-
-            edttitle.setError("عنوان نمیتواند کمتر از 10 کاراکتر باشد");
+        if (title.length() < 5) {
+            G.showSnackbar(findViewById(R.id.linear_activity_edit_view), getString(R.string.title_min_letter_error));
             valid = false;
         } else {
+            if (mobile.length() < 11 || mobile.length() > 11) {
+                G.showSnackbar(findViewById(R.id.linear_activity_edit_view), getString(R.string.mobile_corect_num_error));
+                valid = false;
 
-            valid = true;
-        }
-        if (mobile.length() < 11 || mobile.length() > 11) {
-
-            edtmobile.setError("شماره موبایل را به درستی وارد نمایید");
-            valid = false;
-
-        } else {
-            valid = true;
-        }
-        if (tozihat.length() < 5) {
-
-            edttozihat.setError("لطفا حداقل 15 حرف وارد کنید");
-            valid = false;
-        } else {
-            valid = true;
+            } else {
+                if (tozihat.length() < 20) {
+                    G.showSnackbar(findViewById(R.id.linear_activity_edit_view), getString(R.string.tozih_min_letter_error));
+                    valid = false;
+                }
+            }
         }
 
-
-//        if (catid == 0) {
-//
-//            catwraper.setBackgroundResource(R.color.colorHint);
-//            txthintcat.setVisibility(View.VISIBLE);
-//            catwraper.setFocusableInTouchMode(true);
-//            catwraper.requestFocus();
-//            valid = false;
-//        } else {
-//            txthintcat.setVisibility(View.GONE);
-////                    catwraper.setBackgroundResource(R.color.);
-//            catwraper.setFocusable(false);
-//        }
         return valid;
     }
 
@@ -551,7 +511,16 @@ String mediaPath = "", mediaPath1 = "", path = "";
             @Override
             public void onClick(View v) {
                 dialog.dismiss();
-                Crop.pickImage(ActivityEdit.this);
+
+                Intent getIntent = new Intent(Intent.ACTION_GET_CONTENT);
+                getIntent.setType("image/*");
+
+                Intent pickIntent = new Intent(Intent.ACTION_PICK, android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+                pickIntent.setType("image/*");
+
+                Intent chooserIntent = Intent.createChooser(getIntent, "تصویر انتخاب کنید");
+                chooserIntent.putExtra(Intent.EXTRA_INITIAL_INTENTS, new Intent[]{pickIntent});
+                startActivityForResult(chooserIntent, 12);
             }
         });
         dialog.show();
@@ -586,9 +555,11 @@ String mediaPath = "", mediaPath1 = "", path = "";
             }
         }
     }
+
     private void displayMessage(Context baseContext, String s) {
         Toast.makeText(baseContext, s, Toast.LENGTH_LONG).show();
     }
+
     private File createImageFile() throws IOException {
         // Create an image file name
         String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
@@ -603,6 +574,7 @@ String mediaPath = "", mediaPath1 = "", path = "";
         imageFilePath = image.getAbsolutePath();
         return image;
     }
+
     public boolean checkPermission() {
         int currentAPIVersion = Build.VERSION.SDK_INT;
         if (currentAPIVersion >= android.os.Build.VERSION_CODES.M) {
@@ -641,7 +613,8 @@ String mediaPath = "", mediaPath1 = "", path = "";
                 if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                     ClickImageFromCamera(this, null);
                 } else {
-                    Toast.makeText(G.Context, "اجازه دسترسی داده نشد!", Toast.LENGTH_SHORT).show();
+                    G.showSnackbar(findViewById(R.id.linear_activity_edit_view), getString(R.string.permission_not_alow_text));
+
                 }
                 break;
         }
@@ -710,55 +683,55 @@ String mediaPath = "", mediaPath1 = "", path = "";
         } else if (resultCode == UCrop.RESULT_ERROR) {
             final Throwable cropError = UCrop.getError(data);
         } //crop with library for gallery
-        else if (requestCode == Crop.REQUEST_PICK && resultCode == RESULT_OK) {
-            crop(data.getData());
-
+        else if (requestCode == 12 && resultCode == RESULT_OK) {
+            if (data != null) {
+                // this is the image selected by the user
+                picUri = data.getData();
+                crop(picUri);
+            }
         }
 
     }
+
     private void setImagebitmap(String comp_img_path) {
 
-        if (linearimg1.getVisibility() == View.GONE) {
-            Toast.makeText(this, "img1", Toast.LENGTH_SHORT).show();
-            linearimg1.setVisibility(View.VISIBLE);
+//        if (img_delete_logo.getVisibility() == View.GONE) {
+//            img_delete_logo.setVisibility(View.VISIBLE);
+//            Glide.with(this).load(bitmap)
+//                    .into(imgselect1);
+//
+//        } else if (img_delete_logo2.getVisibility() == View.GONE) {
+//
+//            img_delete_logo2.setVisibility(View.VISIBLE);
+//            Glide.with(this).load(bitmap)
+//                    .into(imgselect2);
+//
+//        } else if (img_delete_logo3.getVisibility() == View.GONE) {
+//            img_delete_logo3.setVisibility(View.VISIBLE);
+//            Glide.with(this).load(bitmap)
+//                    .into(imgselect3);
+//        } else {
+//            G.showSnackbar(findViewById(R.id.linearviewinsert), getString(R.string.txt_max_image_select));
+//        }
+//
+
+
+        if (img_delete_logo.getVisibility() == View.GONE) {
             Glide.with(this).load(bitmap)
                     .into(imgselect1);
             img_delete_logo.setVisibility(View.VISIBLE);
             imglogo = comp_img_path;
-
-            checksixthimg();
-        } else if (linearimg2.getVisibility() == View.GONE) {
-
-            Toast.makeText(this, "img2", Toast.LENGTH_SHORT).show();
-            linearimg2.setVisibility(View.VISIBLE);
+        } else if (img_delete_logo2.getVisibility() == View.GONE) {
             Glide.with(this).load(bitmap)
                     .into(imgselect2);
             img_delete_logo2.setVisibility(View.VISIBLE);
             imglogo2 = comp_img_path;
 
-            checksixthimg();
-
-
-        } else if (linearimg3.getVisibility() == View.GONE) {
-            Toast.makeText(this, "img3", Toast.LENGTH_SHORT).show();
-            linearimg3.setVisibility(View.VISIBLE);
+        } else if (img_delete_logo3.getVisibility() == View.GONE) {
             Glide.with(this).load(bitmap)
                     .into(imgselect3);
             img_delete_logo3.setVisibility(View.VISIBLE);
             imglogo3 = comp_img_path;
-
-            checksixthimg();
-
-
-        }
-
-    }
-
-    private void checksixthimg() {
-        if (linearimg1.getVisibility() == View.VISIBLE && linearimg2.getVisibility() == View.VISIBLE && linearimg3.getVisibility() == View.VISIBLE) {
-
-            Toast.makeText(this, "third gon", Toast.LENGTH_SHORT).show();
-            linearimgselect.setVisibility(View.GONE);
         }
     }
 
@@ -789,6 +762,7 @@ String mediaPath = "", mediaPath1 = "", path = "";
         uCrop.withOptions(options);
         uCrop.start(this);
     }
+
     private static Uri buildUri() {
         File cacheFolder = new File(Environment.getExternalStorageDirectory() + File.separator + "crop");
         if (!cacheFolder.exists()) {
@@ -808,9 +782,9 @@ String mediaPath = "", mediaPath1 = "", path = "";
         Log.e("crop", uri_1.toString());
         return uri_1;
     }
+
     private void uploadtoserver(int id, final int catid, int userid, int code, int citycode) {
         G.show_progress_dialog(ActivityEdit.this, false, false);
-
 //        fileToUpload1 = MultipartBody.Part.createFormData("file1", file1.getName(), requestBody1);
         if (file1 != null) {
             requestBody1 = RequestBody.create(MediaType.parse("*/*"), file1);
@@ -865,7 +839,7 @@ String mediaPath = "", mediaPath1 = "", path = "";
         R_address = RequestBody.create(MediaType.parse("text/plain"), address);
 
         Api getResponse = ServiceGenerator.getClient().create(Api.class);
-        Call call = getResponse.uploadfile(R_userid, R_catid, R_city_code, R_code, R_title, R_mobile, R_tozih, R_address ,fileToUpload1, fileToUpload2, fileToUpload3);
+        Call call = getResponse.uploadfile(R_userid, R_catid, R_city_code, R_code, R_title, R_mobile, R_tozih, R_address, fileToUpload1, fileToUpload2, fileToUpload3);
         call.enqueue(new Callback<ItemsListUpload>() {
             @Override
             public void onResponse(Call<ItemsListUpload> call, Response<ItemsListUpload> response) {
@@ -874,12 +848,11 @@ String mediaPath = "", mediaPath1 = "", path = "";
                     ItemsListUpload answer = response.body();
                     if (answer != null) {
                         if (answer.response.equals("updated_ok")) {
-                                Toast.makeText(G.Context, "تغییرات انجام گردید", Toast.LENGTH_SHORT).show();
-                                onBackPressed();
-                        }else {
-                            Toast.makeText(ActivityEdit.this, "مشکل در ثبت آگهی ", Toast.LENGTH_LONG).show();
+                            G.showSnackbar(findViewById(R.id.linear_activity_edit_view), getString(R.string.txt_changes_done));
 
-
+                            onBackPressed();
+                        } else {
+                            G.showSnackbar(findViewById(R.id.linear_activity_edit_view), getString(R.string.agahi_register_failed_text));
                         }
                     }
 
@@ -893,7 +866,8 @@ String mediaPath = "", mediaPath1 = "", path = "";
             @Override
             public void onFailure(@NonNull Call<ItemsListUpload> call, @NonNull Throwable t) {
                 G.dismiss_P_Dialog();
-                Toast.makeText(G.Context, "اتصال دستگاه به سرور با مشکل مواجه گردید", Toast.LENGTH_SHORT).show();
+                G.showSnackbar(findViewById(R.id.linear_activity_edit_view), getString(R.string.txt_server_con_problem));
+
             }
         });
     }
@@ -902,7 +876,7 @@ String mediaPath = "", mediaPath1 = "", path = "";
     //    in textwatcher we only save to sharepreferences
     private void deleteEdittexts() {
         edttitle.setText("");
-        edtmobile.setText("");
+        txtmobile.setText("");
         edtaddress.setText("");
         edttozihat.setText("");
     }
@@ -927,11 +901,6 @@ String mediaPath = "", mediaPath1 = "", path = "";
 
     }
 
-    @Override
-    public void onBackPressed() {
-        super.onBackPressed();
-        finish();
-        deleteEdittexts();    }
 
     private RequestListener save_To_bitmap_1 = new RequestListener() {
         @Override
@@ -1003,6 +972,14 @@ String mediaPath = "", mediaPath1 = "", path = "";
         return bitmap.getRowBytes() * bitmap.getHeight();
     }
 
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        G.startActivity(Activity_MyAd.class, true);
+        deleteEdittexts();
+
+
+    }
 
 }
 

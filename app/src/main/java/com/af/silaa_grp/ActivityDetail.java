@@ -196,14 +196,12 @@ public class ActivityDetail extends ActivityEnhanced {
         if (Persons.exists(id)) {
             Persons.delete(id);
             imgfav.setImageResource(R.drawable.imgfav);
-            Toast.makeText(this, "deleted", Toast.LENGTH_SHORT).show();
         } else {
             items.id = id;
             items.name = name;
             items.image = image;
             Persons.insert(items);
             imgfav.setImageResource(R.drawable.imgfav2);
-            Toast.makeText(G.Context, "inserted", Toast.LENGTH_LONG).show();
         }
     }
     private void hideEmptyTxts() {
@@ -286,11 +284,8 @@ public class ActivityDetail extends ActivityEnhanced {
         Log.i("onstart", "onstart_happend");
         if (Persons.exists(id)) {
             imgfav.setImageResource(R.drawable.imgfav2);
-            Toast.makeText(this, "exists", Toast.LENGTH_SHORT).show();
 
         } else {
-            Toast.makeText(this, "not exists", Toast.LENGTH_SHORT).show();
-
             imgfav.setImageResource(R.drawable.imgfav);
         }
     }

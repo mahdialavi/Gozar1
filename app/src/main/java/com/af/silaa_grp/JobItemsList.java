@@ -55,6 +55,10 @@ public class JobItemsList {
     @Expose
     public int id;
 
+    @SerializedName("published")
+    @Expose
+    public int published;
+
     @SerializedName("totalposts")
     @Expose
     public int totalposts;

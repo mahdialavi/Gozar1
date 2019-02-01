@@ -52,6 +52,7 @@
     <string name="txt_support">از کانال های ارتباطی زیر میتوانید سوالات ، پیشنهادات و درخواست برای تبلیغ را برای ما ارسال کنید.</string>
     <string name="telegram_kanal">@silaair</string>
     <string name="txt_server_con_problem">مشکل در ارتباط با سرور</string>
+    <string name="txt_changes_done">تغییرات انجام گردید</string>
 
 
 </resources>

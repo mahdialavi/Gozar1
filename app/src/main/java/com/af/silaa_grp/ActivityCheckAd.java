@@ -69,20 +69,15 @@ public class ActivityCheckAd extends  ActivityEnhanced {
                 if (bundle != null) {
                     // if we get from insertactivity
                     if (bundle.getInt("lastid") > 0 && bundle.getInt("catid") > 0) {
-
                         itemid = bundle.getInt("lastid");
                         catid = bundle.getInt("catid");
                         catname = bundle.getString("catname");
-                        Toast.makeText(this, catid+"", Toast.LENGTH_SHORT).show();
-//                setSharedPdata();
-//                Toast.makeText(G.Context,catname, Toast.LENGTH_SHORT).show();
                     }
                     else {
                         //get data from myadadaptor and insertActivity
                         itemid = bundle.getInt("itemid");
                         catname = bundle.getString("catname");
                         catid = bundle.getInt("catid");
-                        Toast.makeText(this, catid+"       "+catname, Toast.LENGTH_SHORT).show();
                     }
                 }
 
@@ -117,7 +112,6 @@ public class ActivityCheckAd extends  ActivityEnhanced {
                         intent.putExtra("itemid", itemid);
                         intent.putExtra("catid", catid);
                         intent.putExtra("catname", catname);
-
                         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                         G.Context.startActivity(intent);
                     }

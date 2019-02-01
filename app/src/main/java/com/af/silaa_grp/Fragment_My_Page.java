@@ -129,7 +129,7 @@ public class Fragment_My_Page extends Fragment {
                 int userId = sharedPreferences.getInt("userId", 0);
 
                 if (userId != 0) {
-                    G.startActivity(Activity_MyAd.class, true);
+                    G.startActivity(Activity_MyAd.class);
                     Activity_MyAd.activitydestination = "ActivityCheckAd";
                 } else {
                     G.showSnackbar(view, getString(R.string.enter_account_txt));

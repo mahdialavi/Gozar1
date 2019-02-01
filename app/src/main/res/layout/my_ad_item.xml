@@ -73,23 +73,24 @@
                         android:lineSpacingMultiplier="1.2"
                         android:text="استاد کار بنا"
                         android:textColor="@color/textcolor"
-                        android:textSize="17dp" />
+                        android:textSize="16dp" />
                 </LinearLayout>
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginBottom="3dp"
                     android:orientation="horizontal">
 
                     <com.af.silaa_grp.CustomControl.CustomTextView
                         android:id="@+id/txttime"
                         android:layout_width="wrap_content"
-                        android:layout_height="30dp"
+                        android:layout_height="wrap_content"
                         android:layout_gravity="bottom"
                         android:text="همین الان"
                         android:textColor="@color/grey_60"
                         android:textDirection="rtl"
-                        android:textSize="15dp" />
+                        android:textSize="14dp" />
 
 
                 </LinearLayout>

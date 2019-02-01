@@ -67,7 +67,6 @@ public class Adapter_manager extends RecyclerView.Adapter<RecyclerView.ViewHolde
                 @Override
                 public void onClick(View view) {
 
-                    Log.i("hero", heros.id + "    parent id:" + heros.parent_id);
                     Intent intent = new Intent(G.Context, ActivityCheck_manager.class);
                     intent.putExtra("catname", heros.categoryname);
                     intent.putExtra("catid", heros.parent_id);

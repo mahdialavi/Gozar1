@@ -57,15 +57,12 @@ public class ActivityCheck_manager extends ActivityEnhanced {
             // if we get from insertactivity
             if (bundle.getInt("lastid") > 0 && bundle.getInt("catid") > 0) {
 
-                Toast.makeText(this, "lats id", Toast.LENGTH_SHORT).show();
 
                 itemid = bundle.getInt("lastid");
                 catid = bundle.getInt("catid");
                 catname = bundle.getString("catname");
             } else {
                 //get data from myadadaptor and insertActivity
-
-                Toast.makeText(this, "modiriat", Toast.LENGTH_SHORT).show();
                 itemid = bundle.getInt("itemid");
                 catname = bundle.getString("catname");
                 catid = bundle.getInt("catid");
