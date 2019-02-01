@@ -127,7 +127,6 @@ public class Fragment_My_Page extends Fragment {
             public void onClick(View view) {
 
                 int userId = sharedPreferences.getInt("userId", 0);
-
                 if (userId != 0) {
                     G.startActivity(Activity_MyAd.class);
                     Activity_MyAd.activitydestination = "ActivityCheckAd";

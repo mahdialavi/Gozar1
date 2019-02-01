@@ -96,8 +96,10 @@ public class Fragment_tablighat extends Fragment {
             @Override
             public void onClick(View view) {
                 // Click action
-                Intent intent = new Intent(getActivity(), ActivityInsert.class);
-                startActivity(intent);
+                G.startActivity(ActivityInsert.class,true);
+//                Intent intent = new Intent(getActivity(), ActivityInsert.class);
+//                startActivity(intent);
+
             }
         });
 
@@ -213,7 +215,7 @@ public class Fragment_tablighat extends Fragment {
         itemsAdapter.setLoaded();
         swipeProgress(false);
         if (OnlineCheck.isConnect(getActivity())) {
-            showFailedView(true, "اینترنت را چک کنید", view);
+            showFailedView(true, getString(R.string.txt_server_con_problem), view);
         } else {
             showFailedView(true, getString(R.string.no_internet_text), view);
         }

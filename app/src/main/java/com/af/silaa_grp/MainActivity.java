@@ -19,7 +19,7 @@ import co.ronash.pushe.Pushe;
 
 public class MainActivity extends ActivityEnhanced {
     public BottomNavigationView navigation;
-    int fragmentid = 0;
+    int fragmentid = 1;
     private boolean exit = false;
     RelativeLayout linearview;
 
@@ -28,6 +28,7 @@ public class MainActivity extends ActivityEnhanced {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mainactivityfor_fragment);
         Pushe.initialize(this, true);
+
 
         navigation = (BottomNavigationView) findViewById(R.id.bottomnavigation2);
         linearview= findViewById(R.id.linear_mainactivity_view);
@@ -68,7 +69,7 @@ public class MainActivity extends ActivityEnhanced {
 
                     case R.id.menuinsert:
                         item.setChecked(true);
-                        G.startActivity(ActivityInsert.class);
+                        G.startActivity(ActivityInsert.class,true);
                         Home_Adapter.itemsArraylist.clear();
                         return false;
                     case R.id.menutablighat:

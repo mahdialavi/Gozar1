@@ -108,7 +108,6 @@ public class ActivityConfirmCode extends ActivityEnhanced {
                         editor.putInt(ActivityInsert.spusergroup, user_group);
                         editor.putString(ActivityInsert.spName, name);
                         editor.apply();
-                        Toast.makeText(ActivityConfirmCode.this, user_group+"", Toast.LENGTH_LONG).show();
 
                         G.startActivity(MainActivity.class, true);
 
@@ -141,6 +140,7 @@ public class ActivityConfirmCode extends ActivityEnhanced {
 
     @Override
     public void onBackPressed() {
+
 
     }
 }

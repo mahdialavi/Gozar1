@@ -1,5 +1,6 @@
 package com.af.silaa_grp;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Handler;
@@ -35,6 +36,8 @@ public class Activity_MyAd extends ActivityEnhanced {
     CustomTextView txtcatname;
     SharedPreferences sharedPreferences;
     SharedPreferences.Editor editor;
+    private int activityfrom=0;
+    Bundle bundle=null;
 
     public static String activitydestination = "ActivityCheckAd";
     @Override
@@ -72,6 +75,16 @@ public class Activity_MyAd extends ActivityEnhanced {
                 requestAction(1, userId);
             }
         });
+
+
+        bundle = getIntent().getExtras();
+        if (bundle != null) {
+            // came from activity insert ==1
+            if (bundle.getInt("activityfrom")==1) {
+                activityfrom=1;
+            }
+        }
+
         requestAction(1, userId);
 
 
@@ -193,8 +206,13 @@ public class Activity_MyAd extends ActivityEnhanced {
     @Override
     public void onBackPressed() {
         super.onBackPressed();
-        clearItemadaptorArr();
 
+        if (activityfrom == 1) {
+            G.startActivity(MainActivity.class,true);
+        }else {
+            finish();
+        }
+        clearItemadaptorArr();
 //            G.startActivity(MainActivity.class,true);
 //        if (activitydestination.equals("ActivityCheckAd")) {
 //            G.startActivity(MainActivity.class,true);

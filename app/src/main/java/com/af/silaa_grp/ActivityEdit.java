@@ -124,7 +124,7 @@ public class ActivityEdit extends ActivityEnhanced {
         edttozihat = findViewById(R.id.edttozih);
         edttitle = findViewById(R.id.edttitle);
         btncategory = findViewById(R.id.btncategory);
-        txtmobile = findViewById(R.id.edtmobile);
+        txtmobile = findViewById(R.id.txtmobile);
         edtaddress = findViewById(R.id.edtaddress);
         imgselect1 = findViewById(R.id.imgselect1);
         imgselect2 = findViewById(R.id.imgselect2);
@@ -876,7 +876,6 @@ public class ActivityEdit extends ActivityEnhanced {
     //    in textwatcher we only save to sharepreferences
     private void deleteEdittexts() {
         edttitle.setText("");
-        txtmobile.setText("");
         edtaddress.setText("");
         edttozihat.setText("");
     }
@@ -898,6 +897,8 @@ public class ActivityEdit extends ActivityEnhanced {
     @Override
     protected void onRestart() {
         super.onRestart();
+        Log.i("name", "restart");
+
 
     }
 
@@ -977,6 +978,7 @@ public class ActivityEdit extends ActivityEnhanced {
         super.onBackPressed();
         G.startActivity(Activity_MyAd.class, true);
         deleteEdittexts();
+//        finish();
 
 
     }

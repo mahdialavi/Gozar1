@@ -20,7 +20,8 @@
         android:textSize="19dp"
         android:text="کد پنج رقمی ارسال شده را وارد کنید."
         android:layout_marginTop="50dp"/>
-    <android.support.design.widget.TextInputLayout
+
+        <android.support.design.widget.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
@@ -32,11 +33,21 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:hint="0-0-0-0-0"
-            android:layout_margin="70dp"
+            android:layout_margin="30dp"
             android:inputType="number"
             android:maxLength="5"
             />
     </android.support.design.widget.TextInputLayout>
+
+        <com.af.silaa_grp.CustomControl.CustomTextView
+            android:layout_width="match_parent"
+            android:text="کاربر گرامی لطفا تا دریافت کد تایید صبور باشید. "
+            android:paddingRight="20dp"
+            android:paddingLeft="15dp"
+            android:textSize="17dp"
+            android:textAlignment="center"
+            android:textColor="@color/colorToolbar"
+            android:layout_height="wrap_content" />
     <Button
         android:id="@+id/btn_submit"
         android:layout_width="150dp"
@@ -44,7 +55,7 @@
         android:text="تایید نهایی "
         android:background="@drawable/custom_button"
         android:textColor="@color/grey_80"
-        android:layout_marginTop="0dp"
+        android:layout_marginTop="20dp"
         android:textSize="17dp"
         android:layout_gravity="center"
 

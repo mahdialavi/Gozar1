@@ -798,6 +798,7 @@ public class ActivityInsert extends ActivityEnhanced {
                                 public void onClick(View view) {
                                     alertDialog.dismiss();
                                     intent = new Intent(G.Context, Activity_MyAd.class);
+                                    intent.putExtra("activityfrom", 1);
 //                                    intent.putExtra("lastid", lastId);
 //                                    intent.putExtra("catid", catid);
 //                                    intent.putExtra("catname", sharedPreferences.getString(spcatname, ""));
@@ -960,7 +961,7 @@ public class ActivityInsert extends ActivityEnhanced {
     @Override
     public void onBackPressed() {
         super.onBackPressed();
-        finish();
+        G.startActivity(MainActivity.class,true);
     }
 
 }
