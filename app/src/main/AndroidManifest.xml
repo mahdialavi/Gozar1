@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.af.silaa_grp"> <!-- pushe permissions -->
+    package="com.silaa.grp"> <!-- pushe permissions -->
     <uses-sdk tools:overrideLibrary="co.ronash.pushe" />
 
     <uses-permission android:name="android.permission.INTERNET" />
@@ -16,7 +16,7 @@
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
 
     <permission
-        android:name="com.af.silaa_grp.permission.C2D_MESSAGE"
+        android:name="com.silaa.grp.permission.C2D_MESSAGE"
         android:protectionLevel="signature" />
 
     <uses-permission android:name="com.af.silaa_grp.permission.C2D_MESSAGE" />

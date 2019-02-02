@@ -35,7 +35,7 @@
                 android:orientation="horizontal"
                 android:id="@+id/relativeLayout">
 
-                <com.af.silaa_grp.CustomControl.CustomEditText
+                <com.silaa.grp.CustomControl.CustomEditText
                     android:id="@+id/txtsearch"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"

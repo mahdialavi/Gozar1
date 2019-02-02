@@ -97,7 +97,7 @@
                         android:paddingLeft="10dp"
                         android:paddingRight="20dp">
 
-                        <com.af.silaa_grp.CustomControl.CustomTextView
+                        <com.silaa.grp.CustomControl.CustomTextView
                             android:id="@+id/txtname"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -111,7 +111,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp">
 
-                        <com.af.silaa_grp.CustomControl.CustomTextView
+                        <com.silaa.grp.CustomControl.CustomTextView
                             android:id="@+id/txtzaman"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -129,7 +129,7 @@
                         android:paddingLeft="10dp"
                         android:paddingRight="20dp">
 
-                        <com.af.silaa_grp.CustomControl.CustomTextViewBold
+                        <com.silaa.grp.CustomControl.CustomTextViewBold
                             android:layout_width="wrap_content"
 
                             android:layout_height="wrap_content"
@@ -138,7 +138,7 @@
                             android:textColor="#a30b1f"
                             android:textSize="17dp" />
 
-                        <com.af.silaa_grp.CustomControl.CustomTextView
+                        <com.silaa.grp.CustomControl.CustomTextView
                             android:id="@+id/txttozih"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -159,7 +159,7 @@
                         android:paddingLeft="10dp"
                         android:paddingRight="20dp">
 
-                        <com.af.silaa_grp.CustomControl.CustomTextViewBold
+                        <com.silaa.grp.CustomControl.CustomTextViewBold
                             android:layout_width="wrap_content"
 
                             android:layout_height="wrap_content"
@@ -168,9 +168,10 @@
                             android:textColor="#a30b1f"
                             android:textSize="17dp" />
 
-                        <com.af.silaa_grp.CustomControl.CustomTextView
+                        <com.silaa.grp.CustomControl.CustomTextView
                             android:id="@+id/txtaddress"
                             android:layout_width="match_parent"
+                            android:minHeight="50dp"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="20dp"
                             android:paddingRight="10dp"
@@ -194,7 +195,7 @@
                 android:background="@android:color/transparent"
                 android:orientation="horizontal">
 
-                <com.af.silaa_grp.CustomControl.CustomButton
+                <com.silaa.grp.CustomControl.CustomButton
                     android:id="@+id/btnpayam"
                     style="@style/Widget.AppCompat.Button.Colored"
                     android:layout_width="0dp"
@@ -205,7 +206,7 @@
                     android:textColor="#ffffff"
                     android:textSize="18dp" />
 
-                <com.af.silaa_grp.CustomControl.CustomButton
+                <com.silaa.grp.CustomControl.CustomButton
                     android:id="@+id/btntamas"
                     style="@style/Widget.AppCompat.Button.Colored"
                     android:layout_width="0dp"

@@ -30,14 +30,14 @@
                     android:layout_marginLeft="5dp"
                     android:background="@drawable/back" />
             </LinearLayout>
-            <com.af.silaa_grp.CustomControl.CustomTextView
+            <com.silaa.grp.CustomControl.CustomTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="-3dp"
                 android:text="@string/app_name"
                 android:textColor="#ffffff"
                 android:textSize="20dp" />
-            <com.af.silaa_grp.CustomControl.CustomTextView
+            <com.silaa.grp.CustomControl.CustomTextView
                 android:id="@+id/txttoolcatename"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

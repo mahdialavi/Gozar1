@@ -16,13 +16,13 @@
         android:layout_marginTop="10dp"
         android:layout_height="wrap_content">
 
-        <com.af.silaa_grp.CustomControl.CustomTextViewBold
+        <com.silaa.grp.CustomControl.CustomTextViewBold
             android:layout_width="wrap_content"
             android:text="دسته بندی:"
             android:textColor="#b60808"
             android:textSize="18dp"
             android:layout_height="wrap_content" />
-        <com.af.silaa_grp.CustomControl.CustomTextView
+        <com.silaa.grp.CustomControl.CustomTextView
             android:layout_width="wrap_content"
             android:layout_marginRight="5dp"
             android:text="خبرگزاری ها"
@@ -39,7 +39,7 @@
         android:orientation="vertical"
         android:layout_height="wrap_content">
 
-        <com.af.silaa_grp.CustomControl.CustomButton
+        <com.silaa.grp.CustomControl.CustomButton
             android:layout_width="wrap_content"
             android:text="پیش نمایش آگهی"
             style="@style/Widget.AppCompat.Button.Colored"
@@ -48,7 +48,7 @@
             android:id="@+id/txtpread"
             android:padding="10dp"
             android:layout_height="wrap_content" />
-        <com.af.silaa_grp.CustomControl.CustomTextViewBold
+        <com.silaa.grp.CustomControl.CustomTextViewBold
             android:layout_width="match_parent"
             android:padding="10dp"
             android:textSize="16dp"
@@ -57,7 +57,7 @@
             android:layout_height="wrap_content"
             android:text="منتظر تایید ناظر"
             />
-        <com.af.silaa_grp.CustomControl.CustomTextView
+        <com.silaa.grp.CustomControl.CustomTextView
             android:layout_width="match_parent"
             android:lineSpacingMultiplier="1.2"
             android:textColor="@color/grey_80"
@@ -81,7 +81,7 @@
                 android:layout_width="25dp"
                 android:layout_height="25dp"
                 />
-            <com.af.silaa_grp.CustomControl.CustomTextView
+            <com.silaa.grp.CustomControl.CustomTextView
                 android:layout_width="wrap_content"
                 android:text=" ویرایش آگهی"
                 android:layout_marginRight="10dp"
@@ -100,7 +100,7 @@
                 android:layout_width="25dp"
                 android:layout_height="25dp"
                 />
-            <com.af.silaa_grp.CustomControl.CustomTextView
+            <com.silaa.grp.CustomControl.CustomTextView
                 android:layout_width="wrap_content"
                 android:text="حذف آگهی"
                 android:layout_marginRight="10dp"
@@ -120,7 +120,7 @@
                 android:layout_width="25dp"
                 android:layout_height="25dp"
                 />
-            <com.af.silaa_grp.CustomControl.CustomTextView
+            <com.silaa.grp.CustomControl.CustomTextView
                 android:layout_width="wrap_content"
                 android:text="انتشار آگهی"
                 android:layout_marginRight="10dp"

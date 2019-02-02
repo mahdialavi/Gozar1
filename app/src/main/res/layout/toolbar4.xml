@@ -36,7 +36,7 @@
                 android:layout_marginRight="10dp"
                 android:layout_height="?actionBarSize">
 
-                <com.af.silaa_grp.CustomControl.CustomTextView
+                <com.silaa.grp.CustomControl.CustomTextView
                     android:layout_width="wrap_content"
                     android:textSize="18dp"
                     android:text="درج آگهی"

@@ -4,7 +4,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
     android:layout_height="70dp">
 
-    <com.af.silaa_grp.CustomControl.CustomTextView
+    <com.silaa.grp.CustomControl.CustomTextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="16dp"
@@ -20,11 +20,11 @@
 
     <ProgressBar
 
-        android:layout_width="40dp"
+        android:layout_width="35dp"
         android:layout_alignParentLeft="true"
-        android:layout_marginTop="13dp"
-        android:layout_marginLeft="10dp"
-        android:layout_height="40dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginLeft="15dp"
+        android:layout_height="35dp"
         android:indeterminateDrawable="@xml/progress"
         />
 </RelativeLayout>

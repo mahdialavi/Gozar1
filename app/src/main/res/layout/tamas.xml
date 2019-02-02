@@ -15,7 +15,7 @@
         android:background="@android:color/transparent"
         android:orientation="horizontal">
 
-        <com.af.silaa_grp.CustomControl.CustomButton
+        <com.silaa.grp.CustomControl.CustomButton
             android:id="@+id/btnpayam"
             style="@style/Widget.AppCompat.Button.Colored"
             android:layout_width="0dp"
@@ -26,7 +26,7 @@
             android:textColor="#ffffff"
             android:textSize="18dp" />
 
-        <com.af.silaa_grp.CustomControl.CustomButton
+        <com.silaa.grp.CustomControl.CustomButton
             android:id="@+id/btntamas"
             style="@style/Widget.AppCompat.Button.Colored"
             android:layout_width="0dp"

@@ -12,7 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
-    <com.af.silaa_grp.CustomControl.CustomTextView
+    <com.silaa.grp.CustomControl.CustomTextView
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:textColor="@color/grey_80"
@@ -39,7 +39,7 @@
             />
     </android.support.design.widget.TextInputLayout>
 
-        <com.af.silaa_grp.CustomControl.CustomTextView
+        <com.silaa.grp.CustomControl.CustomTextView
             android:layout_width="match_parent"
             android:text="کاربر گرامی لطفا تا دریافت کد تایید صبور باشید. "
             android:paddingRight="20dp"
@@ -63,7 +63,7 @@
 
 
     </LinearLayout>
-    <com.af.silaa_grp.CustomControl.CustomTextView
+    <com.silaa.grp.CustomControl.CustomTextView
         android:layout_width="wrap_content"
         android:text="شماره اشتباه است؟"
         android:id="@+id/txtwrongnumber"

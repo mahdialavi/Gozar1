@@ -49,7 +49,7 @@
                 android:orientation="vertical"
                 android:padding="10dp">
 
-                <com.af.silaa_grp.CustomControl.CustomTextView
+                <com.silaa.grp.CustomControl.CustomTextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="انتخاب تصویر مناسب برای آگهی"
@@ -152,7 +152,7 @@
 
                 </LinearLayout>
 
-                <com.af.silaa_grp.CustomControl.CustomButton
+                <com.silaa.grp.CustomControl.CustomButton
                     android:layout_width="wrap_content"
                     android:text="انتخاب تصویر"
                     android:id="@+id/btnselectimage"
@@ -165,7 +165,7 @@
                     android:padding="5dp">
 
 
-                    <com.af.silaa_grp.CustomControl.CustomTextView
+                    <com.silaa.grp.CustomControl.CustomTextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="انتخاب مجموعه"
@@ -177,7 +177,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content">
 
-                        <com.af.silaa_grp.CustomControl.CustomButton
+                        <com.silaa.grp.CustomControl.CustomButton
                             android:id="@+id/btncategory"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -202,7 +202,7 @@
                         android:orientation="vertical"
                         android:padding="@dimen/linearpadding">
 
-                        <com.af.silaa_grp.CustomControl.CustomTextView
+                        <com.silaa.grp.CustomControl.CustomTextView
                             android:id="@+id/txttitle"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -234,7 +234,7 @@
                         android:orientation="vertical"
                         android:padding="@dimen/linearpadding">
 
-                        <com.af.silaa_grp.CustomControl.CustomTextView
+                        <com.silaa.grp.CustomControl.CustomTextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginRight="10dp"
@@ -243,7 +243,7 @@
                             android:textColor="@color/grey_60"
                             android:textSize="18dp" />
 
-                        <com.af.silaa_grp.CustomControl.CustomTextView
+                        <com.silaa.grp.CustomControl.CustomTextView
                             android:id="@+id/txtmobile"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -263,7 +263,7 @@
                         android:orientation="vertical"
                         android:padding="@dimen/linearpadding">
 
-                        <com.af.silaa_grp.CustomControl.CustomTextView
+                        <com.silaa.grp.CustomControl.CustomTextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginRight="10dp"
@@ -294,7 +294,7 @@
                         android:orientation="vertical"
                         android:padding="@dimen/linearpadding">
 
-                        <com.af.silaa_grp.CustomControl.CustomTextView
+                        <com.silaa.grp.CustomControl.CustomTextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginRight="10dp"
@@ -325,7 +325,7 @@
                         android:orientation="vertical"
                         android:padding="@dimen/linearpadding">
 
-                        <com.af.silaa_grp.CustomControl.CustomTextView
+                        <com.silaa.grp.CustomControl.CustomTextView
                             android:id="@+id/txthintaddres"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -340,7 +340,7 @@
                             android:orientation="vertical"
                             android:padding="@dimen/linearpadding">
 
-                            <com.af.silaa_grp.CustomControl.CustomTextView
+                            <com.silaa.grp.CustomControl.CustomTextView
                                 android:id="@+id/txthintaddressshort"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
@@ -357,7 +357,7 @@
         </ScrollView>
 
 
-        <com.af.silaa_grp.CustomControl.CustomButton
+        <com.silaa.grp.CustomControl.CustomButton
             android:id="@+id/btnsubmit"
             style="@style/Widget.AppCompat.Button.Colored"
             android:layout_width="match_parent"

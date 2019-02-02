@@ -39,7 +39,7 @@
                     android:scaleType="fitXY"
                     android:src="@drawable/image_empty" />
 
-                <com.af.silaa_grp.CustomControl.CustomTextView
+                <com.silaa.grp.CustomControl.CustomTextView
                     android:layout_width="50dp"
                     android:layout_height="20dp"
                     android:layout_alignParentBottom="true"
@@ -65,7 +65,7 @@
 
                     android:layout_weight="1">
 
-                    <com.af.silaa_grp.CustomControl.CustomTextView
+                    <com.silaa.grp.CustomControl.CustomTextView
                         android:id="@+id/txttitle"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -82,7 +82,7 @@
                     android:layout_marginBottom="3dp"
                     android:orientation="horizontal">
 
-                    <com.af.silaa_grp.CustomControl.CustomTextView
+                    <com.silaa.grp.CustomControl.CustomTextView
                         android:id="@+id/txttime"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"

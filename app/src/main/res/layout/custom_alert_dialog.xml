@@ -14,7 +14,7 @@
         android:orientation="vertical"
         android:padding="@dimen/spacing_mlarge">
 
-        <com.af.silaa_grp.CustomControl.CustomTextView
+        <com.silaa.grp.CustomControl.CustomTextView
             android:id="@+id/title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -24,7 +24,7 @@
             android:textSize="18dp"
             android:textColor="@color/colorAccent"/>
 
-        <com.af.silaa_grp.CustomControl.CustomTextView
+        <com.silaa.grp.CustomControl.CustomTextView
             android:id="@+id/content"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -44,7 +44,7 @@
         android:gravity="left"
         android:paddingRight="@dimen/spacing_large">
 
-        <com.af.silaa_grp.CustomControl.CustomTextView
+        <com.silaa.grp.CustomControl.CustomTextView
             android:id="@+id/btn_positive"
             android:layout_width="wrap_content"
             android:layout_height="40dp"
@@ -57,7 +57,7 @@
             android:textSize="16dp"
             android:textStyle="bold" />
 
-        <com.af.silaa_grp.CustomControl.CustomTextView
+        <com.silaa.grp.CustomControl.CustomTextView
             android:id="@+id/btn_negative"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"

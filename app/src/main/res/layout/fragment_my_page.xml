@@ -19,7 +19,7 @@
             android:layout_width="match_parent"
             android:layout_height="80dp"
             android:padding="10dp">
-            <com.af.silaa_grp.CustomControl.CustomTextView
+            <com.silaa.grp.CustomControl.CustomTextView
                 android:id="@+id/txtmatn"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -31,7 +31,7 @@
                 android:textSize="17dp"
 
                 />
-            <com.af.silaa_grp.CustomControl.CustomButton
+            <com.silaa.grp.CustomControl.CustomButton
                 android:id="@+id/btnexit"
                 android:layout_marginTop="10dp"
                 android:layout_width="wrap_content"
@@ -63,7 +63,7 @@
                         android:src="@drawable/city"
                         android:layout_marginRight="9dp" />
 
-                    <com.af.silaa_grp.CustomControl.CustomTextView
+                    <com.silaa.grp.CustomControl.CustomTextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
@@ -71,7 +71,7 @@
                         android:textColor="@color/grey_80"
                         android:textSize="@dimen/menu_text_size" />
 
-                    <com.af.silaa_grp.CustomControl.CustomTextView
+                    <com.silaa.grp.CustomControl.CustomTextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
@@ -97,7 +97,7 @@
 
                         android:layout_marginRight="13dp" />
 
-                    <com.af.silaa_grp.CustomControl.CustomTextView
+                    <com.silaa.grp.CustomControl.CustomTextView
                         android:id="@+id/txtmyad"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -124,7 +124,7 @@
 
                         />
 
-                    <com.af.silaa_grp.CustomControl.CustomTextView
+                    <com.silaa.grp.CustomControl.CustomTextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
@@ -149,7 +149,7 @@
 
                         />
 
-                    <com.af.silaa_grp.CustomControl.CustomTextView
+                    <com.silaa.grp.CustomControl.CustomTextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
@@ -173,7 +173,7 @@
 
                         />
 
-                    <com.af.silaa_grp.CustomControl.CustomTextView
+                    <com.silaa.grp.CustomControl.CustomTextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
@@ -197,7 +197,7 @@
 
                         />
 
-                    <com.af.silaa_grp.CustomControl.CustomTextView
+                    <com.silaa.grp.CustomControl.CustomTextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
