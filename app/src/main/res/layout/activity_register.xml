@@ -35,7 +35,7 @@
                 android:lineSpacingMultiplier="1.2"
                 android:text="برای ثبت نام شماره موبایل خود را وارد کنید"
                 android:textColor="@color/grey_90"
-                android:textSize="17dp"
+                android:textSize="16dp"
 
                 />
 

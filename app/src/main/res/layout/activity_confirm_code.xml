@@ -1,78 +1,97 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="fill_parent"
-    android:background="#fafafa"
     android:id="@+id/linearconfirm_view"
+    android:layout_width="fill_parent"
     android:layout_height="fill_parent"
+    android:background="#fafafa"
     android:orientation="vertical">
 
     <include layout="@layout/toolbar4" />
+
     <LinearLayout
-        android:layout_marginTop="50dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
-    <com.silaa.grp.CustomControl.CustomTextView
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:textColor="@color/grey_80"
-        android:gravity="center"
-        android:textSize="19dp"
-        android:text="کد پنج رقمی ارسال شده را وارد کنید."
-        android:layout_marginTop="50dp"/>
+        android:layout_marginTop="50dp"
+        android:orientation="vertical"
+        android:padding="15dp">
+
+        <com.silaa.grp.CustomControl.CustomTextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:gravity="center"
+            android:text="@string/sms_confirm_code_txt"
+            android:textColor="@color/grey_80"
+            android:textSize="17dp" />
 
         <android.support.design.widget.TextInputLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        >
-
-        <EditText
-            android:id="@+id/edt_code"
-            android:layout_width="150dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:hint="0-0-0-0-0"
-            android:layout_margin="30dp"
-            android:inputType="number"
-            android:maxLength="5"
-            />
-    </android.support.design.widget.TextInputLayout>
+            android:layout_marginTop="30dp">
+
+            <EditText
+                android:id="@+id/edt_code"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_margin="30dp"
+                android:hint="0-0-0-0-0"
+                android:inputType="number"
+                android:maxLength="5" />
+
+        </android.support.design.widget.TextInputLayout>
 
         <com.silaa.grp.CustomControl.CustomTextView
             android:layout_width="match_parent"
+
+            android:layout_marginTop="10dp"
+            android:layout_height="wrap_content"
             android:text="کاربر گرامی لطفا تا دریافت کد تایید صبور باشید. "
-            android:paddingRight="20dp"
-            android:paddingLeft="15dp"
-            android:textSize="17dp"
             android:textAlignment="center"
             android:textColor="@color/colorToolbar"
-            android:layout_height="wrap_content" />
-    <Button
-        android:id="@+id/btn_submit"
-        android:layout_width="150dp"
-        android:layout_height="wrap_content"
-        android:text="تایید نهایی "
-        android:background="@drawable/custom_button"
-        android:textColor="@color/grey_80"
-        android:layout_marginTop="20dp"
-        android:textSize="17dp"
-        android:layout_gravity="center"
+            android:textSize="16dp" />
+        <com.silaa.grp.CustomControl.CustomTextView
 
-        />
+            android:id="@+id/txtsecond"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginBottom="20dp"
+            android:layout_marginTop="20dp"
+            android:text="01:59"
+            android:textAlignment="center"
+            android:textColor="@color/grey_60"
+            android:textSize="16dp" />
+
+
+
+        <Button
+            android:id="@+id/btn_submit"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/custom_button"
+            android:text="تایید نهایی "
+            android:textColor="@color/grey_80"
+            android:textSize="17dp"
+
+            />
 
 
     </LinearLayout>
+
     <com.silaa.grp.CustomControl.CustomTextView
-        android:layout_width="wrap_content"
-        android:text="شماره اشتباه است؟"
         android:id="@+id/txtwrongnumber"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:visibility="gone"
+        android:layout_alignParentRight="true"
         android:layout_marginBottom="10dp"
         android:layout_marginRight="10dp"
-        android:textSize="15dp"
+        android:text="شماره اشتباه است؟"
         android:textColor="#224500"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentBottom="true"
-        android:layout_height="wrap_content" />
+        android:textSize="15dp" />
 
 </RelativeLayout>

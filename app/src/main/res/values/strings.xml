@@ -53,6 +53,7 @@
     <string name="telegram_kanal">@silaair</string>
     <string name="txt_server_con_problem">مشکل در ارتباط با سرور</string>
     <string name="txt_changes_done">تغییرات انجام گردید</string>
+    <string name="sms_confirm_code_txt">کد پنج رقمی که از طریق پیامک برایتان ارسال می شود را وارد کنید.</string>
 
 
 </resources>
